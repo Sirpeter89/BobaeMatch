@@ -6,9 +6,16 @@ class User(db.Model, UserMixin):
   __tablename__ = 'users'
 
   id = db.Column(db.Integer, primary_key = True)
-  username = db.Column(db.String(40), nullable = False, unique = True)
+  userName = db.Column(db.String(60), nullable = False, unique = True)
+  firstName = db.Column(db.String(60), nullable = False)
+  lastName = db.Column(db.String(60), nullable = False)
   email = db.Column(db.String(255), nullable = False, unique = True)
+  profileImage = db.Column(db.String(255), nullable = False)
   hashed_password = db.Column(db.String(255), nullable = False)
+  city = db.Column(db.String(255), nullable = False)
+  zipcode = db.Column(db.Integer, nullable= False)
+  age = db.Column(db.Integer, nullable= False)
+  height = db.Column(db.Integer, nullable= False)
 
 
   @property
