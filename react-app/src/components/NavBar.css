@@ -1,0 +1,4 @@
+.NavBarContainer{
+    display: grid;
+    grid-template-columns: 85% 5% 5% 5% 5%;
+}

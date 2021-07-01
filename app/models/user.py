@@ -10,7 +10,7 @@ class User(db.Model, UserMixin):
   firstName = db.Column(db.String(60), nullable = False)
   lastName = db.Column(db.String(60), nullable = False)
   email = db.Column(db.String(255), nullable = False, unique = True)
-  profileImage = db.Column(db.String(255), nullable = False)
+  profileImage = db.Column(db.String(255))
   hashed_password = db.Column(db.String(255), nullable = False)
   city = db.Column(db.String(255), nullable = False)
   zipcode = db.Column(db.Integer, nullable= False)
@@ -42,6 +42,13 @@ class User(db.Model, UserMixin):
   def to_dict(self):
     return {
       "id": self.id,
-      "username": self.username,
-      "email": self.email
+      "username": self.userName,
+      "firstname": self.firstName,
+      "lastname": self.lastName,
+      "email": self.email,
+      "profileImage": self.profileImage,
+      "city": self.city,
+      "zipcode": self.zipcode,
+      "age": self.age,
+      "height": self.height
     }
