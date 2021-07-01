@@ -17,6 +17,13 @@ class User(db.Model, UserMixin):
   age = db.Column(db.Integer, nullable= False)
   height = db.Column(db.Integer, nullable= False)
 
+  rel_useroneId = db.relationship('Match', backref='userone_Id', lazy='dynamic', foreign_keys='Match.useroneId')
+  rel_usertwoId = db.relationship('Match', backref='usertwo_Id', lazy='dynamic', foreign_keys='Match.usertwoId')
+
+  rel_userId = db.relationship('Potential_match', backref='user_Id', lazy='dynamic', foreign_keys='Potential_match.userId')
+  rel_matchedUserId = db.relationship('Potential_match', backref='matchedUser_Id', lazy='dynamic', foreign_keys='Potential_match.matchedUserId')
+
+  rel_prefuserId = db.relationship('Preference', backref='prefuserId_Id', lazy='dynamic', foreign_keys='Preference.userId')
 
   @property
   def password(self):
