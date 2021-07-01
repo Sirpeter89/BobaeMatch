@@ -1,10 +1,28 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css';
 
 const NavBar = () => {
-  return (
+  const user = useSelector(state => state.session.user)
+  let sideButtons;
+  if (user){
+    sideButtons =
+    <nav>
+      <ul className="NavBarContainer">
+        <li>
+          <NavLink to="/" exact={true} activeClassName="active">
+            Home
+          </NavLink>
+        </li>
+        <li className="logout">
+          <LogoutButton />
+        </li>
+    </ul>
+  </nav>
+  } else {
+    sideButtons =
     <nav>
       <ul className="NavBarContainer">
         <li>
@@ -22,11 +40,13 @@ const NavBar = () => {
             Sign Up
           </NavLink>
         </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
-    </nav>
+    </ul>
+  </nav>
+  }
+  return (
+    <>
+      {sideButtons}
+    </>
   );
 }
 

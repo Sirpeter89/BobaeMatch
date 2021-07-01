@@ -77,7 +77,7 @@ def sign_up():
             profileImage=data['profileImage'],
             password=data['password'],
             city=data['city'],
-            zipcode=data['zip'],
+            zipcode=data['zipcode'],
             age=data['age'],
             height=data['height']
         )

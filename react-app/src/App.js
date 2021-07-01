@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LoginForm from "./components/auth/LoginForm";
 import SignUpForm from "./components/auth/SignUpForm";
 import NavBar from "./components/NavBar";
@@ -9,9 +9,11 @@ import UsersList from "./components/UsersList";
 import User from "./components/User";
 import { authenticate } from "./store/session";
 import HomePage from "./components/SplashPage/Home";
+import ProfilePage from "./components/ProfilePage/ProfilePage";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
+  const user = useSelector(state => state.session.user)
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
 
@@ -24,6 +26,13 @@ function App() {
 
   if (!loaded) {
     return null;
+  }
+
+  let homeOrProfile;
+  if (user){
+    homeOrProfile = <ProfilePage />
+  } else {
+    homeOrProfile = <HomePage />
   }
 
   return (
@@ -43,8 +52,7 @@ function App() {
           <User />
         </ProtectedRoute>
         <Route path="/" exact={true} >
-          <HomePage>
-          </HomePage>
+          {homeOrProfile}
         </Route>
       </Switch>
     </BrowserRouter>

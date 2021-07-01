@@ -19,6 +19,7 @@ const SignUpForm = () => {
   const [heightInches, setHeightInches] = useState(0);
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
+  const [errors, setErrors] = useState([]);
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -28,6 +29,9 @@ const SignUpForm = () => {
       const cityLower = city.toLowerCase();
       setCity(cityLower)
       const data = await dispatch(signUp(username, firstname, lastname,email, profileImage, city, zip, age, height, password));
+      if (data.errors) {
+        setErrors(data.errors);
+        }
     }
   };
 
@@ -85,6 +89,11 @@ const SignUpForm = () => {
 
   return (
     <form onSubmit={onSignUp}>
+      <div>
+            {errors.map((error) => (
+                <div>{error}</div>
+            ))}
+      </div>
       <div>
         <label>User Name</label>
         <input

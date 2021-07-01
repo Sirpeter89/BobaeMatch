@@ -1,4 +1,11 @@
 .NavBarContainer{
     display: grid;
-    grid-template-columns: 85% 5% 5% 5% 5%;
+    grid-template-columns: 90% 5% 5%;
+    grid-template-areas: "home ";
+}
+
+.logout{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 280px;
 }
