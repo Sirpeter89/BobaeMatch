@@ -9,8 +9,8 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 400px;
-    margin-top: -150px;
+    height: 280px;
+    margin-top: -100px;
 }
 
 .logo{
@@ -22,7 +22,7 @@
 .backgroundImageCont{
     position: absolute;
     width: 99%;
-    height: 96%;
+    height: 95%;
 }
 
 .backgroundImage{
@@ -36,9 +36,9 @@
 
 .Text1{
     position: absolute;
-    font-size: 60px;
+    font-size: 40px;
     margin-left: 72%;
-    margin-top: 65%;
+    margin-top: 63%;
     z-index: 100;
     font-weight: 800;
     color: rgb(100, 98, 206);
@@ -56,11 +56,11 @@
 }
 
 .carouselContainer{
-    margin-top: 1%;
+    margin-top: 0%;
     display: flex;
     position: relative;
-    height: 1000px;
-    width: 1400px;
+    height: 750px;
+    width: 1100px;
     overflow: hidden;
     border-radius: 150px;
     box-shadow: 5px 5px 5px 5px rgba(249, 250, 249, 0.5);
