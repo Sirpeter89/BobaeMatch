@@ -10,6 +10,7 @@ import User from "./components/User";
 import { authenticate } from "./store/session";
 import HomePage from "./components/SplashPage/Home";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
+import PreferencePage from "./components/PreferencesPage/PreferencesPage";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         </ProtectedRoute>
         <Route path="/" exact={true} >
           {homeOrProfile}
+        </Route>
+        <Route path="/preferences" exact={true} >
+          <PreferencePage />
         </Route>
       </Switch>
     </BrowserRouter>

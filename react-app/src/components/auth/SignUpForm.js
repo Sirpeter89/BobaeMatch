@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './SignUpForm.css'
 
 const SignUpForm = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector(state => state.session.user)
   const [username, setUsername] = useState("");
@@ -32,6 +33,7 @@ const SignUpForm = () => {
       if (data.errors) {
         setErrors(data.errors);
         }
+      history.push("/preferences")
     }
   };
 
