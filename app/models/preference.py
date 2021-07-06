@@ -13,4 +13,16 @@ class Preference(db.Model):
   description = db.Column(db.Text, nullable = False)
   lactose = db.Column(db.Boolean, nullable = False)
   fruit = db.Column(db.Boolean, nullable = False)
-  searchHeight = db.Column(db.Integer, nullable= False)
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "tea": self.tea,
+      "sugar": self.sugar,
+      "addons": self.addons,
+      "gender": self.gender,
+      "userId": self.userId,
+      "description": self.description,
+      "lactose": self.lactose,
+      "fruit": self.fruit
+    }

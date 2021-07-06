@@ -6,9 +6,40 @@ import './ProfilePage.css'
 export default function ProfilePage(){
 
     const user = useSelector(state => state.session.user)
+    const preferences = useSelector(state => state.preferences.preferences)
     const height = `${user.height}`
     const feet = height[0]
     const inches = height[1]
+    useEffect( () => {
+
+    }, [preferences])
+
+    let ifLactose;
+    let ifFruit
+
+    if(preferences.lactose){
+        ifLactose =
+        <div className = "height">
+            Lactose Intolerant?: <b>Yes</b>
+        </div>
+    } else {
+        ifLactose =
+        <div className = "height">
+            Lactose Intolerant?: <b>No</b>
+        </div>
+    }
+
+    if(preferences.fruit){
+        ifFruit =
+        <div className = "height">
+            Fruit Teas?: <b>Yes</b>
+        </div>
+    } else {
+        ifFruit =
+        <div className = "height">
+            Fruit Teas?: <b>No</b>
+        </div>
+    }
 
     return(
         <>
@@ -40,6 +71,25 @@ export default function ProfilePage(){
                 </div>
                 <div className="rightContainer">
                     Preferences:
+                    <div className="profileDetails">
+                        <div className = "userName">
+                            Tea: <b>{preferences.tea}</b>
+                        </div>
+                        <div className = "name">
+                            Addons: <b>{preferences.addons}</b>
+                        </div>
+                        <div className = "cityZip">
+                            Sugar Level: <b>{preferences.sugar}%</b>
+                        </div>
+                        <div className = "age">
+                            Gender Preference: <b>{preferences.gender}</b>
+                        </div>
+                        {ifLactose}
+                        {ifFruit}
+                        <div className = "age">
+                            Personal Description: <b>{preferences.description}</b>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="profileImage">
