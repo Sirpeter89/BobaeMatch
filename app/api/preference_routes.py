@@ -19,3 +19,8 @@ def make_preferences():
     db.session.add(preferenceRecord)
     db.session.commit()
     return preferenceRecord.to_dict()
+
+@preference_routes.route('/<int:id>')
+def get_preferences(id):
+    preferenceRecord = Preference.query.filter_by(userId=id).first()
+    return preferenceRecord.to_dict()

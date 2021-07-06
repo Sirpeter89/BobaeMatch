@@ -1,15 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux"
 import './ProfilePage.css'
+import {loadPreferences} from "../../store/preferences"
 
 
 export default function ProfilePage(){
 
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const preferences = useSelector(state => state.preferences.preferences)
     const height = `${user.height}`
     const feet = height[0]
     const inches = height[1]
+    useEffect( async () => {
+
+        await dispatch(loadPreferences(user.id))
+
+    }, [])
+
     useEffect( () => {
 
     }, [preferences])
@@ -17,7 +25,7 @@ export default function ProfilePage(){
     let ifLactose;
     let ifFruit
 
-    if(preferences.lactose){
+    if(preferences && preferences.lactose ){
         ifLactose =
         <div className = "height">
             Lactose Intolerant?: <b>Yes</b>
@@ -29,7 +37,7 @@ export default function ProfilePage(){
         </div>
     }
 
-    if(preferences.fruit){
+    if(preferences && preferences.fruit){
         ifFruit =
         <div className = "height">
             Fruit Teas?: <b>Yes</b>
@@ -73,21 +81,21 @@ export default function ProfilePage(){
                     Preferences:
                     <div className="profileDetails">
                         <div className = "userName">
-                            Tea: <b>{preferences.tea}</b>
+                            Tea: <b>{preferences && preferences.tea}</b>
                         </div>
                         <div className = "name">
-                            Addons: <b>{preferences.addons}</b>
+                            Addons: <b>{preferences && preferences.addons}</b>
                         </div>
                         <div className = "cityZip">
-                            Sugar Level: <b>{preferences.sugar}%</b>
+                            Sugar Level: <b>{preferences && preferences.sugar}%</b>
                         </div>
                         <div className = "age">
-                            Gender Preference: <b>{preferences.gender}</b>
+                            Gender Preference: <b>{preferences && preferences.gender}</b>
                         </div>
                         {ifLactose}
                         {ifFruit}
                         <div className = "age">
-                            Personal Description: <b>{preferences.description}</b>
+                            Personal Description: <b>{preferences && preferences.description}</b>
                         </div>
                     </div>
                 </div>
