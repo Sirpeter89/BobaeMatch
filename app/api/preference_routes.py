@@ -20,6 +20,22 @@ def make_preferences():
     db.session.commit()
     return preferenceRecord.to_dict()
 
+@preference_routes.route('/', methods=['PUT'])
+def edit_preferences():
+    data = request.get_json()
+    preferenceRecord = Preference.query.filter_by(userId=data['userId']).first()
+    print(preferenceRecord, "THIS ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
+    preferenceRecord.tea=data['tea']
+    preferenceRecord.sugar=data['sugar']
+    preferenceRecord.addons=data['addons']
+    preferenceRecord.gender=data['gender']
+    preferenceRecord.userId=data['userId']
+    preferenceRecord.description=data['description']
+    preferenceRecord.lactose=data['lactose']
+    preferenceRecord.fruit=data['fruit']
+    db.session.commit()
+    return preferenceRecord.to_dict()
+
 @preference_routes.route('/<int:id>')
 def get_preferences(id):
     preferenceRecord = Preference.query.filter_by(userId=id).first()

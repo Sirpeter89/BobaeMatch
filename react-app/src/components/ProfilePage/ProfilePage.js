@@ -2,25 +2,33 @@ import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from "react-redux"
 import './ProfilePage.css'
 import {loadPreferences} from "../../store/preferences"
+import { useHistory } from "react-router-dom";
+import { NavLink } from 'react-router-dom'
 
 
 export default function ProfilePage(){
-
+    const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     const preferences = useSelector(state => state.preferences.preferences)
     const height = `${user.height}`
     const feet = height[0]
     const inches = height[1]
+
     useEffect( async () => {
-
         await dispatch(loadPreferences(user.id))
-
     }, [])
 
     useEffect( () => {
-
     }, [preferences])
+
+    const editInfo = () => {
+        history.push('/editProfile')
+    }
+
+    const editPref = () => {
+        history.push('/editPreferences')
+    }
 
     let ifLactose;
     let ifFruit
@@ -76,6 +84,7 @@ export default function ProfilePage(){
                             Height: <b>{feet}'{inches}"</b>
                         </div>
                     </div>
+
                 </div>
                 <div className="rightContainer">
                     Preferences:
@@ -103,6 +112,8 @@ export default function ProfilePage(){
             <div className="profileImage">
                 <img className="pImg" src={user.profileImage} />
             </div>
+            <button className="editInfo" onClick={editInfo}>Edit Information</button>
+            <button className="editPref" onClick={editPref}>Edit Preferences</button>
         </>
     )
 }

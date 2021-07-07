@@ -1,13 +1,12 @@
-import './PreferencesPage.css'
+import './EditPreferencesPage.css'
 import React, { useState } from "react"
-import ImageComponent from './ImageComponent'
-import { useEffect } from 'react'
-import {enterPreferences} from "../../store/preferences"
+import ImageComponent from '../PreferencesPage/ImageComponent'
+import {changePreferences} from "../../store/preferences"
 import {useDispatch, useSelector} from "react-redux"
 import { useHistory } from "react-router-dom"
 
 
-export default function PreferencePage(){
+export default function EditPreferencePage(){
     const history = useHistory();
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
@@ -27,7 +26,7 @@ export default function PreferencePage(){
 
     const onSub = async (e) => {
         e.preventDefault();
-        await dispatch(enterPreferences(teaChoice, sugarLevel, addons, gender, user.id, description, lactose, fruit))
+        await dispatch(changePreferences(teaChoice, sugarLevel, addons, gender, user.id, description, lactose, fruit))
         history.push("/")
     }
 

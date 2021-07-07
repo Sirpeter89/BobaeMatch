@@ -11,6 +11,8 @@ import { authenticate } from "./store/session";
 import HomePage from "./components/SplashPage/Home";
 import ProfilePage from "./components/ProfilePage/ProfilePage";
 import PreferencePage from "./components/PreferencesPage/PreferencesPage";
+import EditProfilePage from "./components/EditProfilePage/EditProfilePage";
+import EditPreferencePage from "./components/EditPreferencesPage/EditPreferencesPage";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -57,6 +59,12 @@ function App() {
         </Route>
         <Route path="/preferences" exact={true} >
           <PreferencePage />
+        </Route>
+        <Route path="/editProfile" exact={true} >
+          <EditProfilePage />
+        </Route>
+        <Route path="/editPreferences" exact={true} >
+          <EditPreferencePage/>
         </Route>
       </Switch>
     </BrowserRouter>

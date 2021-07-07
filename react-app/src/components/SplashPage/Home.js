@@ -56,7 +56,7 @@ export default function HomePage(){
         <div className='centerCarousel'>
             <div className='carouselContainer'>
                 <div className='Text1'>
-                   BobaTea &hearts;
+                    BobaTea &hearts;
                 </div>
                 <img className={`image ${transition}`} src={one}></img>
                 <img className={`nextImage ${transition}`} src={two}></img>
