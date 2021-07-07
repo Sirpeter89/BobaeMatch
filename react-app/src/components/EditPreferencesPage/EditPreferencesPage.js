@@ -14,8 +14,13 @@ export default function EditPreferencePage(){
     const [sugarLevel, setSugarLevel] = useState(0)
     const [addons, setAddons] = useState("")
     const [gender, setGender] = useState("")
+
     const [lactose, setLactose] = useState(false)
+    const [lactoseSetted, setlactoseSetted] = useState(false);
+
     const [fruit, setFruit] = useState(false)
+    const [fruitSetted, setFruitSetted] = useState(false);
+
     const [description, setDescription] = useState("")
     const teaImage = [ ["https://cdn.pixabay.com/photo/2015/02/02/11/09/tea-620820_960_720.jpg", "Black"], ["https://cdn.pixabay.com/photo/2018/07/10/11/37/green-tea-3528474_960_720.jpg", "Green"], ["https://cdn.pixabay.com/photo/2017/06/22/17/58/phoenix-single-clump-2431867_960_720.jpg", "Oolong"], ["https://cdn.pixabay.com/photo/2021/03/08/16/30/matcha-6079527_960_720.jpg", "Matcha"], ["https://cdn.pixabay.com/photo/2014/09/24/17/48/tea-utensil-459344_960_720.jpg", "Jasmine"], ["https://cdn.pixabay.com/photo/2016/12/06/17/33/tee-1887042_960_720.jpg", "Earlgrey"], ["https://cdn.pixabay.com/photo/2019/08/13/07/12/assam-black-tea-4402670_960_720.jpg", "Assam"]]
     const sugarLevels = [ ["https://cdn.pixabay.com/photo/2020/04/13/22/55/sugar-5040276_960_720.jpg", 100],["https://cdn.pixabay.com/photo/2020/04/13/22/55/sugar-5040276_960_720.jpg", 75],["https://cdn.pixabay.com/photo/2020/04/13/22/55/sugar-5040276_960_720.jpg", 50],["https://cdn.pixabay.com/photo/2020/04/13/22/55/sugar-5040276_960_720.jpg", 25], ["https://cdn.pixabay.com/photo/2020/04/13/22/55/sugar-5040276_960_720.jpg", 0] ]
@@ -67,20 +72,24 @@ export default function EditPreferencePage(){
                 </div>
             ))}
         </div>
-    } else if (!lactose){
+    } else if (!lactoseSetted){
         choiceComponents =
         <div className="TeaContainer">
             {lactoseImages.map((lactose) => (
-                <div key={lactose} className="choice" onClick={()=>setLactose(lactose[1])}>
+                <div key={lactose} className="choice" onClick={()=>{
+                    setLactose(lactose[1]);
+                    setlactoseSetted(true)}}>
                     <ImageComponent image={lactose[0]} text={`${lactose[2]}`}/>
                 </div>
             ))}
         </div>
-    } else if (!fruit){
+    } else if (!fruitSetted){
         choiceComponents =
         <div className="TeaContainer">
             {fruitImages.map((fruit) => (
-                <div key={fruit} className="choice" onClick={()=>setFruit(fruit[1])}>
+                <div key={fruit} className="choice" onClick={()=>{
+                    setFruit(fruit[1]);
+                    setFruitSetted(true)}}>
                     <ImageComponent image={fruit[0]} text={`${fruit[2]}`}/>
                 </div>
             ))}
