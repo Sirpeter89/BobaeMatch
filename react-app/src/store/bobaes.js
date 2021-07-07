@@ -10,11 +10,18 @@ const getBobaes = (bobae) => ({
 
 
 // thunks
-export const loadBobaes = () => async (dispatch) => {
-    const response = await fetch('/api/auth/', {
+export const loadBobaes = (userId, genderPref, userGender, tea) => async (dispatch) => {
+    const response = await fetch('/api/bobaes/', {
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
-        }
+        },
+        body: JSON.stringify({
+            genderPref,
+            userGender,
+            userId,
+            tea
+        })
     });
     const data = await response.json();
     if (data.errors) {
