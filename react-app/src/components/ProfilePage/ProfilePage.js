@@ -83,6 +83,9 @@ export default function ProfilePage(){
                         <div className = "height">
                             Height: <b>{feet}'{inches}"</b>
                         </div>
+                        <div className = "height">
+                            Gender: <b>{user.gender}</b>
+                        </div>
                     </div>
 
                 </div>

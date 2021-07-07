@@ -21,6 +21,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [errors, setErrors] = useState([]);
+  const [gender, setGender] = useState("");
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -29,7 +30,7 @@ const SignUpForm = () => {
     if (password === repeatPassword) {
       const cityLower = city.toLowerCase();
       setCity(cityLower)
-      const data = await dispatch(signUp(username, firstname, lastname,email, profileImage, city, zip, age, height, password));
+      const data = await dispatch(signUp(username, firstname, lastname,email, profileImage, city, zip, age, height, password, gender));
       if (data.errors) {
         setErrors(data.errors);
         }
@@ -83,6 +84,10 @@ const SignUpForm = () => {
 
   const updateRepeatPassword = (e) => {
     setRepeatPassword(e.target.value);
+  };
+
+  const updateGender= (e) => {
+    setGender(e.target.value);
   };
 
   if (user) {
@@ -168,6 +173,15 @@ const SignUpForm = () => {
           value={age}
         ></input>
       </div>
+
+      <label>Gender: </label>
+      <div>
+        <input type="radio" id="male" name="male_gender" value="Male" onClick={updateGender}></input>
+        <label for="html">Male</label>
+        <input type="radio" id="female" name="female_gender" value="Female" onClick={updateGender}></input>
+        <label for="html">Female</label>
+      </div>
+
       <div className="HeightBox">
         <div>
           <label>Height Feet: </label>

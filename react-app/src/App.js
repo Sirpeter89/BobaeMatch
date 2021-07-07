@@ -13,6 +13,7 @@ import ProfilePage from "./components/ProfilePage/ProfilePage";
 import PreferencePage from "./components/PreferencesPage/PreferencesPage";
 import EditProfilePage from "./components/EditProfilePage/EditProfilePage";
 import EditPreferencePage from "./components/EditPreferencesPage/EditPreferencesPage";
+import FindBobaes from "./components/FindBobaesPage/FindBobaes";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -65,6 +66,9 @@ function App() {
         </Route>
         <Route path="/editPreferences" exact={true} >
           <EditPreferencePage/>
+        </Route>
+        <Route path="/findBobaes" exact={true} >
+          <FindBobaes />
         </Route>
       </Switch>
     </BrowserRouter>

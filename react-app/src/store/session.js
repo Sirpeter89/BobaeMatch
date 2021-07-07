@@ -33,7 +33,7 @@ export const authenticate = () => async (dispatch) => {
     dispatch(setUser(data))
 }
 
-export const editProfile = (firstname, lastname, profileImage, city, zip, age, height) => async (dispatch) => {
+export const editProfile = (firstname, lastname, profileImage, city, zip, age, height, gender) => async (dispatch) => {
     const response = await fetch('/api/auth/editProfile', {
         method: 'PATCH',
         headers: {
@@ -46,7 +46,8 @@ export const editProfile = (firstname, lastname, profileImage, city, zip, age, h
             city,
             zipcode:zip,
             age,
-            height
+            height,
+            gender
         })
     });
     const data = await response.json();
@@ -86,7 +87,7 @@ export const logout = () => async (dispatch) => {
 };
 
 
-export const signUp = (username, firstname, lastname, email, profileImage, city, zip, age, height, password) => async (dispatch) => {
+export const signUp = (username, firstname, lastname, email, profileImage, city, zip, age, height, password, gender) => async (dispatch) => {
     const response = await fetch("/api/auth/signup", {
         method: "POST",
         headers: {
@@ -103,6 +104,7 @@ export const signUp = (username, firstname, lastname, email, profileImage, city,
             age,
             height,
             password,
+            gender
         }),
     });
     const data = await response.json();
@@ -133,6 +135,7 @@ export default function reducer(state = initialState, action) {
             newState.user.zipcode=action.payload.zipcode
             newState.user.age=action.payload.age
             newState.user.height=action.payload.height
+            newState.user.gender=action.payload.gender
             return newState
         default:
             return state;

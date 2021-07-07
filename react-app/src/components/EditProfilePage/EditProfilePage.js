@@ -15,6 +15,7 @@ const EditProfilePage = () => {
     const [zip, setZip] = useState(user.zipcode);
     const [age, setAge] = useState(user.age);
     console.log(user)
+    const [gender, setGender] = useState("");
 
     const prevHeight = `${user.height}`
     const prevFeet = parseInt(prevHeight[0])
@@ -24,7 +25,6 @@ const EditProfilePage = () => {
     const [heightInches, setHeightInches] = useState(prevInches);
     const [errors, setErrors] = useState([]);
 
-    const [done, setDone] = useState(false)
 
     const onEdit = async (e) => {
         e.preventDefault();
@@ -32,7 +32,7 @@ const EditProfilePage = () => {
         const height = parseInt(stringHeight)
         const cityLower = city.toLowerCase();
         setCity(cityLower)
-        await dispatch(editProfile(firstname, lastname, profileImage, city, zip, age, height));
+        await dispatch(editProfile(firstname, lastname, profileImage, city, zip, age, height, gender));
 
         // if (datas.errors) {
         //     setErrors(datas.errors);
@@ -73,6 +73,10 @@ const EditProfilePage = () => {
 
     const updateHeightInches = (e) => {
     setHeightInches(e.target.value);
+    };
+
+    const updateGender= (e) => {
+        setGender(e.target.value);
     };
 
     return (
@@ -141,6 +145,14 @@ const EditProfilePage = () => {
                 onChange={updateAge}
                 value={age}
             ></input>
+            </div>
+
+            <label>Gender: </label>
+            <div>
+                <input type="radio" id="male" name="male_gender" value="Male" onClick={updateGender}></input>
+                <label for="html">Male</label>
+                <input type="radio" id="female" name="female_gender" value="Female" onClick={updateGender}></input>
+                <label for="html">Female</label>
             </div>
 
             <div className="HeightBox">

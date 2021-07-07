@@ -68,6 +68,7 @@ def edit_profile():
         user.zipcode=data['zipcode']
         user.age=data['age']
         user.height=data['height']
+        user.gender=data['gender']
         db.session.commit()
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
@@ -102,7 +103,8 @@ def sign_up():
             city=data['city'],
             zipcode=data['zipcode'],
             age=data['age'],
-            height=data['height']
+            height=data['height'],
+            gender=data['gender']
         )
         db.session.add(user)
         db.session.commit()

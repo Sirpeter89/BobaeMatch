@@ -21,5 +21,6 @@ class SignUpForm(FlaskForm):
     city = StringField('city', validators=[DataRequired()])
     zipcode = IntegerField('zipcode', validators=[DataRequired()])
     age = IntegerField('age', validators=[DataRequired()])
+    gender = StringField('gender', validators=[DataRequired()])
     height = IntegerField('height', validators=[DataRequired()])
     password = StringField('password', validators=[DataRequired()])

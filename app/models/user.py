@@ -16,6 +16,7 @@ class User(db.Model, UserMixin):
   zipcode = db.Column(db.Integer, nullable= False)
   age = db.Column(db.Integer, nullable= False)
   height = db.Column(db.Integer, nullable= False)
+  gender = db.Column(db.String(60), nullable = False)
 
   rel_useroneId = db.relationship('Match', backref='userone_Id', lazy='dynamic', foreign_keys='Match.useroneId')
   rel_usertwoId = db.relationship('Match', backref='usertwo_Id', lazy='dynamic', foreign_keys='Match.usertwoId')
@@ -50,5 +51,6 @@ class User(db.Model, UserMixin):
       "city": self.city,
       "zipcode": self.zipcode,
       "age": self.age,
-      "height": self.height
+      "height": self.height,
+      "gender": self.gender
     }

@@ -1,7 +1,7 @@
 .NavBarContainer{
     display: grid;
-    grid-template-columns: 90% 5% 5%;
-    grid-template-areas: "home ";
+    grid-template-columns: 90% 3% 5%;
+    list-style-type: none;
 }
 
 .logout{
@@ -9,3 +9,4 @@
     justify-content: flex-end;
     margin-left: 200px;
 }
+
