@@ -13,12 +13,15 @@ export default function FindBobaes(){
     const dispatch = useDispatch();
     const preference = useSelector(state => state.preferences.preferences)
 
-    let userGender = user.gender
-
     useEffect(async()=>{
         await dispatch(loadPreferences(user.id))
-        await dispatch(loadBobaes(user.id, preference.gender, user.gender, preference.tea))
     }, [])
+
+    useEffect(async()=>{
+        if(preference){
+            await dispatch(loadBobaes(user.id, preference.gender, user.gender, preference.tea, preference.addons, preference.sugar, preference.fruit))
+        }
+    }, [preference])
 
     return(
         <div>

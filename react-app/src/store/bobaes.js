@@ -10,7 +10,7 @@ const getBobaes = (bobae) => ({
 
 
 // thunks
-export const loadBobaes = (userId, genderPref, userGender, tea) => async (dispatch) => {
+export const loadBobaes = (userId, genderPref, userGender, tea, addons, sugar, fruit) => async (dispatch) => {
     const response = await fetch('/api/bobaes/', {
         method: 'POST',
         headers: {
@@ -20,7 +20,10 @@ export const loadBobaes = (userId, genderPref, userGender, tea) => async (dispat
             genderPref,
             userGender,
             userId,
-            tea
+            tea,
+            addons,
+            sugar,
+            fruit
         })
     });
     const data = await response.json();

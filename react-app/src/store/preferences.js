@@ -82,11 +82,14 @@ export const loadPreferences = (id) => async (dispatch) => {
 const initialState = {preferences: null}
 
 export default function reducer(state = initialState, action) {
+    let newState;
     switch (action.type) {
         case ADD_PREFERENCES:
             return {preferences: action.payload}
         case GET_PREFERENCES:
-            return {preferences: action.payload}
+            newState = {...state}
+            newState.preferences = action.payload
+            return newState
         case EDIT_PREFERENCES:
             return {preferences: action.payload}
         default:
