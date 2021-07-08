@@ -44,13 +44,24 @@ def get_bobaes():
         potential_matches = list({users['id']:users for users in potential_matches}.values())
         print (potential_matches)
 
+    #Get main profiles to display for potential matches
+    profiles = []
+    for person in potential_matches:
+        profile = User.query.filter(User.id == person['id']).first()
+        if fruitQuery != None:
+            profiles.append(profile.to_dict())
+            print(profiles)
 
-    # potential_match_query =
-    # gets all the users patching preferred gender
-    # print([user_pref_join_to_dict(item) for item in userRecords] )
     userPrefs = {}
     for match in potential_matches:
         userPrefs[match['id']] = match
+
+    userProfiles = {}
+    for profile in profiles:
+        userProfiles[profile['id']] = profile
+
+    #Get potential match preferences and profile info together for displaying in single components
     payload = {}
-    payload['userPrefs'] = userPrefs
+    payload['userPrefs'] = dict(userPrefs)
+    payload['userProfiles'] = dict(userProfiles)
     return payload
