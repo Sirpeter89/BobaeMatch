@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from sqlalchemy.sql.sqltypes import Boolean
-from app.models import Preference, db, User
+from app.models import Preference, db, User, Potential_match
 from sqlalchemy import or_, and_
 
 
@@ -48,20 +48,41 @@ def get_bobaes():
     profiles = []
     for person in potential_matches:
         profile = User.query.filter(User.id == person['id']).first()
-        if fruitQuery != None:
-            profiles.append(profile.to_dict())
-            print(profiles)
+        profiles.append(profile.to_dict())
 
+    #get all user preferences
     userPrefs = {}
     for match in potential_matches:
         userPrefs[match['id']] = match
 
+    #get all user profiles
     userProfiles = {}
     for profile in profiles:
         userProfiles[profile['id']] = profile
 
+        #Check if potential match record between user and other user doesn't already exist
+        check_potential_match = Potential_match.query.filter(and_(Potential_match.userId == data['userId'], Potential_match.matchedUserId == profile['id'])).first()
+
+        if check_potential_match is None:
+            potentialMatchRecord = Potential_match(
+                userId=data['userId'],
+                matchedUserId=profile['id'],
+                matchedUsername=profile['username'],
+                accepted=False,
+                declined=False
+            )
+            db.session.add(potentialMatchRecord)
+            db.session.commit()
+
+    #Get all the records again to put into the store, need them to decide what to load
+    get_all_potential_matches = Potential_match.query.filter(Potential_match.userId == data['userId']).all()
+    all_potential_matches = [p_match.to_dict() for p_match in get_all_potential_matches]
+    potentialMatches = {}
+    for p_match in all_potential_matches:
+        potentialMatches[p_match['matchedUserId']] = p_match
     #Get potential match preferences and profile info together for displaying in single components
     payload = {}
+    payload['PotentialMatches'] = dict(potentialMatches)
     payload['userPrefs'] = dict(userPrefs)
     payload['userProfiles'] = dict(userProfiles)
     return payload

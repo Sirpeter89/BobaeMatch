@@ -14,14 +14,29 @@ export default function FindBobaes(){
     const preference = useSelector(state => state.preferences.preferences)
     const bobaes = useSelector(state => state.bobaes.bobaes)
 
+    useEffect(async()=>{
+        await dispatch(loadPreferences(user.id))
+    }, [])
+
+    useEffect(async()=>{
+        if(preference){
+            await dispatch(loadBobaes(user.id, preference.gender, user.gender, preference.tea, preference.addons, preference.sugar, preference.fruit))
+        }
+    }, [preference])
+
     let data;
     if(bobaes !== null){
         console.log(Object.entries(bobaes.userProfiles))
         data =
-        <div>
+        <div className="profilesOuterContainer">
+            <div className="profilesContainer">
             {Object.entries(bobaes.userProfiles).map( ([key, subject], i) => (
+
+                // Check if the user hasn't already accepted or declined potential match
+                !bobaes.PotentialMatches[subject.id].accepted && !bobaes.PotentialMatches[subject.id].declined?
+
                 <div className="matchProfiles" key={i}>
-                    <ul className="input-label">
+                    <ul className="profList">
                         <li>
                             <div className="profImageCont">
                                 <img className="profImage"src={subject.profileImage}></img>
@@ -40,20 +55,12 @@ export default function FindBobaes(){
                             Age: {subject.age}
                         </li>
                     </ul>
-                </div>
+                </div> : null
             ))}
+            </div>
         </div>
+
     }
-
-    useEffect(async()=>{
-        await dispatch(loadPreferences(user.id))
-    }, [])
-
-    useEffect(async()=>{
-        if(preference){
-            await dispatch(loadBobaes(user.id, preference.gender, user.gender, preference.tea, preference.addons, preference.sugar, preference.fruit))
-        }
-    }, [preference])
 
     return(
         <div>
