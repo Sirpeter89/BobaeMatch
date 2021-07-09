@@ -5,7 +5,7 @@ import {enterPreferences} from "../../store/preferences"
 import {useDispatch, useSelector} from "react-redux"
 import { useHistory } from "react-router-dom"
 import {loadPreferences} from "../../store/preferences"
-import { loadBobaes } from '../../store/bobaes'
+import { loadBobaes, acceptBobae } from '../../store/bobaes'
 
 export default function FindBobaes(){
 
@@ -13,6 +13,7 @@ export default function FindBobaes(){
     const dispatch = useDispatch();
     const preference = useSelector(state => state.preferences.preferences)
     const bobaes = useSelector(state => state.bobaes.bobaes)
+    const [changed,setChanged]=useState(false)
 
     useEffect(async()=>{
         await dispatch(loadPreferences(user.id))
@@ -23,6 +24,17 @@ export default function FindBobaes(){
             await dispatch(loadBobaes(user.id, preference.gender, user.gender, preference.tea, preference.addons, preference.sugar, preference.fruit))
         }
     }, [preference])
+
+    useEffect(async()=>{
+        if(bobaes){
+
+        }
+    },[bobaes])
+
+    const confirmMatch = async (matchedUserId) => {
+        await dispatch(acceptBobae(user.id, matchedUserId))
+        setChanged(!changed)
+    }
 
     let data;
     if(bobaes !== null){
@@ -55,6 +67,7 @@ export default function FindBobaes(){
                             Age: {subject.age}
                         </li>
                     </ul>
+                    <button onClick={()=>{confirmMatch(subject.id)}}>Accept</button>
                 </div> : null
             ))}
             </div>

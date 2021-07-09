@@ -86,3 +86,12 @@ def get_bobaes():
     payload['userPrefs'] = dict(userPrefs)
     payload['userProfiles'] = dict(userProfiles)
     return payload
+
+@bobaes_routes.route('/accept', methods=['PATCH'])
+def accept_bobae():
+    data = request.get_json()
+    updatePotentialMatch = Potential_match.query.filter(and_(Potential_match.userId == data['userId'], Potential_match.matchedUserId == data['matchedUserId'])).first()
+    updatePotentialMatch.accepted = True
+    db.session.commit()
+    print("TO DICCCCCCCCTTT", updatePotentialMatch.to_dict())
+    return updatePotentialMatch.to_dict()
