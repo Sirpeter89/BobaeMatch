@@ -21,6 +21,11 @@ const NavBar = () => {
               Find Bobaes
           </NavLink>
         </li>
+        <li className="matches">
+          <NavLink to="/matches" exact={true} activeClassName="active">
+              Current Matches
+          </NavLink>
+        </li>
         <li className="logout">
           <LogoutButton />
         </li>

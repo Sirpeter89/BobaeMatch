@@ -9,3 +9,11 @@ class Match(db.Model):
   usertwoId = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
 
   rel_matchId = db.relationship('Message', backref='match_Id', lazy='dynamic', foreign_keys='Message.matchId')
+
+
+  def to_dict(self):
+    return {
+      "id": self.id,
+      "useroneId": self.useroneId,
+      "usertwoId": self.usertwoId
+    }

@@ -1,12 +1,15 @@
 .NavBarContainer{
     display: grid;
-    grid-template-columns: 90% 3% 5%;
+    grid-template-columns: 86% 3% 6% 5%;
     list-style-type: none;
 }
 
 .logout{
     display: flex;
     justify-content: flex-end;
-    margin-left: 200px;
+    margin-left: 150px;
 }
 
+.matches{
+    margin-left: 80px;
+}

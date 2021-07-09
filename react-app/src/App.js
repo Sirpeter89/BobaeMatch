@@ -14,6 +14,7 @@ import PreferencePage from "./components/PreferencesPage/PreferencesPage";
 import EditProfilePage from "./components/EditProfilePage/EditProfilePage";
 import EditPreferencePage from "./components/EditPreferencesPage/EditPreferencesPage";
 import FindBobaes from "./components/FindBobaesPage/FindBobaes";
+import MatchPage from "./components/MatchPage/MatchPage";
 
 function App() {
   // const [authenticated, setAuthenticated] = useState(false);
@@ -69,6 +70,9 @@ function App() {
         </Route>
         <Route path="/findBobaes" exact={true} >
           <FindBobaes />
+        </Route>
+        <Route path="/matches" exact={true} >
+          <MatchPage />
         </Route>
       </Switch>
     </BrowserRouter>

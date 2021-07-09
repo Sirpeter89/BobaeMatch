@@ -1,11 +1,10 @@
 import './FindBobaes.css'
 import React, { useState } from "react"
 import { useEffect } from 'react'
-import {enterPreferences} from "../../store/preferences"
 import {useDispatch, useSelector} from "react-redux"
-import { useHistory } from "react-router-dom"
 import {loadPreferences} from "../../store/preferences"
-import { loadBobaes, acceptBobae } from '../../store/bobaes'
+import { loadBobaes, acceptBobae, denyBobae } from '../../store/bobaes'
+import { makeMatch } from '../../store/match'
 
 export default function FindBobaes(){
 
@@ -25,20 +24,39 @@ export default function FindBobaes(){
         }
     }, [preference])
 
-    useEffect(async()=>{
-        if(bobaes){
-
-        }
-    },[bobaes])
-
     const confirmMatch = async (matchedUserId) => {
+
         await dispatch(acceptBobae(user.id, matchedUserId))
+
+        // check to see if someone already matched
+        const checkMatch = await fetch('/api/bobaes/checkMatch',{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId:user.id,
+                matchedUserId
+            })
+        });
+        const confirmMatch = await checkMatch.json();
+        if (checkMatch.errors) {
+            return;
+        }
+
+        if (confirmMatch.accepted === true){
+            await dispatch(makeMatch(user.id, matchedUserId))
+        }
+        setChanged(!changed)
+    }
+
+    const declineMatch = async (matchedUserId) => {
+        await dispatch(denyBobae(user.id, matchedUserId))
         setChanged(!changed)
     }
 
     let data;
     if(bobaes !== null){
-        console.log(Object.entries(bobaes.userProfiles))
         data =
         <div className="profilesOuterContainer">
             <div className="profilesContainer">
@@ -67,7 +85,8 @@ export default function FindBobaes(){
                             Age: {subject.age}
                         </li>
                     </ul>
-                    <button onClick={()=>{confirmMatch(subject.id)}}>Accept</button>
+                    <button onClick={()=>{confirmMatch(subject.id)}}>Match</button>
+                    <button onClick={()=>{declineMatch(subject.id)}}>Don't Match</button>
                 </div> : null
             ))}
             </div>

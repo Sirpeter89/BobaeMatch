@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import session from "./session";
 import preferences from "./preferences";
 import bobaes from "./bobaes"
+import match from "./match"
 
 const rootReducer = combineReducers({
     session,
     preferences,
-    bobaes
+    bobaes,
+    match
 });
 
 

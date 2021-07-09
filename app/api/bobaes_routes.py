@@ -1,7 +1,6 @@
 from flask import Blueprint, request
-from sqlalchemy.sql.sqltypes import Boolean
 from app.models import Preference, db, User, Potential_match
-from sqlalchemy import or_, and_
+from sqlalchemy import and_
 
 
 bobaes_routes = Blueprint('bobaes', __name__)
@@ -93,5 +92,22 @@ def accept_bobae():
     updatePotentialMatch = Potential_match.query.filter(and_(Potential_match.userId == data['userId'], Potential_match.matchedUserId == data['matchedUserId'])).first()
     updatePotentialMatch.accepted = True
     db.session.commit()
-    print("TO DICCCCCCCCTTT", updatePotentialMatch.to_dict())
     return updatePotentialMatch.to_dict()
+
+@bobaes_routes.route('/deny', methods=['PATCH'])
+def deny_bobae():
+    data = request.get_json()
+    updatePotentialMatch = Potential_match.query.filter(and_(Potential_match.userId == data['userId'], Potential_match.matchedUserId == data['matchedUserId'])).first()
+    updatePotentialMatch.declined = True
+    db.session.commit()
+    return updatePotentialMatch.to_dict()
+
+@bobaes_routes.route('/checkMatch', methods=['POST', 'GET'])
+def check_bobae_match():
+    data = request.get_json()
+    #check if opposite match exists
+    checkPotentialMatch = Potential_match.query.filter(and_(Potential_match.userId == data['matchedUserId'], Potential_match.matchedUserId == data['userId'])).first()
+    if checkPotentialMatch is not None:
+        return checkPotentialMatch.to_dict()
+    else:
+        return {}
