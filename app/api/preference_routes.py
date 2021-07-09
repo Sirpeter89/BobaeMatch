@@ -24,7 +24,6 @@ def make_preferences():
 def edit_preferences():
     data = request.get_json()
     preferenceRecord = Preference.query.filter_by(userId=data['userId']).first()
-    print(preferenceRecord, "THIS ISSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS")
     preferenceRecord.tea=data['tea']
     preferenceRecord.sugar=data['sugar']
     preferenceRecord.addons=data['addons']

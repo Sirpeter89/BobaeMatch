@@ -1,6 +1,6 @@
 from flask import Blueprint, request
-from app.models import Preference, db, User, Potential_match, Match
-from sqlalchemy import and_
+from app.models import db, User, Match
+from sqlalchemy import or_
 
 
 match_routes = Blueprint('match', __name__)
@@ -16,3 +16,9 @@ def create_match():
     db.session.add(matchRecord)
     db.session.commit()
     return matchRecord.to_dict()
+
+
+@match_routes.route('/<int:id>')
+def get_matches(id):
+    matchRecord =  Match.query.filter(or_(Match.useroneId == id, Match.usertwoId == id)).all()
+    return {"match": [match.to_dict() for match in matchRecord]}
