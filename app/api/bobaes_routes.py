@@ -61,7 +61,7 @@ def get_bobaes():
 
         #Check if potential match record between user and other user doesn't already exist
         check_potential_match = Potential_match.query.filter(and_(Potential_match.userId == data['userId'], Potential_match.matchedUserId == profile['id'])).first()
-
+        print("WHAT IS HAPPENEINGGG", check_potential_match)
         if check_potential_match is None:
             potentialMatchRecord = Potential_match(
                 userId=data['userId'],

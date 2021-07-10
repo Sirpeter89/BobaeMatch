@@ -25,7 +25,6 @@ export default function FindBobaes(){
     }, [preference])
 
     const confirmMatch = async (matchedUserId) => {
-
         await dispatch(acceptBobae(user.id, matchedUserId))
 
         // check to see if someone already matched

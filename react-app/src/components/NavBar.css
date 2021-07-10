@@ -1,7 +1,9 @@
 .NavBarContainer{
     display: grid;
     grid-template-columns: 86% 3% 6% 5%;
+    height: 50px;
     list-style-type: none;
+    background-color: rgb(238, 227, 213);
 }
 
 .logout{

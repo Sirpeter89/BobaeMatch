@@ -1,6 +1,7 @@
 .matchProfiles{
-    width: 500px;
+    width: 100%;
     height: 500px;
+    /* transform: translateX(700%); */
 }
 
 .profImageCont{
@@ -18,10 +19,17 @@
     list-style: none;
 }
 
+.profilesOuterContainer{
+    margin-top: 15%;
+}
+
 .profilesContainer{
     display: flex;
-    flex-wrap: nowrap;
-    overflow: auto;
+    /* flex-wrap: nowrap; */
+    width: 450px;
+    overflow-x: hidden;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .profImageCont:hover + .hoverDetails{
@@ -30,7 +38,6 @@
     background-color: aqua;
     width: 500px;
     height: 500px;
-    margin-left: 1250px;
 }
 
 .hoverDetails{
