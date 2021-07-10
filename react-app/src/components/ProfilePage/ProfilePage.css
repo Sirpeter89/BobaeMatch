@@ -1,10 +1,12 @@
 .profileImage{
     border: 5px solid black;
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    width: 370px;
+    height: 370px;
     overflow: hidden;
     z-index: 100;
+    margin-left: 2%;
+    margin-top: 2%;
 }
 
 .pImg{
@@ -14,35 +16,86 @@
 }
 
 .detailsTitle{
-    font-size: 160px;
-    margin-left: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    margin-left: 25%;
     margin-top: 4%;
     height:12%;
-    max-width: 100%;
+    max-width: 50%;
+    font-weight: 800;
+    border-radius: 25px;
+    background-color: rgba(222, 184, 135, 0.411);
+}
+
+.preferenceTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90px;
+    margin-left: 20%;
+    height:12.5%;
+    max-width: 50%;
+    font-weight: 800;
+    border-radius: 25px;
+    background-color: rgba(222, 184, 135, 0.411);
 }
 
 .editInfo{
     position: relative;
-    margin-top: 30%;
-    margin-left:26%;
-    height: 60px;
+    margin-left:19%;
+    margin-top: 27%;
+    height: 90px;
+    width: 20%;
     border-radius: 25px;
-    background-color: rgba(39, 182, 238, 0.815);
+    background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 50px;
     z-index: 10000;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
+}
+
+.editInfo:hover{
+    position: relative;
+    margin-left:19%;
+    margin-top: 27%;
+    height: 90px;
+    width: 20%;
+    border-radius: 50px;
+    background-color: rgb(222, 184, 135);
+    font-weight: bolder;
+    font-size: 50px;
+    z-index: 10000;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
 
 .editPref{
     position: relative;
-    margin-top: 30%;
-    margin-left:40%;
-    height: 60px;
+    margin-top: -7%;
+    margin-left:21%;
+    height: 90px;
+    width: 20%;
     border-radius: 25px;
-    background-color: rgba(39, 182, 238, 0.815);
+    background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 50px;
     z-index: 10000;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
+}
+
+.editPref:hover{
+    position: relative;
+    margin-top: -7%;
+    margin-left:21%;
+    height: 90px;
+    width: 20%;
+    border-radius: 50px;
+    background-color: rgb(222, 184, 135);
+    font-weight: bolder;
+    font-size: 50px;
+    z-index: 10000;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
 
 .profileDetailsCont{
@@ -57,7 +110,7 @@
     margin-left: 6%;
     margin-top: 4%;
     z-index: -100;
-    background-color: rgba(253, 253, 253, 0.685);
+    background-color: rgba(253, 253, 253, 0.808);
     border-radius: 50px;
 }
 
@@ -66,22 +119,31 @@
     border-right: 2px dotted black;
     width: 100%;
     height: 100%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .rightContainer{
     grid-area: preferences;
     margin-top: 4%;
-    margin-left: 4%;
+    margin-left: -5%;
     width: 96%;
     height: 96%;
     font-size: 160px;
-
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .profileDetails{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-left: 30%;
+    justify-content: space-evenly;
+    height: 65%
+}
+
+.profileDetailsRight{
+    display: flex;
+    flex-direction: column;
+    margin-left: 26%;
     justify-content: space-evenly;
     height: 65%
 }
@@ -109,14 +171,15 @@
 
 .backgroundImageContProfile{
     position: absolute;
-    width: 99%;
-    height: 95%;
+    margin-top: -.5%;
+    width: 101%;
+    height: 96.8%;
 }
 
 .backgroundImageProfile{
     position: absolute;
     z-index: -100;
-    filter: blur(3px);
+    filter: blur(5px);
     width: 100%;
     height: 100%;
     object-fit: fill;

@@ -36,31 +36,33 @@ export default function ProfilePage(){
     if(preferences && preferences.lactose ){
         ifLactose =
         <div className = "height">
-            Lactose Intolerant?: <b>Yes</b>
+            <b>Lactose Intolerant?:</b> Yes
         </div>
     } else {
         ifLactose =
         <div className = "height">
-            Lactose Intolerant?: <b>No</b>
+            <b>Lactose Intolerant?:</b> No
         </div>
     }
 
     if(preferences && preferences.fruit){
         ifFruit =
         <div className = "height">
-            Fruit Teas?: <b>Yes</b>
+            <b>Fruit Teas?:</b> Yes
         </div>
     } else {
         ifFruit =
         <div className = "height">
-            Fruit Teas?: <b>No</b>
+            <b>Fruit Teas?:</b> No
         </div>
     }
+
+    //https://images.unsplash.com/photo-1555050551-82f8d95a0614?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80
 
     return(
         <>
             <div className='backgroundImageContProfile'>
-                <img className='backgroundImageProfile' src='https://images.unsplash.com/photo-1555050551-82f8d95a0614?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80' />
+                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
             </div>
             <div className="profileDetailsCont">
                 <div className="leftContainer">
@@ -69,45 +71,47 @@ export default function ProfilePage(){
                     </div>
                     <div className="profileDetails">
                         <div className = "userName">
-                            User Name: <b>{user.username}</b>
+                            <b>Username:</b> {user.username}
                         </div>
                         <div className = "name">
-                            Name: <b>{user.firstname} {user.lastname}</b>
+                            <b>Name:</b> {user.firstname} {user.lastname}
                         </div>
                         <div className = "cityZip">
-                            Location: <b>{user.city}, {user.zipcode}</b>
+                            <b>Location:</b> {user.city}, {user.zipcode}
                         </div>
                         <div className = "age">
-                            Age: <b>{user.age}</b>
+                            <b>Age:</b> {user.age}
                         </div>
                         <div className = "height">
-                            Height: <b>{feet}'{inches}"</b>
+                            <b>Height:</b> {feet}'{inches}"
                         </div>
                         <div className = "height">
-                            Gender: <b>{user.gender}</b>
+                            <b>Gender:</b> {user.gender}
                         </div>
                     </div>
 
                 </div>
                 <div className="rightContainer">
-                    Preferences:
-                    <div className="profileDetails">
+                    <div className="preferenceTitle">
+                        Preference:
+                    </div>
+                    <div className="profileDetailsRight">
                         <div className = "userName">
-                            Tea: <b>{preferences && preferences.tea}</b>
+                            <b>Tea:</b> {preferences && preferences.tea}
                         </div>
                         <div className = "name">
-                            Addons: <b>{preferences && preferences.addons}</b>
+                            <b>Addons:</b> {preferences && preferences.addons}
                         </div>
                         <div className = "cityZip">
-                            Sugar Level: <b>{preferences && preferences.sugar}%</b>
+                            <b>Sugar Level:</b> {preferences && preferences.sugar}%
                         </div>
                         <div className = "age">
-                            Gender Preference: <b>{preferences && preferences.gender}</b>
+                            <b>Gender Preference:</b> {preferences && preferences.gender}
                         </div>
                         {ifLactose}
                         {ifFruit}
                         <div className = "age">
-                            Personal Description: <b>{preferences && preferences.description}</b>
+                            <b>Personal Description:</b> {preferences && preferences.description}
                         </div>
                     </div>
                 </div>
