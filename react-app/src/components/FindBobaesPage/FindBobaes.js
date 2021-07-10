@@ -60,33 +60,52 @@ export default function FindBobaes(){
         data =
         <div className="profilesOuterContainer">
             <div className="profilesContainer">
-            {Object.entries(bobaes.userProfiles).map( ([key, subject], i) => (
+            {Object.entries(bobaes.userProfiles).map( ([key, person], i) => (
 
                 // Check if the user hasn't already accepted or declined potential match
-                !bobaes.PotentialMatches[subject.id].accepted && !bobaes.PotentialMatches[subject.id].declined?
+                !bobaes.PotentialMatches[person.id].accepted && !bobaes.PotentialMatches[person.id].declined?
 
                 <div className="matchProfiles" key={i}>
                     <ul className="profList">
                         <li>
                             <div className="profImageCont">
-                                <img className="profImage"src={subject.profileImage}></img>
+                                <img className="profImage"src={person.profileImage}></img>
+                            </div>
+                            <div className="hoverDetails">
+                                <h1>I Love</h1>
+                                <h2>My {bobaes.userPrefs[person.id].tea} Milk Tea:</h2>
+                                <ul>
+                                    <li>
+                                        {bobaes.userPrefs[person.id].sugar}% Sweet
+                                    </li>
+                                    <li>
+                                        With {bobaes.userPrefs[person.id].addons}
+                                    </li>
+                                </ul>
+                                {(bobaes.userPrefs[person.id].lactose)
+                                    ? <h2>&#128557; Milk is somewhat my enemy &#128557;</h2>
+                                    :<h2>&#128516; Milk is not my enemy &#128516;</h2>}
+                                {(bobaes.userPrefs[person.id].fruit)
+                                    ? <h2>&#128540; Fruit Teas are my thing &#128540;</h2>
+                                    :<h2>&#128547; Fruit Teas are not my thing &#128547;</h2>}
+                                <p>Why? Because {bobaes.userPrefs[person.id].description}</p>
                             </div>
                         </li>
                         <li>
-                            User: {subject.username}
+                            User: {person.username}
                         </li>
                         <li>
-                            Name: {subject.firstname} {subject.lastname}
+                            Name: {person.firstname} {person.lastname}
                         </li>
                         <li>
-                            City: {subject.city}
+                            City: {person.city}
                         </li>
                         <li>
-                            Age: {subject.age}
+                            Age: {person.age}
                         </li>
                     </ul>
-                    <button onClick={()=>{confirmMatch(subject.id)}}>Match</button>
-                    <button onClick={()=>{declineMatch(subject.id)}}>Don't Match</button>
+                    <button onClick={()=>{confirmMatch(person.id)}}>Match</button>
+                    <button onClick={()=>{declineMatch(person.id)}}>Don't Match</button>
                 </div> : null
             ))}
             </div>

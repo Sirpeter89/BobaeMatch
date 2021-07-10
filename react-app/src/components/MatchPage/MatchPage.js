@@ -13,11 +13,9 @@ export default function MatchPage(){
 
     const [mounted, setMounted] = useState(false)
 
-    const [profiles, setProfiles] = useState([])
+    const [profiles, setProfiles] = useState(false)
 
     const showProfile = useRef()
-
-    const [matchProfiles, setMatchProfiles] = useState(0)
 
     useEffect(async()=>{
 
@@ -63,7 +61,7 @@ export default function MatchPage(){
                         </ul>
                     ))}
                 </div>
-            setProfiles(matchProfiles)
+            setProfiles(true)
         }else{
             await dispatch(loadMatches(user.id))
             setMounted(true)
@@ -73,8 +71,6 @@ export default function MatchPage(){
         }
     }, [dispatch, mounted])
 
-    console.log("ESKETIT", profiles)
-    console.log("SHOWPROFILEE", showProfile.current)
     return (
         <div>
             {showProfile.current}

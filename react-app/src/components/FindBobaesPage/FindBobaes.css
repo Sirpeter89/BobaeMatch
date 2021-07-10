@@ -23,3 +23,16 @@
     flex-wrap: nowrap;
     overflow: auto;
 }
+
+.profImageCont:hover + .hoverDetails{
+    position: absolute;
+    display: block;
+    background-color: aqua;
+    width: 500px;
+    height: 500px;
+    margin-left: 1250px;
+}
+
+.hoverDetails{
+    display: none;
+}
