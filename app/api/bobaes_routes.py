@@ -14,7 +14,6 @@ def get_bobaes():
     userRecords = User.query.filter(and_(User.gender == data['genderPref'], User.id != data['userId'] ) )
     pref_gender_users = [user.to_dict() for user in userRecords]
 
-    # print (pref_gender_users)
     potential_matches = []
     for user in pref_gender_users:
         teaQuery = Preference.query.filter(and_(Preference.userId == user['id'], Preference.gender.like(data['userGender']), Preference.tea.like(data['tea']))).first()

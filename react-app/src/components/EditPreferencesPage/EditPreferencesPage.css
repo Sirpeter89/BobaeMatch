@@ -90,6 +90,7 @@ textarea {
         width: 90%;
         font-size: 20px;
         border-radius: 15px;
+        resize: none;
     }
 
 .submitButton{

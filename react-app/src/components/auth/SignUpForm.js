@@ -96,7 +96,7 @@ const SignUpForm = () => {
 
   return (
     <div>
-      <div className='backgroundImageContProfile'>
+      <div className='backgroundImageContSignUp'>
                 <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
       </div>
       <div className="choiceHolder">
@@ -202,9 +202,9 @@ const SignUpForm = () => {
                 <label>Gender:</label>
             </div>
             <div className="inputArea">
-              <input className="radio" type="radio" id="male" name="male_gender" value="Male" onClick={updateGender}></input>
+              <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender} checked="checked"></input>
               <label className="radioLabels" for="html">Male</label>
-              <input className="radio" type="radio" id="female" name="female_gender" value="Female" onClick={updateGender}></input>
+              <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender}></input>
               <label className="radioLabels" for="html">Female</label>
             </div>
 

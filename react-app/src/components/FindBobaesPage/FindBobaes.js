@@ -58,64 +58,76 @@ export default function FindBobaes(){
     if(bobaes !== null){
         data =
         <div className="profilesOuterContainer">
-            <div className="profilesContainer">
             {Object.entries(bobaes.userProfiles).map( ([key, person], i) => (
 
                 // Check if the user hasn't already accepted or declined potential match
                 !bobaes.PotentialMatches[person.id].accepted && !bobaes.PotentialMatches[person.id].declined?
 
                 <div className="matchProfiles" key={i}>
-                    <ul className="profList">
-                        <li>
-                            <div className="profImageCont">
-                                <img className="profImage"src={person.profileImage}></img>
+                    <div className="userNameTitle">
+                        <b>{person.username}</b>
+                    </div>
+                    <div className="profileHolder">
+                        <div className="buttonsAndPic">
+                            <button className="acceptBut" onClick={()=>{confirmMatch(person.id)}}></button>
+                                <div className="profImageCont">
+                                    <img className="profImage"src={person.profileImage}></img>
+                                </div>
+                            <button className="denyBut" onClick={()=>{declineMatch(person.id)}}></button>
+                        </div>
+                        <div className="nameTitle">
+                            {person.firstname} {person.lastname}
+                        </div>
+                        <div className="nameTitle">
+                            <b>Age:</b> {person.age}
+                        </div>
+                            <div className="about">
+                                About Me
                             </div>
-                            <div className="hoverDetails">
-                                <h1>I Love</h1>
-                                <h2>My {bobaes.userPrefs[person.id].tea} Milk Tea:</h2>
-                                <ul>
-                                    <li>
-                                        {bobaes.userPrefs[person.id].sugar}% Sweet
-                                    </li>
-                                    <li>
-                                        With {bobaes.userPrefs[person.id].addons}
-                                    </li>
-                                </ul>
-                                {(bobaes.userPrefs[person.id].lactose)
-                                    ? <h2>&#128557; Milk is somewhat my enemy &#128557;</h2>
-                                    :<h2>&#128516; Milk is not my enemy &#128516;</h2>}
-                                {(bobaes.userPrefs[person.id].fruit)
-                                    ? <h2>&#128540; Fruit Teas are my thing &#128540;</h2>
-                                    :<h2>&#128547; Fruit Teas are not my thing &#128547;</h2>}
-                                <p>Why? Because {bobaes.userPrefs[person.id].description}</p>
-                            </div>
-                        </li>
-                        <li>
-                            User: {person.username}
-                        </li>
-                        <li>
-                            Name: {person.firstname} {person.lastname}
-                        </li>
-                        <li>
-                            City: {person.city}
-                        </li>
-                        <li>
-                            Age: {person.age}
-                        </li>
-                    </ul>
-                    <button onClick={()=>{confirmMatch(person.id)}}>Match</button>
-                    <button onClick={()=>{declineMatch(person.id)}}>Don't Match</button>
+                            <div className="profileContents">
+                                <div className="profileDets">
+                                    <b>City:</b> {person.city}
+                                </div>
+                                <div className="milkTeaDetails">
+                                    <p className="iLove">I &#10084; my <b>{bobaes.userPrefs[person.id].tea} Milk Teas</b>:</p>
+                                    <ul className="mtList">
+                                        <li>
+                                            {bobaes.userPrefs[person.id].sugar}% Sweet
+                                        </li>
+                                        <li>
+                                            With {bobaes.userPrefs[person.id].addons}
+                                        </li>
+                                    </ul>
+                                </div>
+                            <div>
+                        </div>
+                        {(bobaes.userPrefs[person.id].lactose)
+                                ? <div className="extraDets">Milk is somewhat my enemy &#128557;</div>
+                                :<div className="extraDets">Milk is not my enemy &#128516;</div>}
+                        {(bobaes.userPrefs[person.id].fruit)
+                                ? <div className="extraDets2">Fruit Teas are my thing &#128540;</div>
+                                :<div className="extraDets2">Fruit Teas are not my thing &#128547;</div>}
+                        <div className="finalDesc">Why? Because {bobaes.userPrefs[person.id].description}</div>
+                    </div>
+                    </div>
                 </div> : null
             ))}
-            </div>
         </div>
 
     }
 
     return(
-        <div>
-            {data}
-        </div>
+        <>
+            <div className='backgroundImageContProfile'>
+                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
+            </div>
+            <div className="loginHolder">
+                <div className="bobaeTitle">
+                        Bobae
+                </div>
+                {data}
+            </div>
+        </>
     )
 
 }

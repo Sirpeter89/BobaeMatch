@@ -137,12 +137,6 @@ export default function EditPreferencePage(){
                 <div className="choiceQuestion">
                     <label>Please tell us a little more about your boba interest</label>
                 </div>
-                {/* <input
-                    type="text"
-                    name="description"
-                    onChange={(e)=>(setDescription(e.target.value))}
-                    value={description}
-                ></input> */}
                 <div>
                     <textarea className="descriptionInput"
                         onChange={(e)=>(setDescription(e.target.value))}

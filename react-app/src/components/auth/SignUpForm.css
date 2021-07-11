@@ -2,6 +2,13 @@
     display: flex;
 }
 
+.backgroundImageContSignUp{
+    position: absolute;
+    margin-top: -.5%;
+    width: 101%;
+    height: 97.8%;
+}
+
 .signUpForm{
     display: flex;
     justify-content: space-evenly;

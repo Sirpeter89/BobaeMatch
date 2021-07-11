@@ -15,7 +15,7 @@ const EditProfilePage = () => {
     const [zip, setZip] = useState(user.zipcode);
     const [age, setAge] = useState(user.age);
     console.log(user)
-    const [gender, setGender] = useState("");
+    const [gender, setGender] = useState("Male");
 
     const prevHeight = `${user.height}`
     const prevFeet = parseInt(prevHeight[0])
@@ -80,104 +80,131 @@ const EditProfilePage = () => {
     };
 
     return (
-        <form onSubmit={onEdit}>
-            <div>
-                {errors.map((error) => (
-                    <div>{error}</div>
-                ))}
+        <>
+            <div className='backgroundImageContProfile'>
+                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
             </div>
+            <div className="loginHolder">
+                <div className="loginTitle">
+                    Edit Profile
+                </div>
+                <form className="editProfileForm" onSubmit={onEdit}>
+                    <div>
+                        {errors.map((error) => (
+                            <div>{error}</div>
+                        ))}
+                    </div>
 
-            <div>
-            <label>First Name</label>
-            <input
-                type="text"
-                name="firstname"
-                onChange={updateFirstname}
-                value={firstname}
-            ></input>
+                    <div>
+                        <div className="inputLabel">
+                            <label>First Name:</label>
+                        </div>
+                        <input className="inputArea"
+                            type="text"
+                            name="firstname"
+                            onChange={updateFirstname}
+                            value={firstname}
+                        ></input>
+                    </div>
+
+                    <div>
+                    <div className="inputLabel">
+                            <label>Last Name:</label>
+                        </div>
+                    <input className="inputArea"
+                        type="text"
+                        name="lastname"
+                        onChange={updateLastname}
+                        value={lastname}
+                    ></input>
+                    </div>
+
+                    <div>
+                        <div className="inputLabel">
+                                <label>Profile Image Url:</label>
+                        </div>
+                    <input className="inputArea"
+                        type="text"
+                        name="profileImage"
+                        onChange={updateProfileImage}
+                        value={profileImage}
+                    ></input>
+                    </div>
+
+                    <div>
+                        <div className="inputLabel">
+                                <label>City:</label>
+                        </div>
+                    <input className="inputArea"
+                        type="text"
+                        name="city"
+                        onChange={updateCity}
+                        value={city}
+                    ></input>
+                    </div>
+
+                    <div>
+                        <div className="inputLabel">
+                                <label>Zipcode:</label>
+                        </div>
+                    <input className="inputArea"
+                        type="number"
+                        name="zipcode"
+                        onChange={updateZip}
+                        value={zip}
+                    ></input>
+                    </div>
+
+                    <div>
+                        <div className="inputLabel">
+                            <label>Age</label>
+                        </div>
+                    <input className="inputArea"
+                        type="number"
+                        name="age"
+                        onChange={updateAge}
+                        value={age}
+                    ></input>
+                    </div>
+
+                    <div className="genderLabel">
+                        <label>Gender:</label>
+                    </div>
+                    <div className="inputArea">
+                        <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender} checked="checked"></input>
+                        <label className="radioLabels" for="html">Male</label>
+                        <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender}></input>
+                        <label className="radioLabels" for="html">Female</label>
+                    </div>
+
+                    <div className="heightLabel">
+                <label>Height:</label>
             </div>
-
-            <div>
-            <label>Last Name</label>
-            <input
-                type="text"
-                name="lastname"
-                onChange={updateLastname}
-                value={lastname}
-            ></input>
-            </div>
-
-            <div>
-            <label>Profile Image</label>
-            <input
-                type="text"
-                name="profileImage"
-                onChange={updateProfileImage}
-                value={profileImage}
-            ></input>
-            </div>
-
-            <div>
-            <label>City</label>
-            <input
-                type="text"
-                name="city"
-                onChange={updateCity}
-                value={city}
-            ></input>
-            </div>
-
-            <div>
-            <label>Zip Code</label>
-            <input
-                type="number"
-                name="zipcode"
-                onChange={updateZip}
-                value={zip}
-            ></input>
-            </div>
-
-            <div>
-            <label>Age</label>
-            <input
-                type="number"
-                name="age"
-                onChange={updateAge}
-                value={age}
-            ></input>
-            </div>
-
-            <label>Gender: </label>
-            <div>
-                <input type="radio" id="male" name="male_gender" value="Male" onClick={updateGender}></input>
-                <label for="html">Male</label>
-                <input type="radio" id="female" name="female_gender" value="Female" onClick={updateGender}></input>
-                <label for="html">Female</label>
-            </div>
-
             <div className="HeightBox">
-            <div>
-                <label>Height Feet: </label>
-                <input
-                type="number"
-                name="heightFeet"
-                onChange={updateHeightFeet}
-                value={heightFeet}
+                <div className="feetDiv">
+                <label className="heightDetails">Feet: </label>
+                <input className="heightInput"
+                    type="number"
+                    name="heightFeet"
+                    onChange={updateHeightFeet}
+                    value={heightFeet}
                 ></input>
-            </div>
-            <div>
-                <label>Inches: </label>
-                <input
-                type="number"
-                name="heightInches"
-                onChange={updateHeightInches}
-                value={heightInches}
+                </div>
+                <div>
+                <label className="heightDetails">Inches: </label>
+                <input className="heightInput"
+                    type="number"
+                    name="heightInches"
+                    onChange={updateHeightInches}
+                    value={heightInches}
                 ></input>
-            </div>
+                </div>
             </div>
 
-            <button type="submit">Submit Changes</button>
-        </form>
+                    <button className="submitChangesButton" type="submit">Submit Changes</button>
+                </form>
+            </div>
+        </>
         );
     };
 

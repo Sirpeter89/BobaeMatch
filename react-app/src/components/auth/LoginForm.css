@@ -1,0 +1,47 @@
+.loginForm{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 300px;
+    border: 1px solid rgb(0, 0, 0);
+    margin-left: 18vw;
+    margin-top: 8%;
+    background-color: burlywood;
+    border-radius: 25px;
+}
+
+.loginButton{
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    margin-top: 7%;
+    margin-left: 40%;
+    height: 40px;
+    width: 100px;
+    border-radius: 25px;
+}
+
+.loginTitle{
+    margin-top: 15%;
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.loginHolder{
+    position: relative;
+    overflow: hidden;
+    width: 60%;
+    height: 96.39vh;
+    margin-top: -.5%;
+    border-right: 5px solid black;
+    border-left: 5px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.781);
+}
