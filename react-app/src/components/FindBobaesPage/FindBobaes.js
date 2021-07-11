@@ -79,7 +79,7 @@ export default function FindBobaes(){
                             {person.firstname} {person.lastname}
                         </div>
                         <div className="nameTitle">
-                            <b>Age:</b> {person.age}
+                            <b>Age:</b> {person.age},&nbsp;<b>Height:</b>{parseInt(person.height/10)}'{person.height%10}"
                         </div>
                             <div className="about">
                                 About Me
