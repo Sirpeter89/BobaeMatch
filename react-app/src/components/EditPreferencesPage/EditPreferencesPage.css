@@ -19,6 +19,15 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.almostTitle{
+    margin-top: 10%;
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
 .behindChoice{
     z-index: 50;
 }
@@ -38,4 +47,58 @@
     margin-left: auto;
     margin-right: auto;
     background-color: rgba(255, 255, 255, 0.781);
+}
+
+.choiceHolderDesc{
+    overflow: hidden;
+    width: 70%;
+    height: 96.39vh;
+    margin-top: -.5%;
+    border-right: 5px solid black;
+    border-left: 5px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.781);
+}
+
+
+.choiceQuestion{
+    margin-top: 3%;
+    font-size: 41px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    color: rgb(212, 198, 178);
+    text-align: center;
+}
+
+.typeBox{
+    position: absolute;
+    width: 900px;
+    height: 450px;
+    margin: 16vh 20vw;
+    background-color: rgba(133, 85, 40, 0.904);
+    border-radius: 25px;
+    border: 3px solid black;
+}
+
+textarea {
+        background-color: rgba(240, 209, 168, 0.842);
+        border: 1px solid #888;
+        height: 150px;
+        margin-top: 7%;
+        margin-left: 4.4%;
+        width: 90%;
+        font-size: 20px;
+        border-radius: 15px;
+    }
+
+.submitButton{
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    margin-top: 3%;
+    margin-left: 84%;
+    height: 40px;
+    width: 100px;
+    border-radius: 25px;
 }

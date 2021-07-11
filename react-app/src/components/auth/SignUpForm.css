@@ -1,3 +1,98 @@
 .HeightBox{
     display: flex;
 }
+
+.signUpForm{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    height: 1250px;
+    border: 1px solid rgb(0, 0, 0);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2%;
+    background-color: burlywood;
+    border-radius: 25px;
+}
+
+.inputLabel{
+    font-size: 35px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+}
+
+.inputArea{
+    margin-top: 8px;
+    height: 30px;
+    width: 500px;
+    z-index: 60;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+.signUpForm{
+    z-index: 40;
+    position: absolute;
+    margin-left: 28vw;
+}
+
+.radio{
+    transform: scale(2);
+    margin-left: 30px;
+}
+
+.radioLabels{
+    font-size: 20px;
+}
+
+.genderLabel{
+    margin-right: 48%;
+    font-size: 35px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+}
+
+.heightLabel{
+    margin-right: 49%;
+    font-size: 35px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+}
+
+.heightInput{
+    margin-top: 8px;
+    height: 30px;
+    width: 190px;
+    z-index: 60;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+.heightDetails{
+    font-size: 20px;
+}
+
+.feetDiv{
+    margin-left: 10px;
+}
+
+.SignUpTitle{
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.signUpButton{
+    font-size: 22px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    margin-top: 3%;
+    height: 40px;
+    width: 100px;
+    border-radius: 25px;
+}

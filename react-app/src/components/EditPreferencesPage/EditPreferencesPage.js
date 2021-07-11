@@ -129,17 +129,29 @@ export default function EditPreferencePage(){
 
     } else {
         choiceComponents =
-        <div className="choiceHolder">
-            <div>
-                <label>Why do you like your choices?</label>
-                <input
+        <div className="choiceHolderDesc">
+            <div className="almostTitle">
+            &#10084; You're Almost Ready To Find A Boba Bae &#10084;
+            </div>
+            <div className="typeBox">
+                <div className="choiceQuestion">
+                    <label>Please tell us a little more about your boba interest</label>
+                </div>
+                {/* <input
                     type="text"
                     name="description"
                     onChange={(e)=>(setDescription(e.target.value))}
                     value={description}
-                ></input>
+                ></input> */}
+                <div>
+                    <textarea className="descriptionInput"
+                        onChange={(e)=>(setDescription(e.target.value))}
+                        value={description}
+                        placeholder="Type here to tell users about your boba tastes!">
+                    </textarea>
+                </div>
+                <button className='submitButton' type="button" onClick={onSub}>Submit</button>
             </div>
-            <button className='submitButton' type="button" onClick={onSub}>Submit</button>
         </div>
     }
 

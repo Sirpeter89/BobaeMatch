@@ -95,134 +95,169 @@ const SignUpForm = () => {
   }
 
   return (
-    <form onSubmit={onSignUp}>
-      <div>
-            {errors.map((error) => (
-                <div>{error}</div>
-            ))}
+    <div>
+      <div className='backgroundImageContProfile'>
+                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
       </div>
-      <div>
-        <label>User Name</label>
-        <input
-          type="text"
-          name="username"
-          onChange={updateUsername}
-          value={username}
-        ></input>
-      </div>
-      <div>
-        <label>First Name</label>
-        <input
-          type="text"
-          name="firstname"
-          onChange={updateFirstname}
-          value={firstname}
-        ></input>
-      </div>
-      <div>
-        <label>Last Name</label>
-        <input
-          type="text"
-          name="lastname"
-          onChange={updateLastname}
-          value={lastname}
-        ></input>
-      </div>
-      <div>
-        <label>Email</label>
-        <input
-          type="text"
-          name="email"
-          onChange={updateEmail}
-          value={email}
-        ></input>
-      </div>
-      <div>
-        <label>Profile Image</label>
-        <input
-          type="text"
-          name="profileImage"
-          onChange={updateProfileImage}
-          value={profileImage}
-        ></input>
-      </div>
-      <div>
-        <label>City</label>
-        <input
-          type="text"
-          name="city"
-          onChange={updateCity}
-          value={city}
-        ></input>
-      </div>
-      <div>
-        <label>Zip Code</label>
-        <input
-          type="number"
-          name="zipcode"
-          onChange={updateZip}
-          value={zip}
-        ></input>
-      </div>
-      <div>
-        <label>Age</label>
-        <input
-          type="number"
-          name="age"
-          onChange={updateAge}
-          value={age}
-        ></input>
-      </div>
+      <div className="choiceHolder">
+          <div className="SignUpTitle">
+                        Let's Sign Up
+          </div>
+          <form className="signUpForm" onSubmit={onSignUp}>
+            <div>
+                  {errors.map((error) => (
+                      <div>{error}</div>
+                  ))}
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>User Name:</label>
+              </div>
+              <input className="inputArea"
+                type="text"
+                name="username"
+                onChange={updateUsername}
+                value={username}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>First Name:</label>
+              </div>
+              <input className="inputArea"
+                type="text"
+                name="firstname"
+                onChange={updateFirstname}
+                value={firstname}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>Last Name:</label>
+              </div>
+              <input className="inputArea"
+                type="text"
+                name="lastname"
+                onChange={updateLastname}
+                value={lastname}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>Email:</label>
+              </div>
+              <input className="inputArea"
+                type="text"
+                name="email"
+                onChange={updateEmail}
+                value={email}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>Profile Image Url:</label>
+              </div>
+              <input className="inputArea"
+                type="text"
+                name="profileImage"
+                onChange={updateProfileImage}
+                value={profileImage}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>City:</label>
+              </div>
+              <input className="inputArea"
+                type="text"
+                name="city"
+                onChange={updateCity}
+                value={city}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>Zip Code:</label>
+              </div>
+              <input className="inputArea"
+                type="number"
+                name="zipcode"
+                onChange={updateZip}
+                value={zip}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>Age:</label>
+              </div>
+              <input className="inputArea"
+                type="number"
+                name="age"
+                onChange={updateAge}
+                value={age}
+              ></input>
+            </div>
 
-      <label>Gender: </label>
-      <div>
-        <input type="radio" id="male" name="male_gender" value="Male" onClick={updateGender}></input>
-        <label for="html">Male</label>
-        <input type="radio" id="female" name="female_gender" value="Female" onClick={updateGender}></input>
-        <label for="html">Female</label>
-      </div>
+            <div className="genderLabel">
+                <label>Gender:</label>
+            </div>
+            <div className="inputArea">
+              <input className="radio" type="radio" id="male" name="male_gender" value="Male" onClick={updateGender}></input>
+              <label className="radioLabels" for="html">Male</label>
+              <input className="radio" type="radio" id="female" name="female_gender" value="Female" onClick={updateGender}></input>
+              <label className="radioLabels" for="html">Female</label>
+            </div>
 
-      <div className="HeightBox">
-        <div>
-          <label>Height Feet: </label>
-          <input
-            type="number"
-            name="heightFeet"
-            onChange={updateHeightFeet}
-            value={heightFeet}
-          ></input>
+            <div className="heightLabel">
+                <label>Height:</label>
+            </div>
+            <div className="HeightBox">
+              <div className="feetDiv">
+                <label className="heightDetails">Feet: </label>
+                <input className="heightInput"
+                  type="number"
+                  name="heightFeet"
+                  onChange={updateHeightFeet}
+                  value={heightFeet}
+                ></input>
+              </div>
+              <div>
+                <label className="heightDetails">Inches: </label>
+                <input className="heightInput"
+                  type="number"
+                  name="heightInches"
+                  onChange={updateHeightInches}
+                  value={heightInches}
+                ></input>
+              </div>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>Password:</label>
+              </div>
+              <input className="inputArea"
+                type="password"
+                name="password"
+                onChange={updatePassword}
+                value={password}
+              ></input>
+            </div>
+            <div>
+              <div className="inputLabel">
+                <label>Repeat Password:</label>
+              </div>
+              <input className="inputArea"
+                type="password"
+                name="repeat_password"
+                onChange={updateRepeatPassword}
+                value={repeatPassword}
+                required={true}
+              ></input>
+            </div>
+            <button className="signUpButton" type="submit">Sign Up</button>
+          </form>
         </div>
-        <div>
-          <label>Inches: </label>
-          <input
-            type="number"
-            name="heightInches"
-            onChange={updateHeightInches}
-            value={heightInches}
-          ></input>
-        </div>
-      </div>
-      <div>
-        <label>Password</label>
-        <input
-          type="password"
-          name="password"
-          onChange={updatePassword}
-          value={password}
-        ></input>
-      </div>
-      <div>
-        <label>Repeat Password</label>
-        <input
-          type="password"
-          name="repeat_password"
-          onChange={updateRepeatPassword}
-          value={repeatPassword}
-          required={true}
-        ></input>
-      </div>
-      <button type="submit">Sign Up</button>
-    </form>
+    </div>
   );
 };
 
