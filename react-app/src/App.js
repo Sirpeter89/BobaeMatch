@@ -74,6 +74,9 @@ function App() {
         <ProtectedRoute path="/matches" exact={true} >
           <MatchPage />
         </ProtectedRoute>
+        <Route>
+          <div>ERROR 404 PATH NOT FOUND BAD URL</div>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
