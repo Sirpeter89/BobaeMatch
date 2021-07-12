@@ -1,8 +1,8 @@
 .profileImage{
     border: 5px solid black;
     border-radius: 50%;
-    width: 370px;
-    height: 370px;
+    width: 300px;
+    height: 300px;
     overflow: hidden;
     z-index: 100;
     margin-left: 2%;
@@ -19,7 +19,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 90px;
+    font-size: 70px;
     margin-left: 25%;
     margin-top: 4%;
     height:12%;
@@ -33,7 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 90px;
+    font-size: 70px;
     margin-left: 20%;
     height:12.5%;
     max-width: 50%;
@@ -51,7 +51,7 @@
     border-radius: 25px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 45px;
     z-index: 10000;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
@@ -59,41 +59,41 @@
 .editInfo:hover{
     position: relative;
     margin-left:19%;
-    margin-top: 27%;
+    margin-top: 23%;
     height: 90px;
     width: 20%;
     border-radius: 50px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 45px;
     z-index: 10000;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
 
 .editPref{
     position: relative;
-    margin-top: -7%;
+    /* margin-top: -7%; */
     margin-left:21%;
     height: 90px;
     width: 20%;
     border-radius: 25px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 45px;
     z-index: 10000;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
 
 .editPref:hover{
     position: relative;
-    margin-top: -7%;
+    /* margin-top: -7%; */
     margin-left:21%;
     height: 90px;
     width: 20%;
     border-radius: 50px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 50px;
+    font-size: 45px;
     z-index: 10000;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
@@ -149,31 +149,31 @@
 }
 
 .userName{
-    font-size: 50px;
+    font-size: 40px;
 
 }
 
 .name{
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .cityZip{
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .age{
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .height{
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .backgroundImageContProfile{
     position: absolute;
     margin-top: -.5%;
     width: 101%;
-    height: 95.3%;
+    height: 96%;
 }
 
 .backgroundImageProfile{

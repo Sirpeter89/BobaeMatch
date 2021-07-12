@@ -69,11 +69,15 @@ export default function FindBobaes(){
                     </div>
                     <div className="profileHolder">
                         <div className="buttonsAndPic">
-                            <button className="acceptBut" onClick={()=>{confirmMatch(person.id)}}></button>
+                            <button className="acceptBut" onClick={()=>{confirmMatch(person.id)}}>
+                                <img className="acceptImage"src="https://media.istockphoto.com/vectors/kawaii-heart-cute-face-vector-illustration-vector-id1253051709?k=6&m=1253051709&s=170667a&w=0&h=Ek8hghQug_PRCMC8NpnR7V9r53QQmrxEkaP91Rb8CyI="></img>
+                            </button>
                                 <div className="profImageCont">
                                     <img className="profImage"src={person.profileImage}></img>
                                 </div>
-                            <button className="denyBut" onClick={()=>{declineMatch(person.id)}}></button>
+                            <button className="denyBut" onClick={()=>{declineMatch(person.id)}}>
+                                <img className="acceptImage"src="https://media.istockphoto.com/vectors/red-heartbreak-or-broken-heart-on-blue-background-vector-id1151443140?k=6&m=1151443140&s=612x612&w=0&h=4BchXEBIZpEqzfHRzgGXLYHgW1BjeuAa4sZcn2ev5Z0="></img>
+                            </button>
                         </div>
                         <div className="nameTitle">
                             {person.firstname} {person.lastname}
@@ -91,10 +95,10 @@ export default function FindBobaes(){
                                 <div className="milkTeaDetails">
                                     <p className="iLove">I &#10084; my <b>{bobaes.userPrefs[person.id].tea} Milk Teas</b>:</p>
                                     <ul className="mtList">
-                                        <li>
+                                        <li className="listDetails">
                                             {bobaes.userPrefs[person.id].sugar}% Sweet
                                         </li>
-                                        <li>
+                                        <li className="listDetails">
                                             With {bobaes.userPrefs[person.id].addons}
                                         </li>
                                     </ul>

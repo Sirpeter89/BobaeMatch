@@ -40,8 +40,8 @@
 .choiceHolder{
     overflow: hidden;
     width: 80%;
-    height: 95vh;
-    margin-top: -.6%;
+    height: 96.2vh;
+    margin-top: -.56%;
     border-right: 5px solid black;
     border-left: 5px solid black;
     margin-left: auto;
@@ -52,7 +52,7 @@
 .choiceHolderDesc{
     overflow: hidden;
     width: 70%;
-    height: 96.39vh;
+    height: 96vh;
     margin-top: -.5%;
     border-right: 5px solid black;
     border-left: 5px solid black;
@@ -75,7 +75,7 @@
     position: absolute;
     width: 900px;
     height: 450px;
-    margin: 16vh 20vw;
+    margin: 16vh 16.5vw;
     background-color: rgba(133, 85, 40, 0.904);
     border-radius: 25px;
     border: 3px solid black;
@@ -86,7 +86,7 @@ textarea {
         border: 1px solid #888;
         height: 150px;
         margin-top: 7%;
-        margin-left: 3%;
+        margin-left: 4.4%;
         width: 90%;
         font-size: 20px;
         border-radius: 15px;

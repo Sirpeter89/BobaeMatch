@@ -14,7 +14,6 @@ const EditProfilePage = () => {
     const [city, setCity] = useState(user.city);
     const [zip, setZip] = useState(user.zipcode);
     const [age, setAge] = useState(user.age);
-    console.log(user)
     const [gender, setGender] = useState("Male");
 
     const prevHeight = `${user.height}`

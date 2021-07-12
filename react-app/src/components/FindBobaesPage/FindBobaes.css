@@ -4,14 +4,14 @@
 }
 
 .profImageCont{
-    width: 30%;
-    height: 300px;
+    width: 50%;
+    height: 76%;
     overflow: hidden;
     border: 1px solid black;
     border-radius: 50%;
-    margin-top: 2%;
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-top: 4%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .profImage{
@@ -38,50 +38,52 @@
 .buttonsAndPic{
     display: flex;
     width: 100%;
-    height: 350px;
+    height: 30vh;
 }
 
 .acceptBut{
-    width: 200px;
-    height: 150px;
-    border-radius: 25px;
+    width: 8vw;
+    height: 8vh;
+    border-radius: 20%;
     margin-top: 8%;
-    margin-left: 15%;
-    background-image: url("https://media.istockphoto.com/vectors/kawaii-heart-cute-face-vector-illustration-vector-id1253051709?k=6&m=1253051709&s=170667a&w=0&h=Ek8hghQug_PRCMC8NpnR7V9r53QQmrxEkaP91Rb8CyI=");
-    background-size: contain;
+    margin-left: 20%;
     box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.226);
+    overflow: hidden;
+}
+
+.acceptImage{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .acceptBut:hover{
-    width: 200px;
-    height: 150px;
-    border-radius: 25px;
+    width: 8vw;
+    height: 8vh;
+    border-radius: 20%;
     margin-top: 8%;
-    margin-left: 15%;
-    background-image: url("https://media.istockphoto.com/vectors/kawaii-heart-cute-face-vector-illustration-vector-id1253051709?k=6&m=1253051709&s=170667a&w=0&h=Ek8hghQug_PRCMC8NpnR7V9r53QQmrxEkaP91Rb8CyI=");
-    background-size: contain;
+    margin-left: 20%;
+    box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.226);
+    overflow: hidden;
     box-shadow:8px 8px 58px 11px rgba(6, 221, 71, 0.897);
 }
 
 .denyBut{
-    width: 200px;
-    height: 150px;
-    border-radius: 25px;
+    width: 8vw;
+    height: 8vh;
+    border-radius: 20%;
     margin-top: 8%;
-    margin-right: 15%;
-    background-image: url("https://media.istockphoto.com/vectors/red-heartbreak-or-broken-heart-on-blue-background-vector-id1151443140?k=6&m=1151443140&s=612x612&w=0&h=4BchXEBIZpEqzfHRzgGXLYHgW1BjeuAa4sZcn2ev5Z0=");
-    background-size: contain;
+    margin-right: 20%;
     box-shadow: 8px 8px 2px 1px rgba(0, 0, 255, 0.226);
+    overflow: hidden;
 }
 
 .denyBut:hover{
-    width: 200px;
-    height: 150px;
-    border-radius: 25px;
+    width: 8vw;
+    height: 8vh;
+    border-radius: 20%;
     margin-top: 8%;
-    margin-right: 15%;
-    background-image: url("https://media.istockphoto.com/vectors/red-heartbreak-or-broken-heart-on-blue-background-vector-id1151443140?k=6&m=1151443140&s=612x612&w=0&h=4BchXEBIZpEqzfHRzgGXLYHgW1BjeuAa4sZcn2ev5Z0=");
-    background-size: contain;
+    margin-right: 20%;
     box-shadow:8px 8px 58px 11px rgba(226, 12, 48, 0.733);
 }
 
@@ -89,19 +91,19 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 640px;
-    width: 80%;
+    height: 440px;
+    width: 60%;
     border: 1px solid black;
     border-radius: 25px;
     background-color: bisque;
-    margin-left: 9.5%;
+    margin-left: 19.5%;
     margin-top: 3%;
 }
 
 .about{
     display: flex;
     justify-content: center;
-    font-size: 80px;
+    font-size: 50px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin-top: 4%;
     color: rgb(194, 128, 47);
@@ -143,23 +145,22 @@
 }
 
 .iLove{
-    font-size: 50px;
+    font-size: 30px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .extraDets{
-    font-size: 40px;
-    margin-top: 1%;
+    font-size: 30px;
 }
 
 .extraDets2{
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 3%;
     margin-bottom: 2%;
 }
 
 .finalDesc{
-    font-size: 40px;
+    font-size: 30px;
     margin-top: 3%;
 }
 
@@ -170,4 +171,8 @@
     font-size: 80px;
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.listDetails{
+    font-size: 25px;
 }

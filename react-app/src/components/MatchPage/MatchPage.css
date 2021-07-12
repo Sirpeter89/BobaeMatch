@@ -1,6 +1,6 @@
 .matchImageCont{
-    width: 400px;
-    height: 400px;
+    width: 280px;
+    height: 250px;
     overflow: hidden;
     border: 1px solid black;
     border-radius: 50%;
@@ -30,8 +30,8 @@
     flex-direction: column;
     justify-content: space-evenly;
     margin-left: -10%;
-    font-size: 50px;
-    height: 80%;
+    font-size: 30px;
+    height: 90%;
     margin-top: 2%;
 }
 
@@ -40,14 +40,14 @@
     justify-content: space-evenly;
     font-size: 30px;
     margin-left: -23%;
-    width: 80%;
+    width: 90%;
     border-left: 1px dotted black;
 }
 
 .bobaPrefTitle{
-    font-size: 50px;
+    font-size: 40px;
     margin-left: -3%;
-    width: 43%;
+    width: 41%;
 }
 
 .matchPrefDetails{
@@ -56,8 +56,8 @@
     flex-direction: column;
     justify-content: space-around;
     margin-left: 25%;
-    height: 80%;
-    font-size: 40px;
+    height: 75%;
+    font-size: 30px;
 }
 
 .matchHolder{
@@ -73,7 +73,7 @@
 }
 
 .matchPrefExtraDetails{
-    font-size: 35px;
+    font-size: 30px;
     height: 40%;
     margin-top: 11%;
     margin-left: 5%;

@@ -6,7 +6,7 @@
     position: absolute;
     margin-top: -.5%;
     width: 101%;
-    height: 96.5%;
+    height: 97.8%;
 }
 
 .signUpForm{
@@ -51,19 +51,19 @@
 }
 
 .radioLabels{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .genderLabel{
-    margin-right: 48%;
-    font-size: 35px;
+    margin-right: 67%;
+    font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
 }
 
 .heightLabel{
-    margin-right: 49%;
-    font-size: 35px;
+    margin-right: 67%;
+    font-size: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
 }
@@ -71,14 +71,14 @@
 .heightInput{
     margin-top: 8px;
     height: 30px;
-    width: 190px;
+    width: 200px;
     z-index: 60;
     border-radius: 25px;
     font-size: 20px;
 }
 
 .heightDetails{
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .feetDiv{
@@ -102,4 +102,16 @@
     height: 40px;
     width: 100px;
     border-radius: 25px;
+}
+
+.choiceHolderSign{
+    overflow: hidden;
+    width: 80%;
+    height: 96.2vh;
+    margin-top: -.56%;
+    border-right: 5px solid black;
+    border-left: 5px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255, 255, 255, 0.781);
 }
