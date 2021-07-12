@@ -21,8 +21,11 @@ export default function MatchPage(){
 
         if (mounted){
 
-            let users = [];
+            let matchProfileList = [];
+            let users;
+            let preferences;
             for(const el of matches) {
+                let matchProfile = [];
                 let getUserId;
                 if(el.useroneId !== user.id){
                     getUserId = el.useroneId;
@@ -34,33 +37,83 @@ export default function MatchPage(){
                 if (data.errors) {
                     return;
                 }
-                users.push(data)
+                users = data
+                let prefResponse = await fetch(`/api/preferences/${getUserId}`)
+                const prefData = await prefResponse.json();
+                if (prefData.errors) {
+                    return;
+                }
+                preferences= prefData
+
+                matchProfile.push(users)
+                matchProfile.push(preferences)
+
+                matchProfileList.push(matchProfile)
             }
 
+            console.log(matchProfileList)
+
             showProfile.current =
-                <div>
-                    {users.map( (subject) => (
-                        <ul className="profList">
-                            <li>
-                                <div className="profImageCont">
-                                    <img className="profImage"src={subject.profileImage}></img>
+                <>
+                {matchProfileList.map((person)=>(
+                    <div className="matchRectangle">
+
+                            <div className="userDetails">
+                                <div className="matchImageCont">
+                                    <img className="profImage" src={person[0].profileImage}></img>
                                 </div>
-                            </li>
-                            <li>
-                                User: {subject.username}
-                            </li>
-                            <li>
-                                Name: {subject.firstname} {subject.lastname}
-                            </li>
-                            <li>
-                                City: {subject.city}
-                            </li>
-                            <li>
-                                Age: {subject.age}
-                            </li>
-                        </ul>
-                    ))}
-                </div>
+                                <div className="matchUserInfo">
+                                    <div>
+                                        User: {person[0].username}
+                                    </div>
+                                    <div>
+                                        Name: {person[0].firstname} {person[0].lastname}
+                                    </div>
+                                    <div>
+                                        City: {person[0].city}
+                                    </div>
+                                    <div>
+                                        Age: {person[0].age}
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div className="userPreferences">
+                                <div className="bobaPrefTitle">
+                                    <u><b>Boba Preference:</b></u>
+                                    <div className="matchPrefDetails">
+                                        <div>
+                                            <b>Tea:</b> {person[1].tea}
+                                        </div>
+                                        <div>
+                                            <b>Addons:</b> {person[1].addons}
+                                        </div>
+                                        <div>
+                                            <b>Sweetness:</b> {person[1].sugar}
+                                        </div>
+                                        <div>
+                                            <b>Description:</b> {person[1].description}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="matchPrefExtraDetails">
+                                    <div>
+                                        {person[1].lactose? <p>Milk is somewhat my enemy &#128557;</p>
+                                                        : <p>Milk is not my enemy &#128516;</p>}
+                                    </div>
+                                    <div>
+                                        {person[1].fruit? <p>Fruit Teas are my thing &#128540;</p>
+                                                        : <p>Fruit Teas are not my thing &#128547;</p>}
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div>
+                ))}
+
+                </>
             setProfiles(true)
         }else{
             await dispatch(loadMatches(user.id))
@@ -72,8 +125,16 @@ export default function MatchPage(){
     }, [dispatch, mounted])
 
     return (
-        <div>
-            {showProfile.current}
-        </div>
+        <>
+            <div className='backgroundImageContProfile'>
+                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
+            </div>
+            <div className="matchHolder">
+                <div className="yourBobaesTitle">
+                    Your Bobaes
+                </div>
+                {showProfile.current}
+            </div>
+        </>
     )
 }

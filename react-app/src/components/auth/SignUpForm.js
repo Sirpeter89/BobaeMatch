@@ -21,7 +21,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("Male");
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -202,7 +202,7 @@ const SignUpForm = () => {
                 <label>Gender:</label>
             </div>
             <div className="inputArea">
-              <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender} checked="checked"></input>
+              <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender}></input>
               <label className="radioLabels" for="html">Male</label>
               <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender}></input>
               <label className="radioLabels" for="html">Female</label>

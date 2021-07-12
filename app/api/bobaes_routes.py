@@ -20,11 +20,20 @@ def get_bobaes():
         if teaQuery != None:
             potential_matches.append(teaQuery.to_dict())
 
+        #filter out duplicates
+        if potential_matches:
+            potential_matches = list({users['id']:users for users in potential_matches}.values())
+
+
         # If theres less than 5 matches by tea, then match by addons
         if len(potential_matches) < 5:
             addonsQuery = Preference.query.filter(and_(Preference.userId == user['id'], Preference.gender.like(data['userGender']), Preference.addons.like(data['addons']))).first()
         if addonsQuery != None:
             potential_matches.append(addonsQuery.to_dict())
+
+        #filter out duplicates
+        if potential_matches:
+            potential_matches = list({users['id']:users for users in potential_matches}.values())
 
         # If theres less than 5 matches by addons and tea, then match by sugarLevel
         if len(potential_matches) < 5:
@@ -32,26 +41,33 @@ def get_bobaes():
         if sugarQuery != None:
             potential_matches.append(sugarQuery.to_dict())
 
+        #filter out duplicates
+        if potential_matches:
+            potential_matches = list({users['id']:users for users in potential_matches}.values())
+
+        # If theres less than 5 matches by addons and tea, then match by if they like fruit tea
         if len(potential_matches) < 5:
             fruitQuery = Preference.query.filter(and_(Preference.userId == user['id'], Preference.gender.like(data['userGender']), Preference.fruit.is_(data['fruit']))).first()
         if fruitQuery != None:
             potential_matches.append(fruitQuery.to_dict())
 
-    #filter out duplicates
-    if potential_matches:
-        potential_matches = list({users['id']:users for users in potential_matches}.values())
-        print (potential_matches)
+        #filter out duplicates
+        if potential_matches:
+            potential_matches = list({users['id']:users for users in potential_matches}.values())
+
 
     #Get main profiles to display for potential matches
     profiles = []
     for person in potential_matches:
-        profile = User.query.filter(User.id == person['id']).first()
+        profile = User.query.filter(User.id == person['userId']).first()
         profiles.append(profile.to_dict())
+
 
     #get all user preferences
     userPrefs = {}
     for match in potential_matches:
-        userPrefs[match['id']] = match
+        userPrefs[match['userId']] = match
+
 
     #get all user profiles
     userProfiles = {}
@@ -60,7 +76,7 @@ def get_bobaes():
 
         #Check if potential match record between user and other user doesn't already exist
         check_potential_match = Potential_match.query.filter(and_(Potential_match.userId == data['userId'], Potential_match.matchedUserId == profile['id'])).first()
-        print("WHAT IS HAPPENEINGGG", check_potential_match)
+
         if check_potential_match is None:
             potentialMatchRecord = Potential_match(
                 userId=data['userId'],
