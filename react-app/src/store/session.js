@@ -115,7 +115,33 @@ export const signUp = (username, firstname, lastname, email, profileImage, city,
     return {};
 }
 
+export const demoUser1 = () => async (dispatch) => {
+    const response = await fetch('/api/auth/demo1', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await response.json();
+    if(data.errors){
+        return;
+    }
+    dispatch(setUser(data))
+}
 
+export const demoUser2 = () => async (dispatch) => {
+    const response = await fetch('/api/auth/demo2', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    const data = await response.json();
+    if(data.errors){
+        return;
+    }
+    dispatch(setUser(data))
+}
 
 const initialState = {user: null}
 

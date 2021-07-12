@@ -50,30 +50,30 @@ function App() {
         <Route path="/sign-up" exact={true}>
           <SignUpForm />
         </Route>
+        <Route path="/" exact={true} >
+          {homeOrProfile}
+        </Route>
         <ProtectedRoute path="/users" exact={true}>
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path="/users/:userId" exact={true}>
           <User />
         </ProtectedRoute>
-        <Route path="/" exact={true} >
-          {homeOrProfile}
-        </Route>
-        <Route path="/preferences" exact={true} >
+        <ProtectedRoute path="/preferences" exact={true} >
           <PreferencePage />
-        </Route>
-        <Route path="/editProfile" exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path="/editProfile" exact={true} >
           <EditProfilePage />
-        </Route>
-        <Route path="/editPreferences" exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path="/editPreferences" exact={true} >
           <EditPreferencePage/>
-        </Route>
-        <Route path="/findBobaes" exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path="/findBobaes" exact={true} >
           <FindBobaes />
-        </Route>
-        <Route path="/matches" exact={true} >
+        </ProtectedRoute>
+        <ProtectedRoute path="/matches" exact={true} >
           <MatchPage />
-        </Route>
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

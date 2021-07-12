@@ -171,7 +171,7 @@ const EditProfilePage = () => {
                         <label>Gender:</label>
                     </div>
                     <div className="inputArea">
-                        <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender} checked="checked"></input>
+                        <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender}></input>
                         <label className="radioLabels" for="html">Male</label>
                         <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender}></input>
                         <label className="radioLabels" for="html">Female</label>
