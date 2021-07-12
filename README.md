@@ -21,4 +21,6 @@ I relatively found working with the backend pretty interesting and learned a goo
 The heart of BobaeMatch resides in the query for matches, at the moment the querys are relatively simple as they query users by an interest and if there aren't enough users we go down the list to the next interest. This also includes whether the users are lactose intolerant, since that may be an ideal match, or if they like fruit teas.
 
 ## Future Plans and Interest
-Creating BobaeMatch was an enticing yet difficult journey. Throughout the trials I learned a lot about managing the backend and data queries, yet at the same time styling was a big challenege but I was able to create my own courasel.
+Creating BobaeMatch was an enticing yet difficult journey. Throughout the trials I learned a lot about managing the backend and data queries, yet at the same time styling was a big challenege but I really enjoyed my time creating my own components that some prefer using apis for. Although I do not hate the notion of apis, I used this project as my own opportunity to learn and create things from scratch.
+
+Future implementations include adding a messaging feature, possibly google maps, and amazon webservices for my images.
