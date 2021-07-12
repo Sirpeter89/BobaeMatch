@@ -119,12 +119,12 @@ def unauthorized():
 
 @auth_routes.route('/demo1', methods=['POST'])
 def demo1_user():
-    user=User.query.filter(User.userName == "Demo1").first()
+    user=User.query.filter(User.userName == "DemoThree").first()
     login_user(user)
     return user.to_dict()
 
 @auth_routes.route('/demo2', methods=['POST'])
 def demo2_user():
-    user=User.query.filter(User.userName == "Demo2").first()
+    user=User.query.filter(User.userName == "DemoFour").first()
     login_user(user)
     return user.to_dict()
