@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 450px;
-    width: 500px;
+    height: 325px;
+    width: 350px;
     z-index: 150;
 }
 
 .prefImage{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     border: 3px solid black;
     overflow: hidden;
@@ -17,8 +17,8 @@
 }
 
 .prefImage:hover{
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     border-color: rgb(13, 184, 190);
     box-shadow:8px 8px 58px 11px rgba(34, 180, 190, 0.39);

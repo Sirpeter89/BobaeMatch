@@ -25,7 +25,7 @@
 }
 
 .loginTitle{
-    margin-top: 15%;
+    margin-top: 10%;
     display: flex;
     justify-content: center;
     font-size: 80px;
@@ -37,8 +37,8 @@
     position: relative;
     overflow: hidden;
     width: 60%;
-    height: 96vh;
-    margin-top: -.5%;
+    height: 95.5vh;
+    margin-top: -.6%;
     border-right: 5px solid black;
     border-left: 5px solid black;
     margin-left: auto;

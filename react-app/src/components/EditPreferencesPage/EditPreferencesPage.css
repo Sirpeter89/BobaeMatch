@@ -40,8 +40,8 @@
 .choiceHolder{
     overflow: hidden;
     width: 80%;
-    height: 96.39vh;
-    margin-top: -.5%;
+    height: 95vh;
+    margin-top: -.6%;
     border-right: 5px solid black;
     border-left: 5px solid black;
     margin-left: auto;
@@ -86,7 +86,7 @@ textarea {
         border: 1px solid #888;
         height: 150px;
         margin-top: 7%;
-        margin-left: 4.4%;
+        margin-left: 3%;
         width: 90%;
         font-size: 20px;
         border-radius: 15px;
