@@ -51,8 +51,6 @@ export default function MatchPage(){
                 matchProfileList.push(matchProfile)
             }
 
-            console.log(matchProfileList)
-
             showProfile.current =
                 <>
                 {matchProfileList.map((person)=>(
