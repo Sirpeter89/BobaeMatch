@@ -4,10 +4,10 @@
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    width: 800px;
-    height: 300px;
+    width: 25vw;
+    height: 20vh;
     border: 1px solid rgb(0, 0, 0);
-    margin-left: 18vw;
+    margin-left: 17vw;
     margin-top: 8%;
     background-color: burlywood;
     border-radius: 25px;
@@ -37,7 +37,7 @@
     position: relative;
     overflow: hidden;
     width: 60%;
-    height: 96.39vh;
+    height: 96vh;
     margin-top: -.5%;
     border-right: 5px solid black;
     border-left: 5px solid black;
