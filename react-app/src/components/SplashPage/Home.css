@@ -1,102 +1,67 @@
-html{
-    margin-right: -13px;
-    margin-left: -13px;
-    overflow-x: hidden;
-    margin-bottom: 0;
-}
-
-#root{
-    margin-top: -15px;
-}
-
-.mainPage{
-    height: 96vh;
-    margin-top: -23px;
-}
-
-.centerCarousel{
-    display: flex;
-    justify-content: center;
-    height: 60vh;
-    background-size: cover;
-}
-
 .logoCont{
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-    height: 620px;
-    margin-top: -230px;
-    margin-bottom: -40px;
+    height: 20%;
 }
 
 .logo{
+    display: block;
+    position: relative;
     height: 100%;
-    width: 80%;
-    object-fit: cover;
-}
-
-.backgroundImageCont{
-    position: absolute;
     width: 100%;
-    height: 97%;
-    margin-top: .24%;
-}
-
-.backgroundImage{
-    position: absolute;
-    z-index: -100;
-    filter: blur(5px);
-    width: 100%;
-    height: 100%;
-    object-fit: fill;
-}
-
-.Text1{
-    position: absolute;
-    font-size: 40px;
-    margin-left: 63%;
-    margin-top: 60%;
-    z-index: 100;
-    font-weight: 800;
-    color: rgb(100, 98, 206);
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    object-fit: contain;
 }
 
 .bottomText{
-    margin-top: -10%;
     display: flex;
     justify-content: center;
-    font-size: 70px;
+    align-items: center;
+    font-size: 4vh;
     font-family: cursive;
     color: rgb(0, 0, 0);
     text-shadow: white 0px 0px 10px;
+    width: 100%;
+    height: 10%;
+    padding-top: 2%;
 }
 
 .moreBottomText{
     display: flex;
     justify-content: center;
-    font-size: 80px;
+    font-size: 4vh;
     font-family: cursive;
     color: rgb(0, 0, 0);
     text-shadow: white 0px 0px 10px;
+    height: 10%;
+}
+
+.centerCarousel{
+    position: relative;
+    display: block;
+    height: 50%;
+
 }
 
 .carouselContainer{
-    margin-top: 2%;
     display: flex;
     position: relative;
-    height: 40vh;
-    width: 30vw;
+    width: 65%;
     overflow: hidden;
-    border-radius: 10%;
-    box-shadow: 5px 5px 5px 5px rgba(249, 250, 249, 0.5);
+    border-radius: 25%;
+    box-shadow: 5px 5px 5px 5px rgba(219, 174, 51, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    height: 100%;
 }
 
 .image{
-    width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120%;
+    height: 120%;
     object-fit: fill;
 }
 
@@ -106,26 +71,29 @@ html{
 }
 
 .nextImage{
-    width: 100%;
-    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120%;
+    height: 120%;
     object-fit: fill;
 }
 
 .thirdImage{
-    width: 100%;
-    max-height: 100%;
+    display: flex;
+    justify-content: center;
+    width: 120%;
+    height: 120%;
     object-fit: fill;
 }
 
 .infoSquare{
     position: absolute;
-    z-index: 50;
     border-right: 5px solid black;
     border-left: 5px solid black;
     width: 50%;
-    height: 96.9%;
-    margin-left: 25vw;
-    margin-right: 25vw;
+    height: 100vh;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.781);
-    margin-top: 7px;
 }

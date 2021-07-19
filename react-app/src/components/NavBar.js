@@ -50,30 +50,37 @@ const NavBar = () => {
   } else {
     sideButtons =
     <nav>
-      <ul className="NavBarContainerHome">
-        <li className="navButton">
+      {/* <div className="test">
+
+      </div> */}
+      <div className="NavBarContainerHome">
+        <div className="navButton">
           <div className="bobaIcon">
           </div>
-          <NavLink className="linkWords" to="/" exact={true} activeClassName="active">
+          <NavLink className="homeButton" to="/" exact={true} activeClassName="active">
             Home
           </NavLink>
-        </li>
-        <button className="demoButton" onClick={onDemo1Click}>Demo User1 Login</button>
-        <button className="demoButton" onClick={onDemo2Click}>Demo User2 Login</button>
-        <li className="aboutInfo">
+        </div>
+        <div className="demo1">
+          <button className="demoButton" onClick={onDemo1Click}>Demo User1</button>
+        </div>
+        <div className="demo2">
+          <button className="demoButton" onClick={onDemo2Click}>Demo User2</button>
+        </div>
+        <div className="developedBy">
           Developed by Justin Wong: <a href="https://github.com/Sirpeter89">Github</a>
-        </li>
-        <li>
-          <NavLink  className="linkLoginWords" to="/login" exact={true} activeClassName="active">
+        </div>
+        <div className="navLogin">
+          <NavLink to="/login" exact={true} activeClassName="active">
             &#128073;Login
           </NavLink>
-        </li>
-        <li>
-          <NavLink className="linkSignUpWords" to="/sign-up" exact={true} activeClassName="active">
+        </div>
+        <div className="navSignup">
+          <NavLink to="/sign-up" exact={true} activeClassName="active">
             &#128073;Sign Up
           </NavLink>
-        </li>
-    </ul>
+        </div>
+    </div>
   </nav>
   }
   return (

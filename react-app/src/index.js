@@ -10,7 +10,8 @@ const store = configureStore();
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <div className="backgrounds"></div>
+      <App className="test"/>
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

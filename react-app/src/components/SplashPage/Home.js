@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './Home.css'
-import logo from './BobaeMatch.png'
+import logo from './BobaeMatchResized.png'
 
 
 export default function HomePage(){
@@ -24,7 +24,7 @@ export default function HomePage(){
             if (transition === "disabled"){
                 setTransition("enabled")
             }
-        }, 2000)
+        }, 1000)
         const swapImages = setTimeout(()=>{
             if (transition === "enabled"){
                 if(index === imageList.length-1){ //if we're at the last image
@@ -38,7 +38,7 @@ export default function HomePage(){
                 }
                 setTransition("disabled")
             }
-        },4000)
+        },3000)
         return () => {
             clearTimeout(change);
             clearTimeout(swapImages);
@@ -46,29 +46,21 @@ export default function HomePage(){
     }, [transition])
 
     return (
-        <div className="mainPage">
-            <div className='backgroundImageCont'>
-                    <img className='backgroundImage' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
+        <div className="infoSquare">
+            <div className="logoCont">
+                <img className="logo" src={logo} />
             </div>
-            <div className="infoSquare">
-                <div className="logoCont">
-                    <img className="logo" src={logo} />
+            <div className='centerCarousel'>
+                <div className='carouselContainer'>
+                    <img className={`image ${transition}`} src={one}></img>
+                    <img className={`nextImage ${transition}`} src={two}></img>
                 </div>
-                <div className='centerCarousel'>
-                    <div className='carouselContainer'>
-                        <div className='Text1'>
-                            BobaTea &hearts;
-                        </div>
-                        <img className={`image ${transition}`} src={one}></img>
-                        <img className={`nextImage ${transition}`} src={two}></img>
-                    </div>
-                </div>
-                <div className="bottomText">
-                    Dating for Boba Lovers
-                </div>
-                <div className="moreBottomText">
-                    Find Your Boba Match Today
-                </div>
+            </div>
+            <div className="bottomText">
+                Dating for Boba Lovers
+            </div>
+            <div className="moreBottomText">
+                Find Your Boba Match Today
             </div>
         </div>
     )
