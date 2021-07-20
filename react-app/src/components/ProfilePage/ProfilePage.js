@@ -57,13 +57,8 @@ export default function ProfilePage(){
         </div>
     }
 
-    //https://images.unsplash.com/photo-1555050551-82f8d95a0614?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80
-
     return(
         <>
-            <div className='backgroundImageContProfile'>
-                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
-            </div>
             <div className="profileDetailsCont">
                 <div className="leftContainer">
                     <div className="detailsTitle">
@@ -89,7 +84,9 @@ export default function ProfilePage(){
                             <b>Gender:</b> {user.gender}
                         </div>
                     </div>
-
+                    <div className="editInfoBox">
+                        <button className="editInfo" onClick={editInfo}>Edit Information</button>
+                    </div>
                 </div>
                 <div className="rightContainer">
                     <div className="preferenceTitle">
@@ -114,13 +111,14 @@ export default function ProfilePage(){
                             <b>Personal Description:</b> {preferences && preferences.description}
                         </div>
                     </div>
+                    <div className = "editPrefBox">
+                        <button className="editPref" onClick={editPref}>Edit Preferences</button>
+                    </div>
                 </div>
             </div>
             <div className="profileImage">
                 <img className="pImg" src={user.profileImage} />
             </div>
-            <button className="editInfo" onClick={editInfo}>Edit Information</button>
-            <button className="editPref" onClick={editPref}>Edit Preferences</button>
         </>
     )
 }

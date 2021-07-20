@@ -1,12 +1,25 @@
+.profileDetailsCont{
+    position: absolute;
+    display: grid;
+    grid-template-areas:
+    "info preferences";
+    grid-template-columns: 50% 50%;
+    border: 3px solid black;
+    height: 85%;
+    width: 90%;
+    margin-left: 6%;
+    margin-top: 4%;
+    background-color: rgba(253, 253, 253, 0.808);
+    border-radius: 50px;
+}
+
 .profileImage{
+    position: absolute;
     border: 5px solid black;
     border-radius: 50%;
-    width: 300px;
-    height: 300px;
+    width: 15vw;
+    height: 28vh;
     overflow: hidden;
-    z-index: 100;
-    margin-left: 2%;
-    margin-top: 2%;
 }
 
 .pImg{
@@ -19,7 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 70px;
+    font-size: 2vw;
     margin-left: 25%;
     margin-top: 4%;
     height:12%;
@@ -33,7 +46,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 70px;
+    font-size: 2vw;
     margin-left: 20%;
     height:12.5%;
     max-width: 50%;
@@ -44,74 +57,46 @@
 
 .editInfo{
     position: relative;
-    margin-left:19%;
-    margin-top: 27%;
-    height: 90px;
-    width: 20%;
+    height: 7.5vh;
+    width: 35%;
     border-radius: 25px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 45px;
-    z-index: 10000;
+    font-size: 1.5vw;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
 
 .editInfo:hover{
     position: relative;
-    margin-left:19%;
-    margin-top: 27%;
-    height: 90px;
-    width: 20%;
+    height: 7.5vh;
+    width: 35%;
     border-radius: 50px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 45px;
-    z-index: 10000;
+    font-size: 1.5vw;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
 
 .editPref{
     position: relative;
-    /* margin-top: -7%; */
-    margin-left:21%;
-    height: 90px;
-    width: 20%;
+    height: 7.5vh;
+    width: 40%;
     border-radius: 25px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 45px;
-    z-index: 10000;
+    font-size: 1.5vw;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
 }
 
 .editPref:hover{
     position: relative;
-    /* margin-top: -7%; */
-    margin-left:21%;
-    height: 90px;
-    width: 20%;
+    height: 7.5vh;
+    width: 40%;
     border-radius: 50px;
     background-color: rgb(222, 184, 135);
     font-weight: bolder;
-    font-size: 45px;
-    z-index: 10000;
+    font-size: 1.5vw;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
-}
-
-.profileDetailsCont{
-    display: grid;
-    grid-template-areas:
-    "info preferences";
-    grid-template-columns: 50% 50%;
-    position: absolute;
-    border: 3px solid black;
-    height: 85%;
-    width: 90%;
-    margin-left: 6%;
-    margin-top: 4%;
-    z-index: -100;
-    background-color: rgba(253, 253, 253, 0.808);
-    border-radius: 50px;
 }
 
 .leftContainer{
@@ -149,24 +134,24 @@
 }
 
 .userName{
-    font-size: 40px;
+    font-size: 2vw;
 
 }
 
 .name{
-    font-size: 40px;
+    font-size: 2vw;
 }
 
 .cityZip{
-    font-size: 40px;
+    font-size: 2vw;
 }
 
 .age{
-    font-size: 40px;
+    font-size: 2vw;
 }
 
 .height{
-    font-size: 40px;
+    font-size: 2vw;
 }
 
 .backgroundImageContProfile{
@@ -183,4 +168,16 @@
     width: 100%;
     height: 100%;
     object-fit: fill;
+}
+
+.editInfoBox{
+    display: flex;
+    justify-content: center;
+}
+
+.editPrefBox{
+    display: flex;
+    justify-content: center;
+    padding-left: 10%;
+    padding-top: 3%;
 }
