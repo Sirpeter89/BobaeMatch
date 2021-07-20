@@ -32,10 +32,6 @@ const LoginForm = () => {
   }
 
   return (
-    <>
-      <div className='backgroundImageContProfile'>
-          <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
-      </div>
       <div className="loginHolder">
         <div className="loginTitle">
                       Let's Login
@@ -75,8 +71,6 @@ const LoginForm = () => {
           </div>
         </form>
       </div>
-    </>
-
   );
 };
 

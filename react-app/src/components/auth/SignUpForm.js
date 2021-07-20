@@ -95,11 +95,7 @@ const SignUpForm = () => {
   }
 
   return (
-    <div>
-      <div className='backgroundImageContSignUp'>
-                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
-      </div>
-      <div className="choiceHolderSign">
+      <div className="signupHolder">
           <div className="SignUpTitle">
                         Let's Sign Up
           </div>
@@ -257,7 +253,6 @@ const SignUpForm = () => {
             <button className="signUpButton" type="submit">Sign Up</button>
           </form>
         </div>
-    </div>
   );
 };
 

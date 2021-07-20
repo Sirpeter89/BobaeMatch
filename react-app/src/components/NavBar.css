@@ -1,106 +1,109 @@
-/* .NavBarContainer{
+.NavBarContainer{
+    position: relative;
     display: grid;
-    grid-template-columns: 81% 7% 7.5% 4%;
-    height: 3vh;
+    grid-template-columns: 76% 8% 8% 8%;
+    grid-template-areas: "Profile Potential Current Logout";
+    height: 2.5rem;
     list-style-type: none;
     background-color: rgb(238, 227, 213);
-} */
-
-/* .test{
-    background-color: aqua;
-    height: 5em;
-} */
+}
 
 .NavBarContainerHome{
     position: relative;
     display: grid;
-    /* grid-template-columns: 9% 8% 8% 64% 7.5% 5%; */
     grid-template-columns: 7% 8% 8% 66% 6% 5%;
     grid-template-areas: "Home Demo1 Demo2 Dev Login Signup";
     height: 2.5rem;
     list-style-type: none;
     background-color: rgb(238, 227, 213);
 }
-/*
-.logout{
-    display: flex;
-} */
 
-/* .matches{
-    margin-left: 80px;
-} */
-
-/* .bobaIcon{
-    width: 8%;
-    height: 70%;
+.bobaIcon{
+    width: 1.8vh;
+    height: 1.8vh;
     border: 1px solid black;
     background-color: rgba(51, 37, 21, 0.911);
     border-radius: 50%;
-    margin-top: .2%;
-} */
+    margin-top: 3%;
+}
 
-/* .bobaIconProfile{
-    width: 1.1%;
-    height: 50%;
+.bobaIconProfile{
+    width: 1.8vh;
+    height: 1.8vh;
     border: 1px solid black;
     background-color: rgba(51, 37, 21, 0.911);
     border-radius: 50%;
-    margin-top: .4%;
-} */
+}
 
 .navButton{
     grid-area: Home;
     display: flex;
-    justify-content: center;
-    flex-direction: column;
+    align-items: center;
     max-height: 2em;
+    padding-left: 5%;
+    padding-top: 3%;
 }
 
-/* .navButtonProfile{
+.navButtonProfile{
+    grid-area: Profile;
     display: flex;
-    margin-left: -1%;
-} */
+    max-height: 2em;
+    padding-top: .5%;
+}
 
 .homeButton{
-    /* background-color: aqua;
-    width: 100%;
-    grid-area: Home; */
-    /* margin-top: .4%;
-    margin-left: 3%; */
-    font-size: 15px;
+    font-size: .8vw;
     text-decoration: underline;
     color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-/* .linkWordsProfile{
-    margin-top: .5%;
+.profileButton{
     margin-left: .5%;
-    font-size: 15px;
+    font-size: .8vw;
     text-decoration: underline;
     color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-} */
-
-/* .linkFindWords{
-    text-decoration: underline;
-    margin-top: .2%;
-    margin-left: .2%;
-    font-size: 15px;
-    color: rgb(175, 121, 50);
-    font-weight: 800;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-} */
-
-/* .bobaesLink{
-    margin-top: 6%;
 }
 
-.matchesLink{
-    margin-top: 5%;
-}*/
+.navBobaes{
+    grid-area: Potential;
+    display: flex;
+    align-items: center;
+    max-height: 2em;
+    font-size: .8vw;
+    text-decoration: underline;
+    color: rgb(175, 121, 50);
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.navMatches{
+    grid-area: Current;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 2em;
+    font-size: .8vw;
+    text-decoration: underline;
+    color: rgb(175, 121, 50);
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.navLogout{
+    grid-area: Logout;
+    padding-top: .5%;
+    display: flex;
+    justify-content: center;
+    max-height: 2em;
+    text-decoration: underline;
+    color: rgb(175, 121, 50);
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
 
 .navLogin{
     grid-area: Login;
@@ -108,7 +111,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: .8em;
+    font-size: .8vw;
     text-decoration: underline;
     color: rgb(175, 121, 50);
     font-weight: 800;
@@ -121,7 +124,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: .8em;
+    font-size: .8vw;
     text-decoration: underline;
     color: rgb(175, 121, 50);
     font-weight: 800;
@@ -133,13 +136,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1em;
+    font-size: 1.2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
-    /* margin-top: .8%;
-    margin-right: 23%; */
-    /* padding-right: 18%;
-    max-height: 2.5em; */
+    padding-right: 18%;
 }
 
 .demoButton{

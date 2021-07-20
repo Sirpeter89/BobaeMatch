@@ -2,52 +2,39 @@
     display: flex;
 }
 
-.backgroundImageContSignUp{
-    position: absolute;
-    margin-top: -.5%;
-    width: 101%;
-    height: 97.8%;
-}
-
 .signUpForm{
+    position: absolute;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
-    width: 25vw;
-    height: 70%;
+    width: 30rem;
+    height: 50rem;
+    left: 50%;
+    transform: translate(-50%, 0);
     border: 1px solid rgb(0, 0, 0);
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2%;
+    margin-top: 5%;
     background-color: burlywood;
     border-radius: 25px;
 }
 
 .inputLabel{
-    font-size: 20px;
+    font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
 }
 
 .inputArea{
     margin-top: 8px;
-    height: 30px;
-    width: 500px;
-    z-index: 60;
+    height: 1em;
+    width: 15em;
     border-radius: 25px;
-    font-size: 20px;
-}
-
-.signUpForm{
-    z-index: 40;
-    position: absolute;
-    margin-left: 28vw;
+    font-size: 1.2em;
 }
 
 .radio{
-    transform: scale(2);
-    margin-left: 30px;
+    transform: scale(1.5);
+    margin-left: 5%;
 }
 
 .radioLabels{
@@ -55,26 +42,26 @@
 }
 
 .genderLabel{
-    margin-right: 67%;
-    font-size: 20px;
+    margin-right: 50%;
+    font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
 }
 
 .heightLabel{
-    margin-right: 67%;
-    font-size: 20px;
+    margin-right: 50%;
+    font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
 }
 
 .heightInput{
     margin-top: 8px;
-    height: 30px;
-    width: 200px;
+    height: 1em;
+    width: 6em;
     z-index: 60;
     border-radius: 25px;
-    font-size: 20px;
+    font-size: 1em;
 }
 
 .heightDetails{
@@ -89,29 +76,30 @@
     margin-top: 3%;
     display: flex;
     justify-content: center;
-    font-size: 80px;
+    font-size: 5rem;
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .signUpButton{
-    font-size: 22px;
+    font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
-    margin-top: 3%;
+    margin-top: 1%;
+    margin-bottom: 5%;
     height: 40px;
     width: 100px;
     border-radius: 25px;
 }
 
-.choiceHolderSign{
-    overflow: hidden;
-    width: 80%;
-    height: 96.2vh;
-    margin-top: -.56%;
+.signupHolder{
+    position: absolute;
+    overflow: scroll;
+    width: 50%;
+    height: 100%;
     border-right: 5px solid black;
     border-left: 5px solid black;
-    margin-left: auto;
-    margin-right: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.781);
 }

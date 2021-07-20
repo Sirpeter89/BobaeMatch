@@ -4,11 +4,12 @@
     justify-content: space-around;
     flex-direction: column;
     align-items: center;
-    width: 25vw;
-    height: 20vh;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 40rem;
+    height: 15rem;
+    margin-top: 10%;
     border: 1px solid rgb(0, 0, 0);
-    margin-left: 17vw;
-    margin-top: 8%;
     background-color: burlywood;
     border-radius: 25px;
 }
@@ -28,20 +29,19 @@
     margin-top: 10%;
     display: flex;
     justify-content: center;
-    font-size: 80px;
+    font-size: 5rem;
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .loginHolder{
-    position: relative;
+    position: absolute;
     overflow: hidden;
-    width: 60%;
-    height: 96.1vh;
-    margin-top: -.51%;
+    width: 50%;
+    height: 100vh;
     border-right: 5px solid black;
     border-left: 5px solid black;
-    margin-left: auto;
-    margin-right: auto;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.781);
 }

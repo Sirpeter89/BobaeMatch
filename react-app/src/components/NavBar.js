@@ -24,35 +24,32 @@ const NavBar = () => {
   if (user){
     sideButtons =
     <nav>
-      <ul className="NavBarContainer">
-        <li className="navButtonProfile">
+      <div className="NavBarContainer">
+        <div className="navButtonProfile">
           <div className="bobaIconProfile">
           </div>
-          <NavLink className="linkWordsProfile" to="/" exact={true} activeClassName="active">
+          <NavLink className="profileButton" to="/" exact={true} activeClassName="active">
             Profile
           </NavLink>
-        </li>
-        <li className="bobaesLink">
-          <NavLink className="linkFindWords" to="/findBobaes" exact={true} activeClassName="active">
+        </div>
+        <div className="navBobaes">
+          <NavLink to="/findBobaes" exact={true} activeClassName="active">
             &#128064; Find Bobaes
           </NavLink>
-        </li>
-        <li className="matchesLink">
-          <NavLink className="linkFindWords" to="/matches" exact={true} activeClassName="active">
+        </div>
+        <div className="navMatches">
+          <NavLink to="/matches" exact={true} activeClassName="active">
             &#10084; Current Matches
           </NavLink>
-        </li>
-        <li className="logout">
-          <LogoutButton />
-        </li>
-    </ul>
+        </div>
+        <div className="navLogout">
+          <LogoutButton className="navLogout"/>
+        </div>
+    </div>
   </nav>
   } else {
     sideButtons =
     <nav>
-      {/* <div className="test">
-
-      </div> */}
       <div className="NavBarContainerHome">
         <div className="navButton">
           <div className="bobaIcon">
