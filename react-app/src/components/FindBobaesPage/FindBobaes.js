@@ -89,7 +89,7 @@ export default function FindBobaes(){
                                 About Me
                             </div>
                             <div className="profileContents">
-                                <div className="profileDets">
+                                <div className="profileCity">
                                     <b>City:</b> {person.city}
                                 </div>
                                 <div className="milkTeaDetails">
@@ -122,10 +122,7 @@ export default function FindBobaes(){
 
     return(
         <>
-            <div className='backgroundImageContProfile'>
-                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
-            </div>
-            <div className="loginHolder">
+            <div className="bobaeHolder">
                 <div className="bobaeTitle">
                         Bobae
                 </div>

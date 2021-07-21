@@ -131,7 +131,7 @@ export default function EditPreferencePage(){
         choiceComponents =
         <div className="choiceHolderDesc">
             <div className="almostTitle">
-            &#10084; You're Almost Ready To Find A Boba Bae &#10084;
+            &#10084;You're Almost Ready To Find A Boba Bae &#10084;
             </div>
             <div className="typeBox">
                 <div className="choiceQuestion">
@@ -144,16 +144,15 @@ export default function EditPreferencePage(){
                         placeholder="Type here to tell users about your boba tastes!">
                     </textarea>
                 </div>
-                <button className='submitButton' type="button" onClick={onSub}>Submit</button>
+                <div className="submitContainer">
+                    <button className='submitButton' type="button" onClick={onSub}>Submit</button>
+                </div>
             </div>
         </div>
     }
 
     return (
         <>
-            <div className='backgroundImageContProfile'>
-                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
-            </div>
             {choiceComponents}
         </>
     )

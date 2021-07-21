@@ -11,19 +11,22 @@
 
 
 .TeaTitle{
-    margin-top: 3%;
+    margin-top: 5vh;
+    margin-bottom: 2vh;
     display: flex;
     justify-content: center;
-    font-size: 80px;
+    font-size: 3vw;
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .almostTitle{
-    margin-top: 10%;
+    margin-top: 20vh;
+    margin-bottom: 2vh;
     display: flex;
     justify-content: center;
-    font-size: 80px;
+    /* text-align: center; */
+    font-size: 3vw;
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -38,33 +41,33 @@
 
 
 .choiceHolder{
-    overflow: hidden;
+    overflow-y: scroll;
+    position: absolute;
     width: 80%;
-    height: 96.2vh;
-    margin-top: -.56%;
     border-right: 5px solid black;
     border-left: 5px solid black;
-    margin-left: auto;
-    margin-right: auto;
+    height: 100vh;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.781);
 }
 
 .choiceHolderDesc{
-    overflow: hidden;
-    width: 70%;
-    height: 96vh;
-    margin-top: -.5%;
+    position: absolute;
+    overflow-y: scroll;
     border-right: 5px solid black;
     border-left: 5px solid black;
-    margin-left: auto;
-    margin-right: auto;
+    width: 70%;
+    height: 100vh;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.781);
 }
 
 
 .choiceQuestion{
     margin-top: 3%;
-    font-size: 41px;
+    font-size: 2em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
     color: rgb(212, 198, 178);
@@ -72,10 +75,14 @@
 }
 
 .typeBox{
-    position: absolute;
-    width: 900px;
-    height: 450px;
-    margin: 16vh 16.5vw;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8%;
+    width: 55%;
+    height: 25rem;
+    left: 50%;
+    transform: translate(-50%, 0);
     background-color: rgba(133, 85, 40, 0.904);
     border-radius: 25px;
     border: 3px solid black;
@@ -84,22 +91,26 @@
 textarea {
         background-color: rgba(240, 209, 168, 0.842);
         border: 1px solid #888;
-        height: 150px;
+        height: 10rem;
         margin-top: 7%;
-        margin-left: 4.4%;
         width: 90%;
+        margin-left: 5%;
         font-size: 20px;
         border-radius: 15px;
         resize: none;
     }
 
 .submitButton{
-    font-size: 22px;
+    font-size: 1em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 800;
     margin-top: 3%;
-    margin-left: 84%;
+    margin-right: 2%;
     height: 40px;
     width: 100px;
     border-radius: 25px;
+}
+.submitContainer{
+    display: flex;
+    justify-content: flex-end;
 }

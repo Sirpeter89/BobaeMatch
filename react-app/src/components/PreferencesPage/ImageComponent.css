@@ -2,14 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 325px;
-    width: 350px;
+    height: 20em;
+    width: 20em;
     z-index: 150;
 }
 
 .prefImage{
-    width: 300px;
-    height: 300px;
+    width: 15em;
+    height: 15em;
     border-radius: 50%;
     border: 3px solid black;
     overflow: hidden;
