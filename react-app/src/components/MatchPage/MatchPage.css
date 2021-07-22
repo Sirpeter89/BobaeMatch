@@ -1,13 +1,9 @@
 .matchImageCont{
-    width: 280px;
-    height: 250px;
+    width: 40%;
+    height: 80%;
     overflow: hidden;
     border: 1px solid black;
     border-radius: 50%;
-    margin-top: 2%;
-    margin-left: 5%;
-    margin-right: 15%;
-    margin-bottom: 2%;
 }
 
 .profImage{
@@ -16,38 +12,45 @@
 }
 
 .matchRectangle{
-    display: flex;
+    display: grid;
+    grid-template-areas: "User Interest Extra";
+    grid-template-columns: 50% 25% 25%;
     border-bottom: 3px solid black;
+    min-height: 30%;
 }
 
 .userDetails{
+    grid-area: User;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
     width: 100%;
+    height: 100%;
+    border-right:3px solid black;
 }
 
 .matchUserInfo{
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-left: -10%;
-    font-size: 30px;
-    height: 90%;
-    margin-top: 2%;
+    flex-wrap: wrap;
+    margin-left: 10%;
+    font-size: 1.3vw;
+    height: 100%;
 }
 
 .userPreferences{
+    grid-area: Interest;
     display: flex;
-    justify-content: space-evenly;
     font-size: 30px;
-    margin-left: -23%;
-    width: 90%;
-    border-left: 1px dotted black;
+    width: 100%;
 }
 
 .bobaPrefTitle{
-    font-size: 40px;
-    margin-left: -3%;
-    width: 41%;
+    font-size: 2vw;
+    width: 100%;
+    padding-left: 3%;
 }
 
 .matchPrefDetails{
@@ -55,28 +58,32 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    margin-left: 25%;
     height: 75%;
-    font-size: 30px;
+    font-size: 60%;
 }
 
 .matchHolder{
     width: 65%;
-    height: 96.39vh;
-    margin-top: -.5%;
     border-right: 5px solid black;
     border-left: 5px solid black;
-    margin-left: 17vw;
     background-color: rgba(255, 255, 255, 0.781);
     overflow-y: auto;
     position: absolute;
+    height: 100vh;
+    left: 50%;
+    transform: translate(-50%, 0);
 }
 
 .matchPrefExtraDetails{
-    font-size: 30px;
-    height: 40%;
-    margin-top: 11%;
+    grid-area: Extra;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.5vw;
+    padding-top: 3%;
+    padding-left: 3%;
     margin-left: 5%;
+    border-left: 1px dotted black;
 }
 
 .yourBobaesTitle{

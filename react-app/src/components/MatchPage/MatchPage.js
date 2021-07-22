@@ -76,7 +76,6 @@ export default function MatchPage(){
                                 </div>
                             </div>
 
-
                             <div className="userPreferences">
                                 <div className="bobaPrefTitle">
                                     <u><b>Boba Preference:</b></u>
@@ -95,8 +94,8 @@ export default function MatchPage(){
                                         </div>
                                     </div>
                                 </div>
-
-                                <div className="matchPrefExtraDetails">
+                            </div>
+                            <div className="matchPrefExtraDetails">
                                     <div>
                                         {person[1].lactose? <p>Milk is somewhat my enemy &#128557;</p>
                                                         : <p>Milk is not my enemy &#128516;</p>}
@@ -106,7 +105,6 @@ export default function MatchPage(){
                                                         : <p>Fruit Teas are not my thing &#128547;</p>}
                                     </div>
                                 </div>
-                            </div>
 
                     </div>
                 ))}
@@ -124,9 +122,6 @@ export default function MatchPage(){
 
     return (
         <>
-            <div className='backgroundImageContProfile'>
-                <img className='backgroundImageProfile' src='https://images.pexels.com/photos/5379707/pexels-photo-5379707.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' />
-            </div>
             <div className="matchHolder">
                 <div className="yourBobaesTitle">
                     Your Bobaes
