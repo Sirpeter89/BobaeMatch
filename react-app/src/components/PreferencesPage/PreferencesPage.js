@@ -144,7 +144,9 @@ export default function PreferencePage(){
                         placeholder="Type here to tell users about your boba tastes!">
                     </textarea>
                 </div>
-                <button className='submitButton' type="button" onClick={onSub}>Submit</button>
+                <div className="submitContainer">
+                    <button className='submitButton' type="button" onClick={onSub}>Submit</button>
+                </div>
             </div>
         </div>
     }
