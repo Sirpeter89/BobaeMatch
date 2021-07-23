@@ -22,7 +22,7 @@ export default function FindBobaes(){
         if(preference){
             await dispatch(loadBobaes(user.id, preference.gender, user.gender, preference.tea, preference.addons, preference.sugar, preference.fruit))
         }
-    }, [preference])
+    }, [])
 
     const confirmMatch = async (matchedUserId) => {
         await dispatch(acceptBobae(user.id, matchedUserId))
