@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import './MatchPage.css'
 import { loadMatches, deleteMatch } from "../../store/match"
+import { resetBobae } from "../../store/bobaes"
 
 
 export default function MatchPage(){
@@ -18,6 +19,21 @@ export default function MatchPage(){
     const deletedMatch = async (useroneid, usertwoid) => {
         console.log(useroneid, usertwoid)
         await dispatch(deleteMatch(useroneid, usertwoid))
+        // await dispatch(resetBobae(user.id, usertwoid))
+        const response = await fetch('/api/bobaes/reset', {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                userId: user.id,
+                matchedUserId: usertwoid
+            })
+        });
+        const data = await response.json();
+        if (data.errors) {
+            return;
+        }
         setJustDeleted(true)
     }
 

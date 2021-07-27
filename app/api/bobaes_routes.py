@@ -83,6 +83,7 @@ def get_bobaes():
     payload['userProfiles'] = dict(userProfiles)
     return payload
 
+
 @bobaes_routes.route('/accept', methods=['PATCH'])
 def accept_bobae():
     data = request.get_json()
@@ -91,6 +92,7 @@ def accept_bobae():
     db.session.commit()
     return updatePotentialMatch.to_dict()
 
+
 @bobaes_routes.route('/deny', methods=['PATCH'])
 def deny_bobae():
     data = request.get_json()
@@ -98,6 +100,7 @@ def deny_bobae():
     updatePotentialMatch.declined = True
     db.session.commit()
     return updatePotentialMatch.to_dict()
+
 
 @bobaes_routes.route('/checkMatch', methods=['POST', 'GET'])
 def check_bobae_match():
@@ -108,3 +111,12 @@ def check_bobae_match():
         return checkPotentialMatch.to_dict()
     else:
         return {}
+
+
+@bobaes_routes.route('/reset', methods=['PATCH'])
+def reset_bobae():
+    data = request.get_json()
+    updatePotentialMatch = Potential_match.query.filter(and_(Potential_match.userId == data['userId'], Potential_match.matchedUserId == data['matchedUserId'])).first()
+    updatePotentialMatch.accepted = False
+    db.session.commit()
+    return updatePotentialMatch.to_dict()

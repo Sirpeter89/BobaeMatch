@@ -2,6 +2,7 @@
 const GET_BOBAES = "bobaes/GET_BOBAES"
 const ACCEPT_BOBAES = "bobaes/ACCEPT_BOBAES"
 const DENY_BOBAES = "bobaes/DENY_BOBAES"
+const RESET_BOBAES = "bobaes/RESET_BOBAES"
 
 
 // action creators
@@ -17,6 +18,11 @@ const acceptBobaes = (bobae) => ({
 
 const denyBobaes = (bobae) => ({
     type: DENY_BOBAES,
+    payload: bobae
+})
+
+const resetBobaes = (bobae) => ({
+    type: RESET_BOBAES,
     payload: bobae
 })
 
@@ -58,6 +64,24 @@ export const acceptBobae = (userId, matchedUserId) => async(dispatch) => {
     dispatch(acceptBobaes(data))
 }
 
+export const resetBobae = (userId, matchedUserId) => async(dispatch) => {
+    const response = await fetch('/api/bobaes/reset', {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            userId,
+            matchedUserId
+        })
+    });
+    const data = await response.json();
+    if (data.errors) {
+        return;
+    }
+    dispatch(resetBobaes(data))
+}
+
 export const loadBobaes = (userId, genderPref, userGender, tea, addons, sugar, fruit) => async (dispatch) => {
     const response = await fetch('/api/bobaes/', {
         method: 'POST',
@@ -94,6 +118,10 @@ export default function reducer(state = initialState, action) {
             newState.bobaes.PotentialMatches[action.payload.matchedUserId] = action.payload
             return newState
         case DENY_BOBAES:
+            newState = {...state}
+            newState.bobaes.PotentialMatches[action.payload.matchedUserId] = action.payload
+            return newState
+        case RESET_BOBAES:
             newState = {...state}
             newState.bobaes.PotentialMatches[action.payload.matchedUserId] = action.payload
             return newState

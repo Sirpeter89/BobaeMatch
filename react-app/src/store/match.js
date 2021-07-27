@@ -100,8 +100,6 @@ export default function reducer(state = initialState, action) {
                     ...state.match.slice(index + 1)
                 ]
             }
-            // newState.match.splice(index, 1);
-            // return newState;
         default:
             return state;
     }
