@@ -14,20 +14,23 @@ export default function MatchPage(){
 
     const [mounted, setMounted] = useState(false)
 
-    const [profiles, setProfiles] = useState(false)
+    const [matchProfileListArray, setMatchProfileListArray] = useState([]);
 
-    //const [matchProfileListArray, setMatchProfileListArray] = useState([])
-
-    const showProfile = useRef()
+    const deleteMatch = () => {
+        console.log(matchProfileListArray)
+    }
 
     useEffect(async()=>{
 
-        if (mounted){
+        const match = await dispatch(loadMatches(user.id))
+
+
+        if (match ){
 
             let matchProfileList = [];
             let users;
             let preferences;
-                for(const el of matches) {
+                for(const el of match.match) {
                     let matchProfile = [];
                     let getUserId;
                     if(el.useroneId !== user.id){
@@ -53,79 +56,78 @@ export default function MatchPage(){
 
                     matchProfileList.push(matchProfile)
                 }
-            //setMatchProfileListArray(matchProfileList)
-            showProfile.current =
-                <>
-                {/* matchProfileListArray */}
-                {matchProfileList.map((person)=>(
-                    <div className="matchRectangle">
-
-                            <div className="userDetails">
-                                <div className="matchImageCont">
-                                    <img className="profImage" src={person[0].profileImage}></img>
-                                </div>
-                                <div className="matchUserInfo">
-                                    <div>
-                                        User: {person[0].username}
-                                    </div>
-                                    <div>
-                                        Name: {person[0].firstname} {person[0].lastname}
-                                    </div>
-                                    <div>
-                                        City: {person[0].city}
-                                    </div>
-                                    <div>
-                                        Age: {person[0].age}
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="userPreferences">
-                                <div className="bobaPrefTitle">
-                                    <u><b>Boba Preference:</b></u>
-                                    <div className="matchPrefDetails">
-                                        <div>
-                                            <b>Tea:</b> {person[1].tea}
-                                        </div>
-                                        <div>
-                                            <b>Addons:</b> {person[1].addons}
-                                        </div>
-                                        <div>
-                                            <b>Sweetness:</b> {person[1].sugar}
-                                        </div>
-                                        <div>
-                                            <b>Description:</b> {person[1].description}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="matchPrefExtraDetails">
-                                    <div>
-                                        {person[1].lactose? <p>Milk is somewhat my enemy &#128557;</p>
-                                                        : <p>Milk is not my enemy &#128516;</p>}
-                                    </div>
-                                    <div>
-                                        {person[1].fruit? <p>Fruit Teas are my thing &#128540;</p>
-                                                        : <p>Fruit Teas are not my thing &#128547;</p>}
-                                    </div>
-                            </div>
-                            <div className="DeleteArea">
-                                <button className="DeleteButton">Delete Match</button>
-                            </div>
-
-                    </div>
-                ))}
-
-                </>
-            setProfiles(true)
-        }else{
-            await dispatch(loadMatches(user.id))
+            setMatchProfileListArray(matchProfileList)
             setMounted(true)
         }
-        return ()=>{
-            setMounted(false)
+        
+    }, [])
+
+    let showProfile;
+
+    if(matchProfileListArray.length){
+        showProfile =
+                    <>
+                    {matchProfileListArray.map((person)=>(
+                        <div className="matchRectangle">
+
+                                <div className="userDetails">
+                                    <div className="matchImageCont">
+                                        <img className="profImage" src={person[0].profileImage}></img>
+                                    </div>
+                                    <div className="matchUserInfo">
+                                        <div>
+                                            User: {person[0].username}
+                                        </div>
+                                        <div>
+                                            Name: {person[0].firstname} {person[0].lastname}
+                                        </div>
+                                        <div>
+                                            City: {person[0].city}
+                                        </div>
+                                        <div>
+                                            Age: {person[0].age}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="userPreferences">
+                                    <div className="bobaPrefTitle">
+                                        <u><b>Boba Preference:</b></u>
+                                        <div className="matchPrefDetails">
+                                            <div>
+                                                <b>Tea:</b> {person[1].tea}
+                                            </div>
+                                            <div>
+                                                <b>Addons:</b> {person[1].addons}
+                                            </div>
+                                            <div>
+                                                <b>Sweetness:</b> {person[1].sugar}
+                                            </div>
+                                            <div>
+                                                <b>Description:</b> {person[1].description}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="matchPrefExtraDetails">
+                                        <div>
+                                            {person[1].lactose? <p>Milk is somewhat my enemy &#128557;</p>
+                                                            : <p>Milk is not my enemy &#128516;</p>}
+                                        </div>
+                                        <div>
+                                            {person[1].fruit? <p>Fruit Teas are my thing &#128540;</p>
+                                                            : <p>Fruit Teas are not my thing &#128547;</p>}
+                                        </div>
+                                </div>
+                                <div className="DeleteArea">
+                                    <button className="DeleteButton" onClick={deleteMatch}>Delete Match</button>
+                                </div>
+
+                        </div>
+                    ))}
+
+                    </>
         }
-    }, [dispatch, mounted])
 
     return (
         <>
@@ -133,7 +135,7 @@ export default function MatchPage(){
                 <div className="yourBobaesTitle">
                     Your Bobaes
                 </div>
-                {showProfile.current}
+                {showProfile}
             </div>
         </>
     )

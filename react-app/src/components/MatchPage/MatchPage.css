@@ -106,4 +106,24 @@
     justify-content: flex-end;
     align-items: flex-end;
     height: 100%;
+    margin-left: 5%;
+    border-left: 1px dotted black;
+}
+
+.DeleteButton{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1em;
+    background-color: rgba(218, 55, 14, 0.562);
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+}
+
+
+.DeleteButton:hover{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1em;
+    background-color: rgba(218, 55, 14, 0.562);
+    border-radius: 20%;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
 }

@@ -17,22 +17,12 @@ export default function FindBobaes(){
     const [isMounted, setMounted] = useState(false)
 
     useEffect(async()=>{
-        console.log("THIS HAPPENED", user.id)
         const preferences = await dispatch(loadPreferences(user.id))
-        console.log("PREFERENCES IS ", preferences)
         if(preferences && !isMounted){
-            console.log("HIIIIIIIIIIIIIIIIIIIIIIIII")
             await dispatch(loadBobaes(user.id, preferences.gender, user.gender, preferences.tea, preferences.addons, preferences.sugar, preferences.fruit))
             setMounted(true)
         }
     }, [])
-
-    // useEffect(async()=>{
-    //     if(preference && isMounted){
-    //         console.log("HIIIIIIIIIIIIIIIIIIIIIIIII")
-    //         await dispatch(loadBobaes(user.id, preference.gender, user.gender, preference.tea, preference.addons, preference.sugar, preference.fruit))
-    //     }
-    // }, [isMounted])
 
     const confirmMatch = async (matchedUserId) => {
         await dispatch(acceptBobae(user.id, matchedUserId))

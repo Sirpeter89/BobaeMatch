@@ -29,6 +29,7 @@ export const loadMatches = (id) => async(dispatch) => {
     // combined["match"] = {data, profData};
     // combined["profile"] = profData;
     dispatch(getMatch(data))
+    return data;
 }
 
 export const makeMatch = (userId, matchedUserId) => async(dispatch) => {
