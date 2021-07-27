@@ -76,6 +76,7 @@ export const loadPreferences = (id) => async (dispatch) => {
         return data;
     }
     dispatch(getPreferences(data))
+    return data;
 }
 
 
