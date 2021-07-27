@@ -1,6 +1,7 @@
 // constants
 const CREATE_MATCH = "match/CREATE_MATCH"
 const GET_MATCH = "match/GET_MATCH"
+const DELETE_MATCH = "match/DELETE_MATCH"
 
 // action creators
 const createMatch = (match) => ({
@@ -10,6 +11,11 @@ const createMatch = (match) => ({
 
 const getMatch = (match) => ({
     type: GET_MATCH,
+    payload: match
+})
+
+const delMatch = (match) => ({
+    type: DELETE_MATCH,
     payload: match
 })
 
@@ -50,6 +56,24 @@ export const makeMatch = (userId, matchedUserId) => async(dispatch) => {
     dispatch(createMatch(data))
 }
 
+export const deleteMatch = (useroneid, usertwoid) => async(dispatch) => {
+    const response = await fetch('/api/match/delete', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            useroneid,
+            usertwoid
+        })
+    });
+    const data = await response.json();
+    if (data.errors) {
+        return;
+    }
+    dispatch(delMatch(data))
+}
+
 //reducer
 const initialState = {match: null}
 
@@ -62,6 +86,22 @@ export default function reducer(state = initialState, action) {
             newState = {...state}
             newState = {...state, ...action.payload}
             return newState
+        case DELETE_MATCH:
+            newState = {...state}
+            let index;
+            for(let i = 0; i < newState.match.length; i++){
+                if (newState.match[i].id === action.payload.id){
+                    index = i;
+                }
+            }
+            return {
+                match:[
+                    ...state.match.slice(0, index),
+                    ...state.match.slice(index + 1)
+                ]
+            }
+            // newState.match.splice(index, 1);
+            // return newState;
         default:
             return state;
     }

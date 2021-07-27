@@ -2,7 +2,7 @@ import React, { useState, useRef } from "react"
 import { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import './MatchPage.css'
-import { loadMatches } from "../../store/match"
+import { loadMatches, deleteMatch } from "../../store/match"
 
 
 export default function MatchPage(){
@@ -10,22 +10,22 @@ export default function MatchPage(){
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     //({...state.session.user})
-    const matches = useSelector(state => state.match.match)
 
-    const [mounted, setMounted] = useState(false)
+    const [justDeleted, setJustDeleted] = useState(false)
 
     const [matchProfileListArray, setMatchProfileListArray] = useState([]);
 
-    const deleteMatch = () => {
-        console.log(matchProfileListArray)
+    const deletedMatch = async (useroneid, usertwoid) => {
+        console.log(useroneid, usertwoid)
+        await dispatch(deleteMatch(useroneid, usertwoid))
+        setJustDeleted(true)
     }
 
     useEffect(async()=>{
 
         const match = await dispatch(loadMatches(user.id))
 
-
-        if (match ){
+        if (match){
 
             let matchProfileList = [];
             let users;
@@ -57,10 +57,11 @@ export default function MatchPage(){
                     matchProfileList.push(matchProfile)
                 }
             setMatchProfileListArray(matchProfileList)
-            setMounted(true)
         }
-        
-    }, [])
+        if(justDeleted){
+            setJustDeleted(false)
+        }
+    }, [justDeleted])
 
     let showProfile;
 
@@ -120,7 +121,7 @@ export default function MatchPage(){
                                         </div>
                                 </div>
                                 <div className="DeleteArea">
-                                    <button className="DeleteButton" onClick={deleteMatch}>Delete Match</button>
+                                    <button className="DeleteButton" onClick={()=>deletedMatch(user.id, person[0].id)}>Delete Match</button>
                                 </div>
 
                         </div>
