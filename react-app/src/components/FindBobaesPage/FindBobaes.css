@@ -200,7 +200,6 @@
     border-radius: 50%;
     text-align: center;
     border: none;
-
 }
 
 .tooltip:hover{
@@ -287,6 +286,6 @@
 }
 
 .toolInfo{
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
     height: 80%;
 }

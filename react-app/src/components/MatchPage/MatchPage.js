@@ -3,7 +3,9 @@ import { useEffect } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import './MatchPage.css'
 import { loadMatches, deleteMatch } from "../../store/match"
-import { resetBobae } from "../../store/bobaes"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
+import ReactModal from 'react-modal';
 
 
 export default function MatchPage(){
@@ -19,7 +21,6 @@ export default function MatchPage(){
     const deletedMatch = async (useroneid, usertwoid) => {
         console.log(useroneid, usertwoid)
         await dispatch(deleteMatch(useroneid, usertwoid))
-        // await dispatch(resetBobae(user.id, usertwoid))
         const response = await fetch('/api/bobaes/reset', {
             method: 'PATCH',
             headers: {
@@ -146,13 +147,55 @@ export default function MatchPage(){
                     </>
         }
 
+    const [open, setOpen] = useState(false)
+
+    const handleOpenModal = () => {
+        setOpen(true)
+    }
+
+    const handleCloseModal = () => {
+        setOpen(false)
+    }
+
     return (
         <>
+            <button onClick={handleOpenModal} className="tooltipMatch">
+                <FontAwesomeIcon className="helpicon" size='5x'icon={faQuestionCircle} />
+            </button>
+            <ReactModal
+                className="toolModalMatch"
+                overlayClassName="toolOverlay"
+                isOpen={open}
+            >
+                <button className="closeModal" onClick={handleCloseModal}>X</button>
+                <div className="toolTitle">
+                    Welcome To Your Bobaes Guide!
+                </div>
+                <div className="toolInfoMatch">
+                    <p className="toolDescription">Here you can also view other users who matched with you!</p>
+                    <div className="tipbox">
+                        <div className="deleteMatchExample">
+                            Delete Match
+                        </div>
+                        <p className="tips">
+                            Pressing on the "Delete Match" button will remove users from your matches, this also allows you to find them again on the Find Bobaes page in case you change your mind :)
+                        </p>
+                    </div>
+                    <p className="note">
+                        <b>Note:</b> In order to become a "Current Match" both users must match on both ends!
+                    </p>
+                </div>
+
+            </ReactModal>
             <div className="matchHolder">
                 <div className="yourBobaesTitle">
                     Your Bobaes
                 </div>
-                {showProfile}
+                <div className="profilesBox">
+                    {showProfile}
+                    <div className="space">
+                    </div>
+                </div>
             </div>
         </>
     )

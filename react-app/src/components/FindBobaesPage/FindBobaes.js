@@ -132,6 +132,7 @@ export default function FindBobaes(){
     const handleCloseModal = () => {
         setOpen(false)
     }
+
     return(
         <>
             <button onClick={handleOpenModal} className="tooltip">
@@ -161,11 +162,11 @@ export default function FindBobaes(){
                             <img className="acceptImage"src="https://media.istockphoto.com/vectors/red-heartbreak-or-broken-heart-on-blue-background-vector-id1151443140?k=6&m=1151443140&s=612x612&w=0&h=4BchXEBIZpEqzfHRzgGXLYHgW1BjeuAa4sZcn2ev5Z0="></img>
                         </div>
                         <p className="tips">
-                            Pressing on the broken heart button will deny the match with other users
+                            Pressing on the broken heart button will skip the match with other users
                         </p>
                     </div>
                     <p className="note">
-                        <b>Note:</b> In order to become a "Current Match" both users must have matched with each other! You can view your current matches on the "Current Matches" page.
+                        <b>Note:</b> In order to become a "Current Match" both users must match on both ends! You can view your current matches on the "Current Matches" page.
                     </p>
                 </div>
 
