@@ -21,7 +21,7 @@ const SignUpForm = () => {
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [errors, setErrors] = useState([]);
-  const [gender, setGender] = useState("Male");
+  const [gender, setGender] = useState();
 
   const onSignUp = async (e) => {
     e.preventDefault();
@@ -32,9 +32,10 @@ const SignUpForm = () => {
       setCity(cityLower)
       const data = await dispatch(signUp(username, firstname, lastname,email, profileImage, city, zip, age, height, password, gender));
       if (data.errors) {
-        setErrors(data.errors);
+          setErrors(data.errors);
+        } else {
+          history.push("/preferences")
         }
-      history.push("/preferences")
     }
   };
 
@@ -100,7 +101,7 @@ const SignUpForm = () => {
                         Let's Sign Up
           </div>
           <form className="signUpForm" onSubmit={onSignUp}>
-            <div>
+            <div className="errorsDiv">
                   {errors.map((error) => (
                       <div>{error}</div>
                   ))}

@@ -14,7 +14,7 @@ const EditProfilePage = () => {
     const [city, setCity] = useState(user.city);
     const [zip, setZip] = useState(user.zipcode);
     const [age, setAge] = useState(user.age);
-    const [gender, setGender] = useState("Male");
+    const [gender, setGender] = useState(user.gender);
 
     const prevHeight = `${user.height}`
     const prevFeet = parseInt(prevHeight[0])
@@ -31,12 +31,13 @@ const EditProfilePage = () => {
         const height = parseInt(stringHeight)
         const cityLower = city.toLowerCase();
         setCity(cityLower)
-        await dispatch(editProfile(firstname, lastname, profileImage, city, zip, age, height, gender));
+        const data = await dispatch(editProfile(firstname, lastname, profileImage, city, zip, age, height, gender));
 
-        // if (datas.errors) {
-        //     setErrors(datas.errors);
-        // }
-        history.push('/')
+            if (data && data.errors) {
+                setErrors(data.errors);
+            } else {
+                history.push('/')
+            }
         };
 
     useEffect(()=>{
@@ -77,6 +78,7 @@ const EditProfilePage = () => {
     const updateGender= (e) => {
         setGender(e.target.value);
     };
+
 
     return (
         <>
@@ -167,12 +169,11 @@ const EditProfilePage = () => {
                         <label>Gender:</label>
                     </div>
                     <div className="inputArea">
-                        <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender}></input>
+                        <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender} defaultChecked={gender === "Male"}></input>
                         <label className="radioLabels" for="html">Male</label>
-                        <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender}></input>
+                        <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender} defaultChecked={gender === "Female"}></input>
                         <label className="radioLabels" for="html">Female</label>
                     </div>
-
                     <div className="heightLabel">
                 <label>Height:</label>
             </div>

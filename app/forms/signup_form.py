@@ -11,14 +11,20 @@ def user_exists(form, field):
         raise ValidationError("User is already registered.")
 
 
+def zip_length(form, field):
+    zip = str(field.data)
+    if len(zip) != 5:
+        raise ValidationError("Not a valid zipcode, must be 5 digits")
+
+
 class SignUpForm(FlaskForm):
     username = StringField('username', validators=[DataRequired()])
     firstname = StringField('firstname', validators=[DataRequired()])
     lastname = StringField('lastname', validators=[DataRequired()])
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    email = StringField('email', validators=[DataRequired(), user_exists, Email()])
     profileImage = StringField('profileImage')
     city = StringField('city', validators=[DataRequired()])
-    zipcode = IntegerField('zipcode', validators=[DataRequired()])
+    zipcode = IntegerField('zipcode', validators=[DataRequired(), zip_length])
     age = IntegerField('age', validators=[DataRequired()])
     gender = StringField('gender', validators=[DataRequired()])
     height = IntegerField('height', validators=[DataRequired()])
