@@ -189,3 +189,104 @@
     transform: translate(-50%, 0);
     background-color: rgba(255, 255, 255, 0.781);
 }
+
+.tooltip{
+    position: absolute;
+    height: 75px;
+    width: 75px;
+    margin-top: 2%;
+    margin-left: 80%;
+    background-color: rgba(0, 255, 255, 0);
+    border-radius: 50%;
+    text-align: center;
+    border: none;
+
+}
+
+.tooltip:hover{
+    margin-top: 2%;
+    height: 75px;
+    width: 75px;
+    margin-left: 80%;
+    border-radius: 50%;
+    box-shadow:3px 3px 40px 9px rgba(226, 12, 48, 0.733);
+}
+
+.toolModal{
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    right: 30%;
+    bottom: 25%;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.toolOverlay{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    right: 0%;
+    bottom: 0%;
+    background-color: rgba(0, 0, 0, 0.63);
+}
+
+.closeModal{
+    margin-left: 93%;
+    width: 5%;
+    height: 10%;
+    color: red;
+    font-weight: 800;
+    font-size: 1.5vw;
+    background-color: rgba(250, 235, 215, 0);
+    border: none;
+}
+
+.toolTitle{
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.3vw;
+    font-weight: 800;
+}
+
+.toolDescription{
+    text-align: center;
+    margin-top: 5%;
+    font-size: .8vw;
+}
+
+.tipbox{
+    display: grid;
+    grid-template-areas: "buttonIcon message";
+    grid-template-columns: 30% 60%;
+    margin-top: 5%;
+}
+
+.toolAccept{
+    grid-area: buttonIcon;
+    width: 5vw;
+    height: 8vh;
+    border-radius: 20%;
+    overflow: hidden;
+    margin: auto;
+    border: 1px solid black;
+}
+
+.tips{
+    grid-area: message;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1vw;
+    font-weight: 800;
+}
+
+.note{
+    margin-top: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1vw;
+    text-align: center;
+}
+
+.toolInfo{
+    overflow-y: scroll;
+    height: 80%;
+}

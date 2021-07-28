@@ -5,6 +5,9 @@ import {useDispatch, useSelector} from "react-redux"
 import {loadPreferences} from "../../store/preferences"
 import { loadBobaes, acceptBobae, denyBobae } from '../../store/bobaes'
 import { makeMatch } from '../../store/match'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
+import ReactModal from 'react-modal';
 
 export default function FindBobaes(){
 
@@ -120,8 +123,53 @@ export default function FindBobaes(){
 
     }
 
+    const [open, setOpen] = useState(false)
+
+    const handleOpenModal = () => {
+        setOpen(true)
+    }
+
+    const handleCloseModal = () => {
+        setOpen(false)
+    }
     return(
         <>
+            <button onClick={handleOpenModal} className="tooltip">
+                <FontAwesomeIcon className="helpicon" size='5x'icon={faQuestionCircle} />
+            </button>
+            <ReactModal
+                className="toolModal"
+                overlayClassName="toolOverlay"
+                isOpen={open}
+            >
+                <button className="closeModal" onClick={handleCloseModal}>X</button>
+                <div className="toolTitle">
+                    Welcome To The Matching Page Guide!
+                </div>
+                <div className="toolInfo">
+                    <p className="toolDescription">Here you will see other users who have similar tastes in Boba</p>
+                    <div className="tipbox">
+                        <div className="toolAccept">
+                            <img className="acceptImage"src="https://media.istockphoto.com/vectors/kawaii-heart-cute-face-vector-illustration-vector-id1253051709?k=6&m=1253051709&s=170667a&w=0&h=Ek8hghQug_PRCMC8NpnR7V9r53QQmrxEkaP91Rb8CyI="></img>
+                        </div>
+                        <p className="tips">
+                            Pressing on the heart button will allow you to match with other users
+                        </p>
+                    </div>
+                    <div className="tipbox">
+                        <div className="toolAccept">
+                            <img className="acceptImage"src="https://media.istockphoto.com/vectors/red-heartbreak-or-broken-heart-on-blue-background-vector-id1151443140?k=6&m=1151443140&s=612x612&w=0&h=4BchXEBIZpEqzfHRzgGXLYHgW1BjeuAa4sZcn2ev5Z0="></img>
+                        </div>
+                        <p className="tips">
+                            Pressing on the broken heart button will deny the match with other users
+                        </p>
+                    </div>
+                    <p className="note">
+                        <b>Note:</b> In order to become a "Current Match" both users must have matched with each other! You can view your current matches on the "Current Matches" page.
+                    </p>
+                </div>
+
+            </ReactModal>
             <div className="bobaeHolder">
                 <div className="bobaeTitle">
                         Bobae
