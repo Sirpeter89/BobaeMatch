@@ -1,9 +1,10 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, request
 from app.models import User, db
 from app.forms import LoginForm
 from app.forms import SignUpForm
 from app.forms import EditProfileForm
-from flask_login import current_user, login_user, logout_user, login_required
+from flask_login import current_user, login_user, logout_user
+from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename)
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -88,20 +89,54 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+
+    try:
+        image = request.files['image']
+    except:
+        image = None
+
+    if not allowed_file(image.filename):
+        return {"errors": "file type not permitted"}, 400
+
+    image.filename = get_unique_filename(image.filename)
+
+    upload = upload_file_to_s3(image)
+
+    if "url" not in upload:
+        return upload, 400
+
+    url = upload["url"]
+
     if form.validate_on_submit():
-        data = request.get_json()
+        # data = request.get_json()
+
+        # user = User(
+        #     userName=data['username'],
+        #     firstName=data['firstname'],
+        #     lastName=data['lastname'],
+        #     email=data['email'],
+        #     # profileImage=data['profileImage'],
+        #     profileImage=url,
+        #     password=data['password'],
+        #     city=data['city'],
+        #     zipcode=data['zipcode'],
+        #     age=data['age'],
+        #     height=data['height'],
+        #     gender=data['gender']
+        # )
         user = User(
-            userName=data['username'],
-            firstName=data['firstname'],
-            lastName=data['lastname'],
-            email=data['email'],
-            profileImage=data['profileImage'],
-            password=data['password'],
-            city=data['city'],
-            zipcode=data['zipcode'],
-            age=data['age'],
-            height=data['height'],
-            gender=data['gender']
+            userName=form.data['username'],
+            firstName=form.data['firstname'],
+            lastName=form.data['lastname'],
+            email=form.data['email'],
+            # profileImage=form.data['profileImage'],
+            profileImage=url,
+            password=form.data['password'],
+            city=form.data['city'],
+            zipcode=form.data['zipcode'],
+            age=form.data['age'],
+            height=form.data['height'],
+            gender=form.data['gender']
         )
         db.session.add(user)
         db.session.commit()

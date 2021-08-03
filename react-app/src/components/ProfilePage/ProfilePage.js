@@ -16,7 +16,7 @@ export default function ProfilePage(){
     const inches = height[1]
 
     useEffect( async () => {
-        await dispatch(loadPreferences(user.id))
+            await dispatch(loadPreferences(user.id))
     }, [])
 
     useEffect( () => {

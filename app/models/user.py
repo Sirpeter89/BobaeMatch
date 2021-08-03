@@ -54,4 +54,3 @@ class User(db.Model, UserMixin):
       "height": self.height,
       "gender": self.gender
     }
-

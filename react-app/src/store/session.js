@@ -88,24 +88,39 @@ export const logout = () => async (dispatch) => {
 
 
 export const signUp = (username, firstname, lastname, email, profileImage, city, zip, age, height, password, gender) => async (dispatch) => {
+    const formData = new FormData();
+    formData.append("username", username);
+    formData.append("firstname", firstname);
+    formData.append("lastname", lastname);
+    formData.append("email", email);
+    formData.append("city", city);
+    formData.append("zipcode", zip);
+    formData.append("age", age);
+    formData.append("height", height);
+    formData.append("password", password);
+    formData.append("gender", gender);
+
+    if (profileImage) formData.append("image", profileImage);
+
     const response = await fetch("/api/auth/signup", {
         method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            username,
-            firstname,
-            lastname,
-            email,
-            profileImage,
-            city,
-            zipcode:zip,
-            age,
-            height,
-            password,
-            gender
-        }),
+        // headers: {
+        //     "enctype":"multipart/form-data",
+        // },
+        // body: JSON.stringify({
+        //     username,
+        //     firstname,
+        //     lastname,
+        //     email,
+        //     profileImage,
+        //     city,
+        //     zipcode:zip,
+        //     age,
+        //     height,
+        //     password,
+        //     gender
+        // }),
+        body: formData,
     });
     const data = await response.json();
     if (data.errors) {

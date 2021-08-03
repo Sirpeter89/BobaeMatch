@@ -38,4 +38,7 @@ def edit_preferences():
 @preference_routes.route('/<int:id>')
 def get_preferences(id):
     preferenceRecord = Preference.query.filter_by(userId=id).first()
-    return preferenceRecord.to_dict()
+    if preferenceRecord:
+        return preferenceRecord.to_dict()
+    else:
+        return {}

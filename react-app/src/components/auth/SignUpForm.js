@@ -12,7 +12,7 @@ const SignUpForm = () => {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const [profileImage, setProfileImage] = useState("");
+  const [profileImage, setProfileImage] = useState(null);
   const [city, setCity] = useState("");
   const [zip, setZip] = useState(0);
   const [age, setAge] = useState(0);
@@ -56,7 +56,9 @@ const SignUpForm = () => {
   };
 
   const updateProfileImage = (e) => {
-    setProfileImage(e.target.value);
+    // setProfileImage(e.target.value);
+    const file = e.target.files[0];
+    setProfileImage(file)
   };
 
   const updateCity = (e) => {
@@ -151,7 +153,7 @@ const SignUpForm = () => {
               ></input>
             </div>
             <div>
-              <div className="inputLabel">
+              {/* <div className="inputLabel">
                 <label>Profile Image Url:</label>
               </div>
               <input className="inputArea"
@@ -159,6 +161,16 @@ const SignUpForm = () => {
                 name="profileImage"
                 onChange={updateProfileImage}
                 value={profileImage}
+              ></input> */}
+              <div className="inputLabel">
+                <label>Upload Profile Image:</label>
+              </div>
+              <input className="inputArea"
+                type="file"
+                name="profileImage"
+                accept="image/*"
+                onChange={updateProfileImage}
+                // value={profileImage}
               ></input>
             </div>
             <div>
@@ -200,9 +212,9 @@ const SignUpForm = () => {
             </div>
             <div className="inputArea">
               <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender}></input>
-              <label className="radioLabels" for="html">Male</label>
+              <label className="radioLabels" htmlFor="html">Male</label>
               <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender}></input>
-              <label className="radioLabels" for="html">Female</label>
+              <label className="radioLabels" htmlFor="html">Female</label>
             </div>
 
             <div className="heightLabel">

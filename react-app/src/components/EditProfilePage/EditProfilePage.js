@@ -170,9 +170,9 @@ const EditProfilePage = () => {
                     </div>
                     <div className="inputArea">
                         <input className="radio" type="radio" id="male" name="gender" value="Male" onClick={updateGender} defaultChecked={gender === "Male"}></input>
-                        <label className="radioLabels" for="html">Male</label>
+                        <label className="radioLabels" htmlFor="html">Male</label>
                         <input className="radio" type="radio" id="female" name="gender" value="Female" onClick={updateGender} defaultChecked={gender === "Female"}></input>
-                        <label className="radioLabels" for="html">Female</label>
+                        <label className="radioLabels" htmlFor="html">Female</label>
                     </div>
                     <div className="heightLabel">
                 <label>Height:</label>
