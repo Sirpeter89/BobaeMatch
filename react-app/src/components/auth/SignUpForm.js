@@ -165,7 +165,7 @@ const SignUpForm = () => {
               <div className="inputLabel">
                 <label>Upload Profile Image:</label>
               </div>
-              <input className="inputArea"
+              <input className="uploadArea"
                 type="file"
                 name="profileImage"
                 accept="image/*"

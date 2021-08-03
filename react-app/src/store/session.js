@@ -33,22 +33,37 @@ export const authenticate = () => async (dispatch) => {
     dispatch(setUser(data))
 }
 
-export const editProfile = (firstname, lastname, profileImage, city, zip, age, height, gender) => async (dispatch) => {
+export const editProfile = (firstname, lastname, profileImage, city, zip, age, height, gender, profileImageUrl) => async (dispatch) => {
+    const formData = new FormData();
+    formData.append("firstname", firstname);
+    formData.append("lastname", lastname);
+    formData.append("city", city);
+    formData.append("zipcode", zip);
+    formData.append("age", age);
+    formData.append("height", height);
+
+    formData.append("gender", gender);
+
+    if (profileImage) formData.append("image", profileImage);
+    formData.append("profileImage", profileImageUrl);
+
+
     const response = await fetch('/api/auth/editProfile', {
         method: 'PATCH',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-            firstname,
-            lastname,
-            profileImage,
-            city,
-            zipcode:zip,
-            age,
-            height,
-            gender
-        })
+        // headers: {
+        //     'Content-Type': 'application/json'
+        // },
+        // body: JSON.stringify({
+        //     firstname,
+        //     lastname,
+        //     profileImage,
+        //     city,
+        //     zipcode:zip,
+        //     age,
+        //     height,
+        //     gender
+        // })
+        body: formData,
     });
     const data = await response.json();
     if (data.errors) {

@@ -22,3 +22,4 @@ class EditProfileForm(FlaskForm):
     zipcode = IntegerField('zipcode', validators=[DataRequired(), zip_length])
     age = IntegerField('age', validators=[DataRequired(), age_length])
     height = IntegerField('height', validators=[DataRequired()])
+    gender = StringField('gender', validators=[DataRequired()])

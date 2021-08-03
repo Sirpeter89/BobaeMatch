@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
-from wtforms.validators import DataRequired, Email, ValidationError
+from wtforms import StringField, IntegerField, FileField
+from wtforms.validators import DataRequired, Email, ValidationError, Required
+from flask_wtf.file import FileRequired
 from app.models import User
 
 
@@ -22,7 +23,7 @@ class SignUpForm(FlaskForm):
     firstname = StringField('firstname', validators=[DataRequired()])
     lastname = StringField('lastname', validators=[DataRequired()])
     email = StringField('email', validators=[DataRequired(), user_exists, Email()])
-    profileImage = StringField('profileImage')
+    image = FileField('image',validators=[FileRequired()])
     city = StringField('city', validators=[DataRequired()])
     zipcode = IntegerField('zipcode', validators=[DataRequired(), zip_length])
     age = IntegerField('age', validators=[DataRequired()])

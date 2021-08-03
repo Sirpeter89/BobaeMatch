@@ -10,7 +10,8 @@ const EditProfilePage = () => {
     const user = useSelector(state => state.session.user)
     const [firstname, setFirstname] = useState(user.firstname);
     const [lastname, setLastname] = useState(user.lastname);
-    const [profileImage, setProfileImage] = useState(user.profileImage);
+    // const [profileImage, setProfileImage] = useState(user.profileImage);
+    const [profileImage, setProfileImage] = useState(null);
     const [city, setCity] = useState(user.city);
     const [zip, setZip] = useState(user.zipcode);
     const [age, setAge] = useState(user.age);
@@ -31,7 +32,12 @@ const EditProfilePage = () => {
         const height = parseInt(stringHeight)
         const cityLower = city.toLowerCase();
         setCity(cityLower)
-        const data = await dispatch(editProfile(firstname, lastname, profileImage, city, zip, age, height, gender));
+
+        let data;
+
+        data = await dispatch(editProfile(firstname, lastname, profileImage, city, zip, age, height, gender, user.profileImage));
+
+
 
             if (data && data.errors) {
                 setErrors(data.errors);
@@ -52,7 +58,11 @@ const EditProfilePage = () => {
     };
 
     const updateProfileImage = (e) => {
-    setProfileImage(e.target.value);
+    // setProfileImage(e.target.value);
+        const file = e.target.files[0];
+        if (file){
+            setProfileImage(file)
+        }
     };
 
     const updateCity = (e) => {
@@ -119,13 +129,14 @@ const EditProfilePage = () => {
 
                     <div>
                         <div className="inputLabel">
-                                <label>Profile Image Url:</label>
+                                <label>Change Profile Image:</label>
                         </div>
-                    <input className="inputArea"
-                        type="text"
+                    <input className="uploadArea"
+                        type="file"
                         name="profileImage"
+                        accept="image/*"
                         onChange={updateProfileImage}
-                        value={profileImage}
+                        // value={profileImage}
                     ></input>
                     </div>
 

@@ -32,6 +32,13 @@
     font-size: 1.2em;
 }
 
+.uploadArea{
+    margin-top: 8px;
+    height: 1.5em;
+    width: 15em;
+    font-size: 1.2em;
+}
+
 .radio{
     transform: scale(1.5);
     margin-left: 5%;
