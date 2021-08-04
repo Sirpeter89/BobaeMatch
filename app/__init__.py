@@ -16,6 +16,8 @@ from .seeds import seed_commands
 
 from .config import Config
 
+from .socket_helper import socketio
+
 app = Flask(__name__)
 
 # Setup login manager
@@ -39,6 +41,8 @@ app.register_blueprint(bobaes_routes, url_prefix='/api/bobaes')
 app.register_blueprint(match_routes, url_prefix='/api/match')
 db.init_app(app)
 Migrate(app, db)
+
+socketio.init_app(app)
 
 # Application Security
 CORS(app)
@@ -77,3 +81,6 @@ def react_root(path):
     if path == 'favicon.ico':
         return app.send_static_file('favicon.ico')
     return app.send_static_file('index.html')
+
+if __name__ == '__main__':
+    socketio.run(app)
