@@ -8,16 +8,19 @@ let socket;
 export default function ChatComponent(props){
     const [messages, setMessages] = useState([])
     const [chatInput, setChatInput] = useState("");
+
     const [userToTalkWith, setuserToTalkWith] = useState("");
+
     const user = useSelector(state => state.session.user)
-    const matchStore = useSelector(state => state.session.match)
 
     useEffect(()=>{
         console.log("ISS", props.matchData)
+        console.log(userToTalkWith)
 
         socket = io();
 
         socket.on("chat", (chat) => {
+            // socket.join(userToTalkWith)
             setMessages(messages => [...messages, chat])
         })
 
@@ -25,7 +28,7 @@ export default function ChatComponent(props){
         return (() => {
             socket.disconnect()
         })
-    }, [])
+    }, [userToTalkWith])
 
 
 
@@ -36,7 +39,7 @@ export default function ChatComponent(props){
     const sendChat = (e) => {
         e.preventDefault()
         // emit a message
-        socket.emit("chat", { user: user.username, msg: chatInput });
+        socket.emit("chat", { user: user.username, msg: chatInput }, userToTalkWith);
         // clear the input field after the message is sent
         setChatInput("")
     }
@@ -45,7 +48,7 @@ export default function ChatComponent(props){
         <div className="chat-container">
             <div className="names-chat-container">
                 {props.matchData.map((person)=>(
-                    <div className="user-chat-container">
+                    <div onClick={()=>setuserToTalkWith(`${person[2]}`)} className="user-chat-container">
                         {person[0].firstname}
                     </div>
                 ))}

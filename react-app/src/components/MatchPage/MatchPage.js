@@ -14,8 +14,6 @@ export default function MatchPage(){
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user)
     //({...state.session.user})
-
-    const [sendMatches, setSendMatches] = useState([])
     const [justDeleted, setJustDeleted] = useState(false)
 
     const [matchProfileListArray, setMatchProfileListArray] = useState([]);
@@ -43,9 +41,6 @@ export default function MatchPage(){
     useEffect(async()=>{
         const match = await dispatch(loadMatches(user.id))
         if (match){
-            setSendMatches( match )
-
-            // setSendMatches(sendMatches => [...sendMatches, matchStore])
             let matchProfileList = [];
             let users;
             let preferences;
@@ -72,6 +67,7 @@ export default function MatchPage(){
 
                     matchProfile.push(users)
                     matchProfile.push(preferences)
+                    matchProfile.push(el.id)
 
                     matchProfileList.push(matchProfile)
                 }
@@ -81,8 +77,6 @@ export default function MatchPage(){
             setJustDeleted(false)
         }
     }, [justDeleted])
-
-    console.log("DIS MATCHES", sendMatches)
 
     let showProfile;
     let matchBox;
