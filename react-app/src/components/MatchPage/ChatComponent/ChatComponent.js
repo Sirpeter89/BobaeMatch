@@ -1,19 +1,69 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
+import { useSelector } from "react-redux";
 import './ChatComponent.css'
+import { io } from 'socket.io-client';
+
+let socket;
 
 export default function ChatComponent(props){
+    const [messages, setMessages] = useState([])
+    const [chatInput, setChatInput] = useState("");
+    const [userToTalkWith, setuserToTalkWith] = useState("");
+    const user = useSelector(state => state.session.user)
+    const matchStore = useSelector(state => state.session.match)
 
     useEffect(()=>{
         console.log("ISS", props.matchData)
+
+        socket = io();
+
+        socket.on("chat", (chat) => {
+            setMessages(messages => [...messages, chat])
+        })
+
+
+        return (() => {
+            socket.disconnect()
+        })
     }, [])
+
+
+
+    const updateChatInput = (e) => {
+        setChatInput(e.target.value)
+    };
+
+    const sendChat = (e) => {
+        e.preventDefault()
+        // emit a message
+        socket.emit("chat", { user: user.username, msg: chatInput });
+        // clear the input field after the message is sent
+        setChatInput("")
+    }
 
     return(
         <div className="chat-container">
-            {props.matchData.map((person)=>(
+            <div className="names-chat-container">
+                {props.matchData.map((person)=>(
+                    <div className="user-chat-container">
+                        {person[0].firstname}
+                    </div>
+                ))}
+            </div>
+            <div className="chat-area">
                 <div>
-                    {person[0].firstname}
+                    {messages.map((message, ind) => (
+                        <div key={ind}>{`${message.user}: ${message.msg}`}</div>
+                    ))}
                 </div>
-            ))}
+                <form onSubmit={sendChat}>
+                    <input
+                        value={chatInput}
+                        onChange={updateChatInput}
+                    />
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
     )
 }

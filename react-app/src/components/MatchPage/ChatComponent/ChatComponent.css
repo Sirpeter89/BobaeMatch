@@ -6,5 +6,26 @@
     bottom: 5%;
     right: 1%;
     border: 3px solid black;
-    
+    display: grid;
+    grid-template-areas: "users chat";
+    grid-template-columns: 20% 80%;
+}
+
+.names-chat-container{
+    grid-area: users;
+    background-color: aqua;
+}
+
+.chat-area{
+    grid-area: chat;
+    background-color: rgb(245, 245, 245);
+}
+
+.user-chat-container{
+    border: 1px solid black;
+}
+
+.user-chat-container:hover{
+    border: 1px solid black;
+    background-color: blueviolet;
 }
