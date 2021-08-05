@@ -6,6 +6,7 @@ import { loadMatches, deleteMatch } from "../../store/match"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 import ReactModal from 'react-modal';
+import ChatComponent from "./ChatComponent/ChatComponent"
 
 
 export default function MatchPage(){
@@ -81,6 +82,7 @@ export default function MatchPage(){
     }, [justDeleted])
 
     let showProfile;
+    let matchBox;
 
     if(matchProfileListArray.length){
         showProfile =
@@ -138,18 +140,16 @@ export default function MatchPage(){
                                         </div>
                                 </div>
                                 <div className="DeleteArea">
-                                    <button className="chat-button" >Chat</button>
                                     <button className="DeleteButton" onClick={()=>deletedMatch(user.id, person[0].id)}>Delete Match</button>
-                                </div>
-                                <div className="chat-area">
-                                    <div className="hidden chat-box">
-
-                                    </div>
                                 </div>
                         </div>
                     ))}
 
                     </>
+            matchBox =
+                <>
+                    <ChatComponent matchData={matchProfileListArray} />
+                </>
         }
 
     const [open, setOpen] = useState(false)
@@ -202,6 +202,7 @@ export default function MatchPage(){
                     </div>
                 </div>
             </div>
+            {matchBox}
         </>
     )
 }
