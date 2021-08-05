@@ -138,9 +138,14 @@ export default function MatchPage(){
                                         </div>
                                 </div>
                                 <div className="DeleteArea">
+                                    <button className="chat-button" >Chat</button>
                                     <button className="DeleteButton" onClick={()=>deletedMatch(user.id, person[0].id)}>Delete Match</button>
                                 </div>
+                                <div className="chat-area">
+                                    <div className="hidden chat-box">
 
+                                    </div>
+                                </div>
                         </div>
                     ))}
 
