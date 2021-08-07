@@ -18,6 +18,7 @@ export default function ChatComponent(props){
         console.log(userToTalkWith)
 
         socket = io();
+        socket.emit("join", userToTalkWith);
 
         socket.on("chat", (chat) => {
             // socket.join(userToTalkWith)
@@ -27,6 +28,7 @@ export default function ChatComponent(props){
 
         return (() => {
             socket.disconnect()
+            setMessages([])
         })
     }, [userToTalkWith])
 
@@ -38,12 +40,13 @@ export default function ChatComponent(props){
 
     const joinChat = (matchId) => {
         setuserToTalkWith(matchId)
-        socket.emit("join", userToTalkWith);
+
     }
 
     const sendChat = (e) => {
         e.preventDefault()
         // emit a message
+        console.log("WHAT", chatInput)
         socket.emit("chat", { user: user.username, msg: chatInput }, userToTalkWith);
         // clear the input field after the message is sent
         setChatInput("")
