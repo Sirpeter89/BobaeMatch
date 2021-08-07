@@ -36,6 +36,11 @@ export default function ChatComponent(props){
         setChatInput(e.target.value)
     };
 
+    const joinChat = (matchId) => {
+        setuserToTalkWith(matchId)
+        socket.emit("join", userToTalkWith);
+    }
+
     const sendChat = (e) => {
         e.preventDefault()
         // emit a message
@@ -48,7 +53,7 @@ export default function ChatComponent(props){
         <div className="chat-container">
             <div className="names-chat-container">
                 {props.matchData.map((person)=>(
-                    <div onClick={()=>setuserToTalkWith(`${person[2]}`)} className="user-chat-container">
+                    <div onClick={()=>joinChat(`${person[2]}`)} className="user-chat-container">
                         {person[0].firstname}
                     </div>
                 ))}
