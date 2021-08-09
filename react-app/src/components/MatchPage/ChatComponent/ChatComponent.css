@@ -13,19 +13,72 @@
 
 .names-chat-container{
     grid-area: users;
-    background-color: aqua;
+    background-color: rgb(195, 130, 87);
+    overflow-y: auto;
+    border-right: 1px solid black;
 }
 
 .chat-area{
     grid-area: chat;
+    display: grid;
+    grid-template-areas:
+    "title"
+    "view"
+    "input";
+    grid-template-rows: 10% 80% 10%;
     background-color: rgb(245, 245, 245);
+    background-color: bisque;
 }
 
 .user-chat-container{
-    border: 1px solid black;
+    border-bottom: 1px solid black;
+    font-size: .8vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .user-chat-container:hover{
     border: 1px solid black;
     background-color: blueviolet;
+}
+
+.chat-view{
+    grid-area: view;
+    overflow-y: auto;
+    font-size: .8vw;
+}
+
+.chat-input{
+    grid-area: input;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input-element{
+    width: 60%;
+    height: 60%;
+}
+
+.chat-submit{
+    width: 20%;
+    height: 80%;
+    font-size: .5vw;
+}
+
+.chat-title{
+    text-align: center;
+    font-size: 1vw;
+    text-decoration: underline;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: brown;
+}
+
+.pick-input{
+    grid-area: chat;
+    text-align: center;
+    margin: auto;
+    font-size: 2vw;
+    font-family: cursive;
+    height: 100%;
+    background-color: bisque;
 }
