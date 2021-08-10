@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux";
 import './ChatComponent.css'
 import { io } from 'socket.io-client';
+import { useHistory } from "react-router-dom";
 
 let socket;
 
 export default function ChatComponent(props){
+    let history = useHistory();
     const [messages, setMessages] = useState([])
     const [chatInput, setChatInput] = useState("");
 
@@ -55,7 +57,7 @@ export default function ChatComponent(props){
         // emit a message
         socket.emit("chat", { user: user.username, msg: chatInput }, userToTalkWith);
         //add new messages to db
-        await fetch('/api/messages/update', {
+        let response = await fetch('/api/messages/update', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,6 +67,13 @@ export default function ChatComponent(props){
                 matchId: parseInt(userToTalkWith)
             })
         });
+        let data = await response.json();
+        if (!Object.keys(data).length){
+            socket.emit("chat", { user: "NOTICE", msg: "You've been unmatched, the other user will not see these messages, please wait while we update the page"}, userToTalkWith);
+            setTimeout(()=>{
+                history.go(0)
+            },5000)
+        }
         // clear the input field after the message is sent
         setChatInput("")
     }
