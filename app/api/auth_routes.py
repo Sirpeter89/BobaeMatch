@@ -59,7 +59,6 @@ def edit_profile():
 
     # if user did not change image
     url = form.data['profileImage']
-    print(url)
 
     try:
         image = request.files['image']

@@ -19,7 +19,6 @@ export default function MatchPage(){
     const [matchProfileListArray, setMatchProfileListArray] = useState([]);
 
     const deletedMatch = async (useroneid, usertwoid) => {
-        console.log(useroneid, usertwoid)
         await dispatch(deleteMatch(useroneid, usertwoid))
         const response = await fetch('/api/bobaes/reset', {
             method: 'PATCH',
