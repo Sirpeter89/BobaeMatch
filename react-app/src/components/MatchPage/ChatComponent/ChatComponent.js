@@ -14,12 +14,22 @@ export default function ChatComponent(props){
 
     const user = useSelector(state => state.session.user)
 
-    useEffect(()=>{
+    useEffect( ()=>{
         socket = io();
         socket.emit("join", userToTalkWith);
 
+        socket.on("connect", async ()=>{
+                if(userToTalkWith){
+                    let oldMessages = await fetch(`/api/messages/${userToTalkWith}`)
+                    const data = await oldMessages.json();
+                    if(Array.isArray(data.message)){
+                        setMessages(data.message)
+                    }
+                }
+            }
+        )
+
         socket.on("chat", (chat) => {
-            // socket.join(userToTalkWith)
             setMessages(messages => [...messages, chat])
         })
 
@@ -29,8 +39,6 @@ export default function ChatComponent(props){
             setMessages([])
         })
     }, [userToTalkWith])
-
-
 
     const updateChatInput = (e) => {
         setChatInput(e.target.value)
@@ -42,10 +50,21 @@ export default function ChatComponent(props){
 
     }
 
-    const sendChat = (e) => {
+    const sendChat = async (e) => {
         e.preventDefault()
         // emit a message
         socket.emit("chat", { user: user.username, msg: chatInput }, userToTalkWith);
+        //add new messages to db
+        await fetch('/api/messages/update', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                message: [...messages, { user: user.username, msg: chatInput }],
+                matchId: parseInt(userToTalkWith)
+            })
+        });
         // clear the input field after the message is sent
         setChatInput("")
     }
@@ -63,7 +82,7 @@ export default function ChatComponent(props){
                     Chatting With: <b>{userToTalkWithName}</b>
                 </div>
                 <div className="chat-view">
-                    {messages.map((message, ind) => (
+                    {messages.map((message, ind)=> (
                         <div key={ind}>{`${message.user}: ${message.msg}`}</div>
                     ))}
                 </div>
@@ -82,8 +101,8 @@ export default function ChatComponent(props){
     return(
         <div className="chat-container">
             <div className="names-chat-container">
-                {props.matchData.map((person)=>(
-                    <div onClick={()=>joinChat(`${person[2]}`, `${person[0].username}`)} className="user-chat-container">
+                {props.matchData.map((person, ind)=>(
+                    <div key={ind} onClick={()=>joinChat(`${person[2]}`, `${person[0].username}`)} className="user-chat-container">
                         {person[0].username}
                     </div>
                 ))}

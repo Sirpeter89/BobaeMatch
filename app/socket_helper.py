@@ -18,17 +18,14 @@ socketio = SocketIO(cors_allowed_origins=origins)
 # handle chat messages
 @socketio.on("chat")
 def handle_chat(data, roomid):
-    print("rooomiddd", roomid)
     room = roomid
-    join_room(room)
+    # join_room(room)
     # emit("chat", data, broadcast=True)
-    send('has entered the room.', room=room)
     emit("chat", data, room=room)
 
 
 @socketio.on("join")
 def join_chat(id):
-    print("THIS IS RUNNINGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG")
     room = id
     join_room(room)
     # send('has entered the room.', room=room)

@@ -86,8 +86,8 @@ export default function MatchPage(){
     if(matchProfileListArray.length){
         showProfile =
                     <>
-                    {matchProfileListArray.map((person)=>(
-                        <div className="matchRectangle">
+                    {matchProfileListArray.map((person, ind)=>(
+                        <div key={ind} className="matchRectangle">
 
                                 <div className="userDetails">
                                     <div className="matchImageCont">
