@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux";
 import './ChatComponent.css'
 import { io } from 'socket.io-client';
@@ -16,6 +16,14 @@ export default function ChatComponent(props){
 
     const user = useSelector(state => state.session.user)
 
+    const endOfMessages = useRef(null)
+
+    const scrollDown = () => {
+        if (endOfMessages.current){
+            endOfMessages.current.scrollIntoView({ behavior: "smooth", block: 'end' })
+        }
+    }
+
     useEffect( ()=>{
         socket = io();
         socket.emit("join", userToTalkWith);
@@ -28,10 +36,12 @@ export default function ChatComponent(props){
                         setMessages(data.message)
                     }
                 }
+                scrollDown();
             }
         )
 
         socket.on("chat", (chat) => {
+            scrollDown();
             setMessages(messages => [...messages, chat])
         })
 
@@ -94,6 +104,9 @@ export default function ChatComponent(props){
                     {messages.map((message, ind)=> (
                         <div key={ind}>{`${message.user}: ${message.msg}`}</div>
                     ))}
+                    <div className="chat-space" ref={endOfMessages}>
+                        &nbsp;
+                    </div>
                 </div>
                 <form onSubmit={sendChat} className="chat-input">
                     <input

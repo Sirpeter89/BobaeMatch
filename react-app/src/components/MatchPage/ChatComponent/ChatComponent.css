@@ -28,6 +28,7 @@
     grid-template-rows: 10% 80% 10%;
     background-color: rgb(245, 245, 245);
     background-color: bisque;
+    overflow: hidden;
 }
 
 .user-chat-container{
@@ -43,8 +44,10 @@
 
 .chat-view{
     grid-area: view;
-    overflow-y: auto;
+    overflow-y: scroll;
     font-size: .8vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .chat-input{
@@ -81,4 +84,8 @@
     font-family: cursive;
     height: 100%;
     background-color: bisque;
+}
+
+.chat-space{
+    font-size: .7vw;
 }
