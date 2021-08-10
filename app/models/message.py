@@ -9,7 +9,7 @@ class Message(db.Model):
 
   id = db.Column(db.Integer, primary_key = True)
   message = db.Column(db.Text)
-  matchId = db.Column(db.Integer, ForeignKey('matches.id'), nullable=False)
+  matchId = db.Column(db.Integer, ForeignKey('matches.id'))
   # senderUsername = db.Column(db.String(60), nullable=False)
   # created_at=db.Column(db.DateTime, default=datetime.datetime.utcnow)
 

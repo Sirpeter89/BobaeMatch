@@ -8,7 +8,7 @@ class Match(db.Model):
   useroneId = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
   usertwoId = db.Column(db.Integer, ForeignKey('users.id'), nullable=False)
 
-  rel_matchId = db.relationship('Message', backref='match_Id', lazy='dynamic', foreign_keys='Message.matchId')
+  rel_matchId = db.relationship('Message', cascade="all,delete", backref='match_Id', lazy='dynamic', foreign_keys='Message.matchId')
 
 
   def to_dict(self):
