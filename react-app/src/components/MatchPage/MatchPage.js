@@ -143,14 +143,7 @@ export default function MatchPage(){
                                         </div>
                                 </div>
                                 <div className="DeleteArea">
-                                    <LoadingOverlay
-                                        className="match-loader"
-                                        active={isDeleting}
-                                        spinner
-                                        text='Deleting Bobae...'
-                                    >
                                         <button className="DeleteButton" onClick={()=>deletedMatch(user.id, person[0].id)}>Delete Match</button>
-                                    </LoadingOverlay>
                                 </div>
 
                         </div>
@@ -208,7 +201,7 @@ export default function MatchPage(){
                     className="loader"
                     active={isActive}
                     spinner
-                    text='Loading Your Bobae Matches!...'
+                    text='Updating Your Bobae Matches!...'
                 >
                 <div className="yourBobaesTitle">
                     Your Bobaes
