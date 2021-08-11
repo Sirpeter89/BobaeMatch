@@ -3,22 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css';
-import { demoUser1, demoUser2 } from '../store/session';
 
 const NavBar = () => {
   const user = useSelector(state => state.session.user)
-  const dispatch = useDispatch();
-
-  const onDemo1Click = async (e) => {
-    e.preventDefault()
-    await dispatch(demoUser1())
-  }
-
-  const onDemo2Click = async (e) => {
-    e.preventDefault()
-    await dispatch(demoUser2())
-  }
-
 
   let sideButtons;
   if (user){
@@ -57,12 +44,6 @@ const NavBar = () => {
           <NavLink className="homeButton" to="/" exact={true} activeClassName="active">
             Home
           </NavLink>
-        </div>
-        <div className="demo1">
-          <button className="demoButton" onClick={onDemo1Click}>Demo User1</button>
-        </div>
-        <div className="demo2">
-          <button className="demoButton" onClick={onDemo2Click}>Demo User2</button>
         </div>
         <div className="navLogin">
           <NavLink to="/login" exact={true} activeClassName="active">

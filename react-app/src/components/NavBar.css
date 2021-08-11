@@ -10,8 +10,8 @@
 .NavBarContainerHome{
     position: relative;
     display: grid;
-    grid-template-columns: 7% 8% 8% 66% 6% 5%;
-    grid-template-areas: "Home Demo1 Demo2 Space Login Signup";
+    grid-template-columns: 7% 82% 6% 5%;
+    grid-template-areas: "Home Space Login Signup";
     list-style-type: none;
     background-color: rgb(238, 227, 213);
 }
@@ -127,21 +127,4 @@
     color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.demoButton{
-    height: 5em;
-    width: 6em;
-    border-radius: 50%;
-    background-color: rgb(154, 216, 125);
-    font-size: .5em;
-    font-weight: 800;
-}
-
-.demo1{
-    grid-area: Demo1;
-}
-
-.demo2{
-    grid-area: Demo2;
 }
