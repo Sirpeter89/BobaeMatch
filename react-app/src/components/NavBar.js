@@ -33,12 +33,12 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className="navBobaes">
-          <NavLink to="/findBobaes" exact={true} activeClassName="active">
+          <NavLink className="bobaes-button" to="/findBobaes" exact={true} activeClassName="active">
             &#128064; Find Bobaes
           </NavLink>
         </div>
         <div className="navMatches">
-          <NavLink to="/matches" exact={true} activeClassName="active">
+          <NavLink className="matches-button" to="/matches" exact={true} activeClassName="active">
             &#10084; Current Matches
           </NavLink>
         </div>

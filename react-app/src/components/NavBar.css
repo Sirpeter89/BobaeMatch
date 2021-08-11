@@ -47,6 +47,7 @@
 .navButtonProfile{
     grid-area: Profile;
     display: flex;
+    align-items: center;
     max-height: 2em;
     padding-top: .5%;
 }
@@ -72,7 +73,7 @@
     grid-area: Potential;
     display: flex;
     align-items: center;
-    max-height: 2em;
+    max-height: 100%;
     font-size: .8vw;
     text-decoration: underline;
     color: rgb(175, 121, 50);
@@ -85,7 +86,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-height: 2em;
+    max-height: 100%;
     font-size: .8vw;
     text-decoration: underline;
     color: rgb(175, 121, 50);
@@ -98,7 +99,8 @@
     padding-top: .5%;
     display: flex;
     justify-content: center;
-    max-height: 2em;
+    align-items: center;
+    max-height: 100%;
     text-decoration: underline;
     color: rgb(175, 121, 50);
     font-weight: 800;
