@@ -123,6 +123,9 @@ export default function FindBobaes(){
                     </div>
                 </div> : null
             ))}
+            <div className="end-matches">
+                No more Bobaes to be found &#x1F62D;
+            </div>
         </div>
 
     }

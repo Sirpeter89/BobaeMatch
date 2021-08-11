@@ -289,3 +289,12 @@
     /* overflow-y: scroll; */
     height: 80%;
 }
+
+.end-matches{
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    align-items: center;
+    font-size: 3vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
