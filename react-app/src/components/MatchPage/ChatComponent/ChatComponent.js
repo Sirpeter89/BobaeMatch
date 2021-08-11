@@ -115,11 +115,11 @@ export default function ChatComponent(props){
             pickUser =
             <div className="chat-area">
                 <div className="chat-title">
-                    Chatting With: <b>{userToTalkWithName}</b>
+                    <b>Bobae:</b> {userToTalkWithName}
                 </div>
                 <div className="chat-view">
                     {messages.map((message, ind)=> (
-                        <div key={ind}>{`${message.user}: ${message.msg}`}</div>
+                        <div className="chat-text" key={ind}><b>{`${message.user}`}</b>: {`${message.msg}`}</div>
                     ))}
                     <div className="chat-space" ref={endOfMessages}>
                         &nbsp;
