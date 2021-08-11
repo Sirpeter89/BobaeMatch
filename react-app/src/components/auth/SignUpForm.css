@@ -3,7 +3,7 @@
 }
 
 .signUpForm{
-    position: absolute;
+    position: relative;
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
@@ -13,9 +13,9 @@
     left: 50%;
     transform: translate(-50%, 0);
     border: 1px solid rgb(0, 0, 0);
-    margin-top: 5%;
     background-color: burlywood;
     border-radius: 25px;
+    margin: 2em 2em 0 0;
 }
 
 .inputLabel{
@@ -99,9 +99,13 @@
     border-radius: 25px;
 }
 
+.signUpButton:hover{
+    cursor: pointer;
+}
+
 .signupHolder{
     position: absolute;
-    overflow: scroll;
+    overflow: auto;
     width: 50%;
     height: 100%;
     border-right: 5px solid black;

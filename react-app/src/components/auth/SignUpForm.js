@@ -35,6 +35,7 @@ const SignUpForm = () => {
       setCity(cityLower)
       const data = await dispatch(signUp(username, firstname, lastname,email, profileImage, city, zip, age, height, password, gender));
       if (data.errors) {
+          setIsActive(false)
           setErrors(data.errors);
         } else {
           setIsActive(false)
@@ -278,6 +279,10 @@ const SignUpForm = () => {
             </div>
             <button className="signUpButton" type="submit">Sign Up</button>
           </form>
+          <div className="new-user">
+            Already a User? &nbsp; <a className="signup-link" href="/login">Login</a>
+          </div>
+          <div className="empty-space"></div>
           </LoadingOverlay>
         </div>
 

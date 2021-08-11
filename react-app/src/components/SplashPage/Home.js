@@ -1,10 +1,24 @@
 import React, { useEffect, useState } from "react";
 import './Home.css'
 import logo from './BobaeMatchResized.png'
+import { demoUser1, demoUser2 } from '../../store/session';
+import { useDispatch } from "react-redux";
 
 
 export default function HomePage(){
     const [transition, setTransition] = useState("disabled")
+
+    const dispatch = useDispatch();
+
+    const onDemo1Click = async (e) => {
+        e.preventDefault()
+        await dispatch(demoUser1())
+    }
+
+    const onDemo2Click = async (e) => {
+        e.preventDefault()
+        await dispatch(demoUser2())
+    }
 
     const imageList = [
         "https://images.unsplash.com/reserve/Af0sF2OS5S5gatqrKzVP_Silhoutte.jpg?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1650&q=80", //heart hands
@@ -61,6 +75,14 @@ export default function HomePage(){
             </div>
             <div className="moreBottomText">
                 Find Your Boba Match Today
+            </div>
+            <div className="demo-buttons">
+                <div className="demo1">
+                <button className="demoButton" onClick={onDemo1Click}>Login As Demo User 1</button>
+                </div>
+                <div className="demo2">
+                <button className="demoButton" onClick={onDemo2Click}>Login As Demo User 2</button>
+                </div>
             </div>
         </div>
     )
