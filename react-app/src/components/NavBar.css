@@ -17,20 +17,19 @@
 }
 
 .bobaIcon{
-    width: 1.8vh;
-    height: 1.8vh;
-    border: 1px solid black;
-    background-color: rgba(51, 37, 21, 0.911);
-    border-radius: 50%;
-    margin-top: 3%;
+    position: relative;
+    width: 15%;
+    height: 90%;
+    background-image: url("./bobaicon.png");
+    background-size: contain;
 }
+
 
 .bobaIconProfile{
     width: 1.8vh;
     height: 1.8vh;
-    border: 1px solid black;
-    background-color: rgba(51, 37, 21, 0.911);
-    border-radius: 50%;
+    background-image: url("./bobaicon.png");
+    background-size: contain;
 }
 
 .navButton{
@@ -38,8 +37,6 @@
     display: flex;
     align-items: center;
     max-height: 2em;
-    padding-left: 5%;
-    padding-top: 3%;
 }
 
 .navButtonProfile{
@@ -51,16 +48,16 @@
 
 .homeButton{
     font-size: .8vw;
-    text-decoration: underline;
+    text-decoration: none;
     color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding-top: 3%;
 }
 
 .profileButton{
-    margin-left: .5%;
     font-size: .8vw;
-    text-decoration: underline;
+    text-decoration: none;
     color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -72,8 +69,6 @@
     align-items: center;
     max-height: 100%;
     font-size: .8vw;
-    text-decoration: underline;
-    color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -85,8 +80,6 @@
     justify-content: center;
     max-height: 100%;
     font-size: .8vw;
-    text-decoration: underline;
-    color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -97,8 +90,6 @@
     justify-content: center;
     align-items: center;
     max-height: 100%;
-    text-decoration: underline;
-    color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
@@ -110,10 +101,13 @@
     justify-content: center;
     align-items: center;
     font-size: .8vw;
-    text-decoration: underline;
-    color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.navlogin-button{
+    text-decoration: none;
+    color: rgb(175, 121, 50);
 }
 
 .navSignup{
@@ -123,8 +117,21 @@
     justify-content: center;
     align-items: center;
     font-size: .8vw;
-    text-decoration: underline;
-    color: rgb(175, 121, 50);
     font-weight: 800;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.navsignup-button{
+    text-decoration: none;
+    color: rgb(175, 121, 50);
+}
+
+.bobaes-button{
+    text-decoration: none;
+    color: rgb(175, 121, 50);
+}
+
+.matches-button{
+    text-decoration: none;
+    color: rgb(175, 121, 50);
 }
