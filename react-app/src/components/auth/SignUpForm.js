@@ -40,6 +40,9 @@ const SignUpForm = () => {
           setIsActive(false)
           history.push("/preferences")
         }
+    } else {
+      setIsActive(false)
+      setErrors(["Passwords must match!"])
     }
   };
 
