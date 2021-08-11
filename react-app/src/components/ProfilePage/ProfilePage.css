@@ -70,10 +70,10 @@
 
 .editInfo:hover{
     position: relative;
+    cursor: pointer;
     height: 7.5vh;
     width: 35%;
-    border-radius: 50px;
-    background-color: rgb(222, 184, 135);
+    background-color: rgb(235, 148, 34);
     font-weight: bolder;
     font-size: 1.5vw;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);
@@ -92,10 +92,10 @@
 
 .editPref:hover{
     position: relative;
+    cursor: pointer;
     height: 7.5vh;
     width: 40%;
-    border-radius: 50px;
-    background-color: rgb(222, 184, 135);
+    background-color: rgb(235, 148, 34);
     font-weight: bolder;
     font-size: 1.5vw;
     box-shadow: 12px 12px 2px 1px rgba(0, 0, 0, 0.438);

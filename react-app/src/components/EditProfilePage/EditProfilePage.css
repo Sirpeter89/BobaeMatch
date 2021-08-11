@@ -30,6 +30,10 @@
     border-radius: 25px;
 }
 
+.submitChangesButton:hover{
+    cursor: pointer;
+}
+
 .editHolder{
     position: absolute;
     overflow-y: scroll;

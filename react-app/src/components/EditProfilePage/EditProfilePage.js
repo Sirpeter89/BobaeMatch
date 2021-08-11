@@ -97,7 +97,7 @@ const EditProfilePage = () => {
                     Edit Profile
                 </div>
                 <form className="editProfileForm" onSubmit={onEdit}>
-                    <div>
+                    <div className="errorsDiv">
                         {errors.map((error) => (
                             <div>{error}</div>
                         ))}

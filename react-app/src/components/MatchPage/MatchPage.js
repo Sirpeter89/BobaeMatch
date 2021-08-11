@@ -18,10 +18,8 @@ export default function MatchPage(){
 
     const [matchProfileListArray, setMatchProfileListArray] = useState([]);
     const [isActive, setIsActive] = useState(false);
-    const [isDeleting, setIsDeleting] = useState(false);
 
     const deletedMatch = async (useroneid, usertwoid) => {
-        setIsDeleting(true)
         await dispatch(deleteMatch(useroneid, usertwoid))
         const response = await fetch('/api/bobaes/reset', {
             method: 'PATCH',
@@ -37,7 +35,6 @@ export default function MatchPage(){
         if (data.errors) {
             return;
         }
-        setIsDeleting(false)
         setJustDeleted(true)
     }
 
@@ -99,16 +96,16 @@ export default function MatchPage(){
                                     </div>
                                     <div className="matchUserInfo">
                                         <div>
-                                            User: {person[0].username}
+                                            <b>User:</b> {person[0].username}
                                         </div>
                                         <div>
-                                            Name: {person[0].firstname} {person[0].lastname}
+                                            <b>Name:</b> {person[0].firstname} {person[0].lastname}
                                         </div>
                                         <div>
-                                            City: {person[0].city}
+                                            <b>City:</b> {person[0].city}
                                         </div>
                                         <div>
-                                            Age: {person[0].age}
+                                            <b>Age:</b> {person[0].age}
                                         </div>
                                     </div>
                                 </div>
