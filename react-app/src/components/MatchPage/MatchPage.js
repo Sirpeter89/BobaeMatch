@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 import ReactModal from 'react-modal';
 import ChatComponent from "./ChatComponent/ChatComponent"
-
+import LoadingOverlay from 'react-loading-overlay';
 
 export default function MatchPage(){
 
@@ -17,8 +17,11 @@ export default function MatchPage(){
     const [justDeleted, setJustDeleted] = useState(false)
 
     const [matchProfileListArray, setMatchProfileListArray] = useState([]);
+    const [isActive, setIsActive] = useState(false);
+    const [isDeleting, setIsDeleting] = useState(false);
 
     const deletedMatch = async (useroneid, usertwoid) => {
+        setIsDeleting(true)
         await dispatch(deleteMatch(useroneid, usertwoid))
         const response = await fetch('/api/bobaes/reset', {
             method: 'PATCH',
@@ -34,10 +37,12 @@ export default function MatchPage(){
         if (data.errors) {
             return;
         }
+        setIsDeleting(false)
         setJustDeleted(true)
     }
 
     useEffect(async()=>{
+        setIsActive(true)
         const match = await dispatch(loadMatches(user.id))
         if (match){
             let matchProfileList = [];
@@ -71,6 +76,7 @@ export default function MatchPage(){
                     matchProfileList.push(matchProfile)
                 }
             setMatchProfileListArray(matchProfileList)
+            setIsActive(false)
         }
         if(justDeleted){
             setJustDeleted(false)
@@ -87,7 +93,6 @@ export default function MatchPage(){
                     <>
                     {matchProfileListArray.map((person, ind)=>(
                         <div key={ind} className="matchRectangle">
-
                                 <div className="userDetails">
                                     <div className="matchImageCont">
                                         <img className="profImage" src={person[0].profileImage}></img>
@@ -138,8 +143,16 @@ export default function MatchPage(){
                                         </div>
                                 </div>
                                 <div className="DeleteArea">
-                                    <button className="DeleteButton" onClick={()=>deletedMatch(user.id, person[0].id)}>Delete Match</button>
+                                    <LoadingOverlay
+                                        className="match-loader"
+                                        active={isDeleting}
+                                        spinner
+                                        text='Deleting Bobae...'
+                                    >
+                                        <button className="DeleteButton" onClick={()=>deletedMatch(user.id, person[0].id)}>Delete Match</button>
+                                    </LoadingOverlay>
                                 </div>
+
                         </div>
                     ))}
 
@@ -191,6 +204,12 @@ export default function MatchPage(){
 
             </ReactModal>
             <div className="matchHolder">
+                <LoadingOverlay
+                    className="loader"
+                    active={isActive}
+                    spinner
+                    text='Loading Your Bobae Matches!...'
+                >
                 <div className="yourBobaesTitle">
                     Your Bobaes
                 </div>
@@ -199,6 +218,7 @@ export default function MatchPage(){
                     <div className="space">
                     </div>
                 </div>
+                </LoadingOverlay>
             </div>
             {matchBox}
         </>

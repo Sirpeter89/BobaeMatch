@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './SignUpForm.css'
+import LoadingOverlay from 'react-loading-overlay';
 
 const SignUpForm = () => {
   const history = useHistory();
@@ -22,9 +23,11 @@ const SignUpForm = () => {
   const [repeatPassword, setRepeatPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [gender, setGender] = useState();
+  const [isActive, setIsActive] = useState(false);
 
   const onSignUp = async (e) => {
     e.preventDefault();
+    setIsActive(true)
     const stringHeight = `${heightFeet}`+`${heightInches}`
     const height = parseInt(stringHeight)
     if (password === repeatPassword) {
@@ -34,6 +37,7 @@ const SignUpForm = () => {
       if (data.errors) {
           setErrors(data.errors);
         } else {
+          setIsActive(false)
           history.push("/preferences")
         }
     }
@@ -98,7 +102,13 @@ const SignUpForm = () => {
   }
 
   return (
-      <div className="signupHolder">
+        <div className="signupHolder">
+          <LoadingOverlay
+            className="loader"
+            active={isActive}
+            spinner
+            text='Creating your profile!...'
+            >
           <div className="SignUpTitle">
                         Let's Sign Up
           </div>
@@ -265,7 +275,9 @@ const SignUpForm = () => {
             </div>
             <button className="signUpButton" type="submit">Sign Up</button>
           </form>
+          </LoadingOverlay>
         </div>
+
   );
 };
 

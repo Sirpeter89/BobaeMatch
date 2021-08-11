@@ -8,6 +8,7 @@ import { makeMatch } from '../../store/match'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faQuestionCircle } from '@fortawesome/free-regular-svg-icons'
 import ReactModal from 'react-modal';
+import LoadingOverlay from 'react-loading-overlay';
 
 export default function FindBobaes(){
 
@@ -16,13 +17,16 @@ export default function FindBobaes(){
     const preference = useSelector(state => state.preferences.preferences)
     const bobaes = useSelector(state => state.bobaes.bobaes)
     const [changed,setChanged]=useState(false)
+    const [isActive, setIsActive] = useState(false);
 
     const [isMounted, setMounted] = useState(false)
 
     useEffect(async()=>{
         const preferences = await dispatch(loadPreferences(user.id))
         if(preferences && !isMounted){
+            setIsActive(true)
             await dispatch(loadBobaes(user.id, preferences.gender, user.gender, preferences.tea, preferences.addons, preferences.sugar, preferences.fruit))
+            setIsActive(false)
             setMounted(true)
         }
     }, [])
@@ -172,10 +176,17 @@ export default function FindBobaes(){
 
             </ReactModal>
             <div className="bobaeHolder">
+                <LoadingOverlay
+                    className="loader"
+                    active={isActive}
+                    spinner
+                    text='Finding Bobaes...'
+                >
                 <div className="bobaeTitle">
                         Bobae
                 </div>
                 {data}
+                </LoadingOverlay>
             </div>
         </>
     )
