@@ -20,6 +20,8 @@
     width: 15vw;
     height: 28vh;
     overflow: hidden;
+    margin-top:.5%;
+    margin-left: .5%;
 }
 
 .pImg{

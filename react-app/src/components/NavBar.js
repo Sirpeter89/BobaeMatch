@@ -23,7 +23,7 @@ const NavBar = () => {
   let sideButtons;
   if (user){
     sideButtons =
-    <nav>
+    <nav className="nav">
       <div className="NavBarContainer">
         <div className="navButtonProfile">
           <div className="bobaIconProfile">
@@ -49,7 +49,7 @@ const NavBar = () => {
   </nav>
   } else {
     sideButtons =
-    <nav>
+    <nav className="nav">
       <div className="NavBarContainerHome">
         <div className="navButton">
           <div className="bobaIcon">
@@ -63,9 +63,6 @@ const NavBar = () => {
         </div>
         <div className="demo2">
           <button className="demoButton" onClick={onDemo2Click}>Demo User2</button>
-        </div>
-        <div className="developedBy">
-          Developed by Justin Wong: <a href="https://github.com/Sirpeter89">Github</a>
         </div>
         <div className="navLogin">
           <NavLink to="/login" exact={true} activeClassName="active">
