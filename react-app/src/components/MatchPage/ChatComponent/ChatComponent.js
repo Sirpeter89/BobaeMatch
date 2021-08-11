@@ -4,7 +4,7 @@ import './ChatComponent.css'
 import { io } from 'socket.io-client';
 import { useHistory } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faComment } from '@fortawesome/free-regular-svg-icons'
+import { faCommentDots } from '@fortawesome/free-regular-svg-icons'
 
 let socket;
 
@@ -141,7 +141,7 @@ export default function ChatComponent(props){
         <>
             <button className="chat-button" ref={buttonRef} onClick={openChat}>
                 <div>Chat With Bobaes</div>
-                <FontAwesomeIcon className="helpicon" size='3x'icon={faComment} />
+                <FontAwesomeIcon className="helpicon" size='3x'icon={faCommentDots} />
             </button>
             <button className="close-button disabled" ref={closeRef} onClick={closeChat}>
                 X
