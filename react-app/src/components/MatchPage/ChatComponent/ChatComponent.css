@@ -7,15 +7,35 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 5%;
+    width: 10%;
     -webkit-animation: breathing 2s ease-out infinite normal; /*codepen animation from https://codepen.io/machi/pen/YymGzP*/
     animation: breathing 2s ease-out infinite normal; /*codepen animation from https://codepen.io/machi/pen/YymGzP*/
-    height: 5%;
+    height: 8%;
     bottom: 5%;
-    right: 10%;
-    font-size: .5vw;
+    right: 3%;
+    font-size: .9vw;
     border-radius: 25px;
     font-weight: 800;
+}
+
+.close-button{
+    position: absolute;
+    color: red;
+    bottom:35.2%;
+    right: 1%;
+    font-size: 1vw;
+    font-weight: bolder;
+    border: 3px solid rgb(0, 0, 0);
+    background-color: bisque;
+    text-align: end;
+}
+
+.close-button.disabled{
+    display: none;
+}
+
+.close-button:hover{
+    cursor: pointer;
 }
 
 .chat-button.disabled{
@@ -53,7 +73,6 @@
     "view"
     "input";
     grid-template-rows: 10% 80% 10%;
-    background-color: rgb(245, 245, 245);
     background-color: bisque;
     overflow: hidden;
 }

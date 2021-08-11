@@ -19,11 +19,26 @@ export default function ChatComponent(props){
     const user = useSelector(state => state.session.user)
 
     const endOfMessages = useRef(null)
+    const buttonRef = useRef(null)
+    const chatRef = useRef(null)
+    const closeRef = useRef(null)
 
     const scrollDown = () => {
         if (endOfMessages.current){
             endOfMessages.current.scrollIntoView({ behavior: "smooth", block: 'end' })
         }
+    }
+
+    const openChat = () => {
+        buttonRef.current.classList.add("disabled")
+        chatRef.current.classList.remove("disabled")
+        closeRef.current.classList.remove("disabled")
+    }
+
+    const closeChat = () => {
+        chatRef.current.classList.add("disabled")
+        closeRef.current.classList.add("disabled")
+        buttonRef.current.classList.remove("disabled")
     }
 
     useEffect( ()=>{
@@ -124,11 +139,14 @@ export default function ChatComponent(props){
 
     return(
         <>
-            <button className="chat-button">
+            <button className="chat-button" ref={buttonRef} onClick={openChat}>
                 <div>Chat With Bobaes</div>
                 <FontAwesomeIcon className="helpicon" size='3x'icon={faComment} />
             </button>
-            <div className="chat-container disabled">
+            <button className="close-button disabled" ref={closeRef} onClick={closeChat}>
+                X
+            </button>
+            <div className="chat-container disabled" ref={chatRef}>
                 <div className="names-chat-container">
                     {props.matchData.map((person, ind)=>(
                         <div key={ind} onClick={()=>joinChat(`${person[2]}`, `${person[0].username}`)} className="user-chat-container">
