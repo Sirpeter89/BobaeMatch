@@ -3,6 +3,8 @@ import { useSelector } from "react-redux";
 import './ChatComponent.css'
 import { io } from 'socket.io-client';
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faComment } from '@fortawesome/free-regular-svg-icons'
 
 let socket;
 
@@ -121,15 +123,22 @@ export default function ChatComponent(props){
 
 
     return(
-        <div className="chat-container">
-            <div className="names-chat-container">
-                {props.matchData.map((person, ind)=>(
-                    <div key={ind} onClick={()=>joinChat(`${person[2]}`, `${person[0].username}`)} className="user-chat-container">
-                        {person[0].username}
-                    </div>
-                ))}
+        <>
+            <button className="chat-button">
+                <div>Chat With Bobaes</div>
+                <FontAwesomeIcon className="helpicon" size='3x'icon={faComment} />
+            </button>
+            <div className="chat-container disabled">
+                <div className="names-chat-container">
+                    {props.matchData.map((person, ind)=>(
+                        <div key={ind} onClick={()=>joinChat(`${person[2]}`, `${person[0].username}`)} className="user-chat-container">
+                            {person[0].username}
+                        </div>
+                    ))}
+                </div>
+                {pickUser}
             </div>
-            {pickUser}
-        </div>
+        </>
+
     )
 }

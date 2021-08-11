@@ -1,14 +1,41 @@
+.chat-container.disabled{
+    display: none;
+}
+
+.chat-button{
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 5%;
+    -webkit-animation: breathing 2s ease-out infinite normal; /*codepen animation from https://codepen.io/machi/pen/YymGzP*/
+    animation: breathing 2s ease-out infinite normal; /*codepen animation from https://codepen.io/machi/pen/YymGzP*/
+    height: 5%;
+    bottom: 5%;
+    right: 10%;
+    font-size: .5vw;
+    border-radius: 25px;
+    font-weight: 800;
+}
+
+.chat-button.disabled{
+    display: none;
+}
+
+.chat-button:hover{
+    cursor: pointer;
+}
+
 .chat-container{
     position: absolute;
     width: 15%;
     height: 30%;
-    background-color: rgb(250, 250, 250);
     bottom: 5%;
     right: 1%;
-    border: 3px solid black;
+    border: 3px solid rgb(0, 0, 0);
     display: grid;
     grid-template-areas: "users chat";
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 25% 75%;
 }
 
 .names-chat-container{
@@ -33,7 +60,7 @@
 
 .user-chat-container{
     border-bottom: 1px solid black;
-    font-size: .8vw;
+    font-size: .7vw;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
@@ -70,10 +97,14 @@
 
 .chat-title{
     text-align: center;
-    font-size: 1vw;
+    font-size: .7vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     text-decoration: underline;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: brown;
+    overflow: auto;
 }
 
 .pick-input{
@@ -81,11 +112,70 @@
     text-align: center;
     margin: auto;
     font-size: 2vw;
-    font-family: cursive;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 100%;
     background-color: bisque;
 }
 
 .chat-space{
     font-size: .7vw;
+}
+
+.chat-submit{
+    font-size: .5vw;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 800;
+    background-color: rgb(238, 177, 96);
+}
+
+.chat-submit:hover{
+    cursor: pointer;
+}
+
+@-webkit-keyframes breathing { /*codepen animation from https://codepen.io/machi/pen/YymGzP*/
+    0% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    25% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+}
+
+@keyframes breathing {
+    0% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    25% {
+        -webkit-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+    }
+
+    60% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    100% {
+        -webkit-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
+    }
 }
