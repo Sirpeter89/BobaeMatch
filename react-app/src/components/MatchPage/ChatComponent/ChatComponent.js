@@ -42,29 +42,37 @@ export default function ChatComponent(props){
     }
 
     useEffect( ()=>{
-        socket = io();
-        socket.emit("join", userToTalkWith);
 
-        socket.on("connect", async ()=>{
-                if(userToTalkWith){
-                    let oldMessages = await fetch(`/api/messages/${userToTalkWith}`)
-                    const data = await oldMessages.json();
-                    if(Array.isArray(data.message)){
-                        setMessages(data.message)
+        if (socket){
+            socket.disconnect()
+        }
+
+        if(userToTalkWith){
+            socket = io();
+            socket.emit("join", userToTalkWith);
+
+            socket.on("connect", async ()=>{
+                    if(userToTalkWith){
+                        let oldMessages = await fetch(`/api/messages/${userToTalkWith}`)
+                        const data = await oldMessages.json();
+                        if(Array.isArray(data.message)){
+                            setMessages(data.message)
+                        }
                     }
+                    scrollDown();
                 }
+            )
+
+            socket.on("chat", (chat) => {
                 scrollDown();
-            }
-        )
-
-        socket.on("chat", (chat) => {
-            scrollDown();
-            setMessages(messages => [...messages, chat])
-        })
-
+                setMessages(messages => [...messages, chat])
+            })
+        }
 
         return (() => {
-            socket.disconnect()
+            if (socket){
+                socket.disconnect()
+            }
             setMessages([])
         })
     }, [userToTalkWith])
