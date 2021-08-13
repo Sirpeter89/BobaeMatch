@@ -2,15 +2,31 @@
 
 By Justin Wong
 
-## What is BobaeMatch?
+## Table of Contents
+* [What is BobaeMatch?](#what)
+* [Application Architecture & Technologies Used](#tech)
 
-BobaeMatch is a dating application based on user's personal boba interests. It is a fullstack web application that allows users to find significant others or friends according to their boba tastes.
+## <a name="what"></a>What is BobaeMatch?
 
-The matching algorithm starts off by finding users who like similar teas, if less than 5 users are matched we start moving on to addons, if there's still less than 5 then we move onto sugar levels, whether they like fruit teas and so forth.
+BobaeMatch is a fullstack web dating application that connects users based on their favorite boba tea interests such as: drink addons, sugar levels, tea choices and more. 
 
-## Technologies Used
+Users start off by creating a profile and specifying their favorite boba tea customizations through a series of guided choices as they create their account. These preferences can also be changed by editing their preferences on their profile page.
 
-BobaeMatch uses a backend built with Python, SQLAlchemy, and Flask. The front end uses React, Javascript, and Redux.
+Once the user's preferences are set, the user is then able to search for matching users with similar boba tea tastes in the find bobaes section of the website. Here the user will be able to see other users profiles and either press on the heart icon to match with the other user or press on the broken heart icon to reject matching with the other user.
+
+If users have matched with each another on both their accounts, they will be able to see each another on the current matches page where they will be able to chat through the messenging system located on the bottom right of the page. On the current matches page, users will also be able to delete their matches in the event their pairing does not work out.
+
+### Here is BobaeMatch at a glance with a demonstration account:
+
+## <a name="tech"></a>Application Architecture & Technologies Used
+
+BobaeMatch's fullstack framework consists of a back-end that incorporates Python, Flask, SQLAlchemy, and a Postgres data base. The front-end framework consists of JavaScript, React, and Redux. 
+
+Users interact through Bobaematch's front-end which displays our React UIs and requests data from the back-end or dynamic data that is pre-rendered and accessible through the browser from the Redux store, which also dispatches requests to the back-end to display changing data without page refreshes.
+
+Additional technologies that were incorporated include: 
+* Amazon Web Services (AWS) to allow users to upload their profile pictures and use them on our site
+* WebSockets for the messenging application so users can chat live with one another.
 
 ## Custom Courasel Code Snippet
 BobaeMatch includes a custom courasel on the home page as I did not want to follow guides or code online but rather create the component myself. My version of the courasel uses setTimeouts and Rerenders to swap image components, and only uses 2 components for this process. These two components can iterate through any series of images and efficiently display them on the page.
