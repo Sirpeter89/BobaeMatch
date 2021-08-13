@@ -144,7 +144,7 @@ export default function MatchPage(){
                                 </div>
 
                         </div>
-                    ))}
+                    )).reverse()}
 
                     </>
             matchBox =
