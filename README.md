@@ -55,7 +55,7 @@ BobaeMatch includes a custom carousel on the home page as I did not want to foll
 ### Querying Algorithm Code Snippet
 I relatively found working with the backend pretty interesting and learned a good amount about SQLAlchemy queries in this process. Working with the code was a fun learning experience and this was the main functionality of my program.
 
-![](https://github.com/Sirpeter89/MatchMyBoba/blob/main/queryexample.PNG)
+![](https://github.com/Sirpeter89/MatchMyBoba/blob/main/queryingexample.PNG)
 
 The heart of BobaeMatch resides in the query for matches, at the moment the querys are relatively simple as they query users by an interest and if there aren't enough users we go down the list to the next interest. This also includes whether the users are lactose intolerant, since that may be an ideal match, or if they like fruit teas.
 
