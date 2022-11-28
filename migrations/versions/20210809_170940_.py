@@ -25,8 +25,6 @@ def upgrade():
     op.drop_column('messages', 'created_at')
     op.drop_column('messages', 'senderUsername')
 
-    if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 

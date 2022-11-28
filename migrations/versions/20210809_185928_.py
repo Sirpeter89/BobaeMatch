@@ -25,8 +25,6 @@ def upgrade():
                existing_type=sa.INTEGER(),
                nullable=True)
 
-    if environment == "production":
-        op.execute(f"ALTER TABLE <table_name> SET SCHEMA {SCHEMA};")
     # ### end Alembic commands ###
 
 
