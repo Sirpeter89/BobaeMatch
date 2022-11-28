@@ -43,9 +43,9 @@ export default function ChatComponent(props){
 
     useEffect( ()=>{
 
-        if (socket){
-            socket.disconnect()
-        }
+        // if (socket){
+        //     socket.disconnect()
+        // }
 
         if(userToTalkWith){
             socket = io();
