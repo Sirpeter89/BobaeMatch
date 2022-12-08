@@ -80,6 +80,7 @@ export default function ChatComponent(props) {
     }
 
     const joinChat = (matchId, username) => {
+        setuserToTalkWith(matchId)
         setuserToTalkWithName(username)
     }
 
