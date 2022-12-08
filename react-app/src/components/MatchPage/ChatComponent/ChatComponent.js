@@ -13,7 +13,7 @@ export default function ChatComponent(props) {
     const [messages, setMessages] = useState([])
     const [chatInput, setChatInput] = useState('')
 
-    const [userToTalkWith, setuserToTalkWith] = useState('')
+    // const [userToTalkWith.current, setuserToTalkWith] = useState('')
     const [userToTalkWithName, setuserToTalkWithName] = useState('')
 
     const user = useSelector(state => state.session.user)
@@ -22,6 +22,7 @@ export default function ChatComponent(props) {
     const buttonRef = useRef(null)
     const chatRef = useRef(null)
     const closeRef = useRef(null)
+    const userToTalkWith= useRef('')
 
     const scrollDown = () => {
         if (endOfMessages.current) {
@@ -42,18 +43,18 @@ export default function ChatComponent(props) {
     }
 
     useEffect(() => {
-        // if (socket){
-        //     socket.disconnect()
-        // }
-        console.log(userToTalkWith)
-        if (userToTalkWith) {
+        if (socket){
+            socket.disconnect()
+        }
+        // console.log(userToTalkWith.current)
+        if (userToTalkWith.current) {
             socket = io()
-            socket.emit('join', userToTalkWith)
-            console.log(socket)
+            socket.emit('join', userToTalkWith.current)
+            // console.log(socket)
 
             socket.on('connect', async () => {
-                if (userToTalkWith) {
-                    let oldMessages = await fetch(`/api/messages/${userToTalkWith}`)
+                if (userToTalkWith.current) {
+                    let oldMessages = await fetch(`/api/messages/${userToTalkWith.current}`)
                     const data = await oldMessages.json()
                     if (Array.isArray(data.message)) {
                         setMessages(data.message)
@@ -74,21 +75,22 @@ export default function ChatComponent(props) {
             }
             setMessages([])
         }
-    }, [userToTalkWith])
+    }, [userToTalkWithName])
 
     const updateChatInput = e => {
         setChatInput(e.target.value)
     }
 
     const joinChat = (matchId, username) => {
-        setuserToTalkWith(matchId)
+        // setuserToTalkWith(matchId)
+        userToTalkWith.current= matchId
         setuserToTalkWithName(username)
     }
 
     const sendChat = async e => {
         e.preventDefault()
         // emit a message
-        socket.emit('chat', { user: user.username, msg: chatInput }, userToTalkWith)
+        socket.emit('chat', { user: user.username, msg: chatInput }, userToTalkWith.current)
         //add new messages to db
         let response = await fetch('/api/messages/update', {
             method: 'PUT',
@@ -97,7 +99,7 @@ export default function ChatComponent(props) {
             },
             body: JSON.stringify({
                 message: [...messages, { user: user.username, msg: chatInput }],
-                matchId: parseInt(userToTalkWith),
+                matchId: parseInt(userToTalkWith.current),
             }),
         })
         let data = await response.json()
@@ -108,7 +110,7 @@ export default function ChatComponent(props) {
                     user: 'NOTICE',
                     msg: "You've been unmatched, the other user will not see these messages, please wait while we update the page",
                 },
-                userToTalkWith
+                userToTalkWith.current
             )
             setTimeout(() => {
                 history.go(0)
