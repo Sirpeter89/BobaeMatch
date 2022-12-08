@@ -6,8 +6,10 @@ import os
 
 if os.environ.get("FLASK_ENV") == "production":
     origins = [
-        "http://bobaematch.herokuapp.com/",
-        "https://bobaematch.herokuapp.com/"
+        # "http://bobaematch.herokuapp.com/",
+        # "https://bobaematch.herokuapp.com/"
+        "http://bobae-match.onrender.com/",
+        "https://bobae-match.onrender.com/"
     ]
 else:
     origins = "*"
@@ -16,6 +18,8 @@ else:
 socketio = SocketIO(cors_allowed_origins=origins)
 
 # handle chat messages
+
+
 @socketio.on("chat")
 def handle_chat(data, roomid):
     room = roomid
