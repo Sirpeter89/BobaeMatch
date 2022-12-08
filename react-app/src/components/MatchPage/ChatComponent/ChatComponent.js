@@ -45,10 +45,11 @@ export default function ChatComponent(props) {
         // if (socket){
         //     socket.disconnect()
         // }
-
+        console.log(userToTalkWith)
         if (userToTalkWith) {
             socket = io()
             socket.emit('join', userToTalkWith)
+            console.log(socket)
 
             socket.on('connect', async () => {
                 if (userToTalkWith) {
