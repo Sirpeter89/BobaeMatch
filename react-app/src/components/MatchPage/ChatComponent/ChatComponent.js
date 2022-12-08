@@ -69,9 +69,9 @@ export default function ChatComponent(props) {
         }
 
         return () => {
-            // if (socket){
-            //     socket.disconnect()
-            // }
+            if (socket) {
+                socket.disconnect()
+            }
             setMessages([])
         }
     }, [userToTalkWith])

@@ -5,12 +5,13 @@ import os
 # socketio = SocketIO()
 
 if os.environ.get("FLASK_ENV") == "production":
-    origins = [
-        # "http://bobaematch.herokuapp.com/",
-        # "https://bobaematch.herokuapp.com/"
-        "http://bobae-match.onrender.com/",
-        "https://bobae-match.onrender.com/"
-    ]
+    # origins = [
+    #     # "http://bobaematch.herokuapp.com/",
+    #     # "https://bobaematch.herokuapp.com/"
+    #     "http://bobae-match.onrender.com/",
+    #     "https://bobae-match.onrender.com/"
+    # ]
+    origins = "*"
 else:
     origins = "*"
 
