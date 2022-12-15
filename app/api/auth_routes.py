@@ -4,7 +4,8 @@ from app.forms import LoginForm
 from app.forms import SignUpForm
 from app.forms import EditProfileForm
 from flask_login import current_user, login_user, logout_user
-from app.s3_helpers import (upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3)
+from app.s3_helpers import (
+    upload_file_to_s3, allowed_file, get_unique_filename, delete_file_from_s3)
 
 auth_routes = Blueprint('auth', __name__)
 
@@ -47,7 +48,6 @@ def login():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-
 @auth_routes.route('/editProfile', methods=['PATCH'])
 def edit_profile():
     """
@@ -55,7 +55,6 @@ def edit_profile():
     """
     form = EditProfileForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
 
     # if user did not change image
     url = form.data['profileImage']
@@ -69,31 +68,31 @@ def edit_profile():
             return {"errors": "file type not permitted"}, 400
         image.filename = get_unique_filename(image.filename)
         if "https://bobaematch.s3.amazonaws.com/" in url:
-            key = url.split("https://bobaematch.s3.amazonaws.com/",1)[1]
+            key = url.split("https://bobaematch.s3.amazonaws.com/", 1)[1]
             delete_file_from_s3(key)
         upload = upload_file_to_s3(image)
         if "url" not in upload:
             return upload, 400
         url = upload["url"]
 
-
     # Get the csrf_token from the request cookie and put it into the
     # form manually to validate_on_submit can be used
     if form.validate_on_submit():
         data = request.get_json()
         user = User.query.filter(User.id == current_user.id).first()
-        user.firstName=form.data['firstname']
-        user.lastName=form.data['lastname']
-        user.profileImage=url
-        user.city=form.data['city']
-        user.zipcode=form.data['zipcode']
-        user.age=form.data['age']
-        user.height=form.data['height']
-        user.gender=form.data['gender']
+        user.firstName = form.data['firstname']
+        user.lastName = form.data['lastname']
+        user.profileImage = url
+        user.city = form.data['city']
+        user.zipcode = form.data['zipcode']
+        user.age = form.data['age']
+        user.height = form.data['height']
+        user.gender = form.data['gender']
         db.session.commit()
         return user.to_dict()
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
     # return {}
+
 
 @auth_routes.route('/logout')
 def logout():
@@ -111,8 +110,6 @@ def sign_up():
     """
     form = SignUpForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
-
 
     if form.validate_on_submit():
         try:
@@ -175,14 +172,16 @@ def unauthorized():
     """
     return {'errors': ['Unauthorized']}, 401
 
+
 @auth_routes.route('/demo1', methods=['POST'])
 def demo1_user():
-    user=User.query.filter(User.userName == "DemoThree").first()
+    user = User.query.filter(User.userName == "DemoThree").first()
     login_user(user)
     return user.to_dict()
 
+
 @auth_routes.route('/demo2', methods=['POST'])
 def demo2_user():
-    user=User.query.filter(User.userName == "DemoFour").first()
+    user = User.query.filter(User.userName == "DemoFour").first()
     login_user(user)
     return user.to_dict()

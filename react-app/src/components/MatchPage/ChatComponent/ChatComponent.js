@@ -22,7 +22,7 @@ export default function ChatComponent(props) {
     const buttonRef = useRef(null)
     const chatRef = useRef(null)
     const closeRef = useRef(null)
-    const userToTalkWith= useRef('')
+    const userToTalkWith = useRef('')
 
     const scrollDown = () => {
         if (endOfMessages.current) {
@@ -43,7 +43,7 @@ export default function ChatComponent(props) {
     }
 
     useEffect(() => {
-        if (socket){
+        if (socket) {
             socket.disconnect()
         }
         // console.log(userToTalkWith.current)
@@ -83,38 +83,67 @@ export default function ChatComponent(props) {
 
     const joinChat = (matchId, username) => {
         // setuserToTalkWith(matchId)
-        userToTalkWith.current= matchId
+        userToTalkWith.current = matchId
         setuserToTalkWithName(username)
     }
 
     const sendChat = async e => {
         e.preventDefault()
         // emit a message
-        socket.emit('chat', { user: user.username, msg: chatInput }, userToTalkWith.current)
-        //add new messages to db
-        let response = await fetch('/api/messages/update', {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                message: [...messages, { user: user.username, msg: chatInput }],
-                matchId: parseInt(userToTalkWith.current),
-            }),
-        })
-        let data = await response.json()
-        if (!Object.keys(data).length) {
-            socket.emit(
-                'chat',
-                {
-                    user: 'NOTICE',
-                    msg: "You've been unmatched, the other user will not see these messages, please wait while we update the page",
+        // socket.emit('chat', { user: user.username, msg: chatInput }, userToTalkWith.current)
+        // //add new messages to db
+        // let response = await fetch('/api/messages/update', {
+        //     method: 'PUT',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify({
+        //         message: [...messages, { user: user.username, msg: chatInput }],
+        //         matchId: parseInt(userToTalkWith.current),
+        //     }),
+        // })
+        // let data = await response.json()
+        // if (!Object.keys(data).length) {
+        //     socket.emit(
+        //         'chat',
+        //         {
+        //             user: 'NOTICE',
+        //             msg: "You've been unmatched, the other user will not see these messages, please wait while we update the page",
+        //         },
+        //         userToTalkWith.current
+        //     )
+        //     setTimeout(() => {
+        //         history.go(0)
+        //     }, 5000)
+        // }
+        if (socket.connected) {
+            // emit a message
+            socket.emit('chat', { user: user.username, msg: chatInput }, userToTalkWith.current)
+            //add new messages to db
+            let response = await fetch('/api/messages/update', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
                 },
-                userToTalkWith.current
-            )
-            setTimeout(() => {
-                history.go(0)
-            }, 5000)
+                body: JSON.stringify({
+                    message: [...messages, { user: user.username, msg: chatInput }],
+                    matchId: parseInt(userToTalkWith.current),
+                }),
+            })
+            let data = await response.json()
+            if (!Object.keys(data).length) {
+                socket.emit(
+                    'chat',
+                    {
+                        user: 'NOTICE',
+                        msg: "You've been unmatched, the other user will not see these messages, please wait while we update the page",
+                    },
+                    userToTalkWith.current
+                )
+                setTimeout(() => {
+                    history.go(0)
+                }, 5000)
+            }
         }
         // clear the input field after the message is sent
         setChatInput('')
